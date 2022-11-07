@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,900,900i&display=swap');
+
+body{ margin: 0; }
+
+a{ transition: .3s; }
+
+a:hover{ opacity: .9; }
+
+header{ 
+    padding: 3em; 
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+header h1{
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 42px;
+    margin: 0;
+    line-height: 49px;
+    background: -webkit-linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.my_account, .saved{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    text-decoration: none;
+    color: #222;
+}
+
+.my_account img{
+    width: 30px;
+}
+
+.saved img{
+    width: 15px;
+}
+
+header section{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito';
+    justify-content: end;
+    margin-bottom: 1.5em;
+}
+
+.my_account{
+    font-weight: 700;
+    font-size: 24px;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    gap: 35px;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    color: #222;
+    position: relative;
+}
+
+header ul li a:not(.active):hover{
+    font-weight: 700;
+}
+
+/* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
+header ul li a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    bottom: -5px;
+    left: 0;
+    /* background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%); */
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+header ul li a:hover::before{
+    transform: scaleX(1);
+}
+
+a.active{
+    background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.search{
+    border: solid 2px #AD7449;
+    border-radius: 50px;
+    display: flex;
+    height: 35px;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.search input, .search input:focus, .search button{
+    outline: 0;
+    border: none;
+    border-radius: 50px;
+}
+
+.search button img{
+    width: 20px;
+    height: 20px;
+}
+
+.search button{
+    background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    width: 20%;
+    border-radius: 0 50px 50px 0;
+    height: 38px;
+    position: relative;
+    top: -2px;
+    right: -2px;
+    transition: .3s;
+}
+
+.search input{
+    width: 80%;
+    font-family: 'Nunito', sans-serif;
+    padding-left: 20px;
+}
+
+.search button:active, .search button:hover{
+    opacity: .8;
+}
