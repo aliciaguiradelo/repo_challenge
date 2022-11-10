@@ -40,13 +40,9 @@ header h1{
     color: #222;
 }
 
-.my_account img{
-    width: 30px;
-}
+.my_account img{ width: 30px; }
 
-.saved img{
-    width: 15px;
-}
+.saved img{ width: 15px; }
 
 header section{
     display: flex;
@@ -68,9 +64,7 @@ header ul{
     gap: 35px;
 }
 
-header ul li{
-    list-style: none;
-}
+header ul li{ list-style: none; }
 
 header ul li a{
     text-decoration: none;
@@ -79,9 +73,7 @@ header ul li a{
     position: relative;
 }
 
-header ul li a:not(.active):hover{
-    font-weight: 700;
-}
+header ul li a:not(.active):hover{ font-weight: 700; }
 
 /* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
 header ul li a::before {
@@ -146,12 +138,53 @@ header .btn{
     padding-left: 20px;
 }
 
-.search .btn:active, .search .btn:hover{
-    opacity: .8;
-}
+.btn:hover{ opacity: .8; }
 
 /* O ÍCONE DO MENU HAMBURGUER VAI FICAR ESCONDIDO EM TELAS MAIORES */
 .hamburguer{ display: none; }
+
+#menu{
+    position: absolute;
+    opacity: 0;
+}
+
+.hamburguer label{
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 22px;
+    width: 30px;
+}
+
+.hamburguer label span{
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 30px;
+    background: #fff;
+    transition: 0.25s ease-in-out;
+  }
+
+.hamburguer label span:nth-child(1){ top: 0; }
+  
+.hamburguer label span:nth-child(2){ top: 8px; }
+  
+.hamburguer label span:nth-child(3){ top: 16px; }
+
+#menu:checked + label span:nth-child(1){
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+#menu:checked + .hamburguer label span:nth-child(2){
+    opacity: 0;
+  }
+  
+#menu:checked + label span:nth-child(3){
+    transform: rotate(45deg);
+    top:8px;
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
@@ -188,15 +221,11 @@ header .btn{
         line-height: 112.61px;
     }
 
-    header{
-        padding: 2rem;
-    }
+    header{ padding: 2rem; }
 
-    .hamburguer{ 
-        display: block; 
-    }
+    .hamburguer{ display: block; }
 
-    .hamburguer span{
+    /* .hamburguer span{
         background-color: #fff;
         display: block;
         height: 5px;
@@ -205,5 +234,5 @@ header .btn{
 
     .hamburguer span:not(:last-of-type){
         margin-bottom: 7px;
-    }
+    } */
 }
