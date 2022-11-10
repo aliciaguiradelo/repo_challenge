@@ -40,13 +40,9 @@ header h1{
     color: #222;
 }
 
-.my_account img{
-    width: 30px;
-}
+.my_account img{ width: 30px; }
 
-.saved img{
-    width: 15px;
-}
+.saved img{ width: 15px; }
 
 header section{
     display: flex;
@@ -68,9 +64,7 @@ header ul{
     gap: 35px;
 }
 
-header ul li{
-    list-style: none;
-}
+header ul li{ list-style: none; }
 
 header ul li a{
     text-decoration: none;
@@ -79,9 +73,7 @@ header ul li a{
     position: relative;
 }
 
-header ul li a:not(.active):hover{
-    font-weight: 700;
-}
+header ul li a:not(.active):hover{ font-weight: 700; }
 
 /* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
 header ul li a::before {
@@ -118,18 +110,18 @@ a.active{
     justify-content: space-between;
 }
 
-.search input, .search input:focus, .search button{
+.search input, .search input:focus, header .btn{
     outline: 0;
     border: none;
     border-radius: 50px;
 }
 
-.search button img{
+header .btn img{
     width: 20px;
     height: 20px;
 }
 
-.search button{
+header .btn{
     background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
     width: 20%;
     border-radius: 0 50px 50px 0;
@@ -146,6 +138,101 @@ a.active{
     padding-left: 20px;
 }
 
-.search button:active, .search button:hover{
-    opacity: .8;
+.btn:hover{ opacity: .8; }
+
+/* O ÍCONE DO MENU HAMBURGUER VAI FICAR ESCONDIDO EM TELAS MAIORES */
+.hamburguer{ display: none; }
+
+#menu{
+    position: absolute;
+    opacity: 0;
+}
+
+.hamburguer label{
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 22px;
+    width: 30px;
+}
+
+.hamburguer label span{
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 30px;
+    background: #fff;
+    transition: 0.25s ease-in-out;
+  }
+
+.hamburguer label span:nth-child(1){ top: 0; }
+  
+.hamburguer label span:nth-child(2){ top: 8px; }
+  
+.hamburguer label span:nth-child(3){ top: 16px; }
+
+#menu:checked + label span:nth-child(1){
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+#menu:checked + .hamburguer label span:nth-child(2){
+    opacity: 0;
+  }
+  
+#menu:checked + label span:nth-child(3){
+    transform: rotate(45deg);
+    top:8px;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (max-width: 992px) {
+    header ul{ display: none; }
+    header section{ display: none; }
+    header .search input{ display: none; }
+
+    .search {
+        width: fit-content;
+        height: fit-content;
+        border: none;
+    }
+
+    header .btn img, .hamburguer span{
+        width: 35px;
+        height: 35px;
+    }
+
+    header .btn{
+        width: 100%;
+        border-radius: 7px;
+        padding: 7px;
+        height: 100%;
+    }
+    
+    header .row:not(.btns_menu){
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+    }
+
+    .logo{
+        font-size: 80px;
+        line-height: 112.61px;
+    }
+
+    header{ padding: 2rem; }
+
+    .hamburguer{ display: block; }
+
+    /* .hamburguer span{
+        background-color: #fff;
+        display: block;
+        height: 5px;
+        border-radius: 3px;
+    }
+
+    .hamburguer span:not(:last-of-type){
+        margin-bottom: 7px;
+    } */
 }
