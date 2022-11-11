@@ -1,3 +1,23 @@
+body{ 
+    margin: 0; 
+    font-family: 'Nunito';
+}
+
+h1, h2, h3{
+    font-family: 'Work Sans';
+    color: #16283E;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+a{ transition: .3s; text-decoration: none; }
+
+a:hover{ opacity: .9; }
+
 .banner{ 
     height: 70vh; 
     position: relative;
@@ -33,6 +53,51 @@
     font-family: 'Work Sans';
     font-weight: 700;
     font-size: 45px;
+}
+
+.container{ 
+    justify-content: space-around; 
+    margin: 5rem 0;
+}
+
+.width_80{ width: 80%; }
+
+.column img{ width: 100%; }
+
+p{ line-height: 160%; }
+
+.btn{
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    display: flex;
+    width: fit-content;
+    gap: 15px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.btn_primary{
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    color: #fff;
+}
+
+.arrow::after{
+    content: '';
+    background: url('../img/icon_arrow_right.svg') center / contain;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-position: center;
+}
+
+.line_after::after{
+    width: 130px;
+    content: '';
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    display: block;
+    height: 5px;
+    margin-top: 10px;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

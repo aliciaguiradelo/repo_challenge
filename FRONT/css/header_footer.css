@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,900,900i&display=swap');
 
-body{ 
-    margin: 0; 
-    font-family: 'Nunito';
-}
-
-h1, h2, h3{
-    font-family: 'Work Sans';
-}
-
-a{ transition: .3s; text-decoration: none; }
-
-a:hover{ opacity: .9; }
-
 header, footer{ padding: 3em; font: 110% system-ui; }
 
 header{ 
@@ -140,6 +127,7 @@ header .btn{
     top: -2px;
     right: -2px;
     transition: .3s;
+    margin: 0;
 }
 
 .search input{
@@ -202,7 +190,7 @@ footer{
 
 main{ padding-top: 250px; }
 
-footer ul li a{ color: #fff; }
+footer ul li a, footer h2{ color: #fff; }
 
 footer .row{
     justify-content: flex-start;
