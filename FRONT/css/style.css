@@ -1,18 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,900,900i&display=swap');
 
-body{ margin: 0; }
+body{ 
+    margin: 0; 
+    font-family: 'Nunito';
+}
 
-a{ transition: .3s; }
+h1, h2, h3{
+    font-family: 'Work Sans';
+}
+
+a{ transition: .3s; text-decoration: none; }
 
 a:hover{ opacity: .9; }
 
+header, footer{ padding: 3em; font: 110% system-ui; }
+
 header{ 
-    padding: 3em; 
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
     position: fixed;
     width: 100vw;
     box-sizing: border-box;
+    background: #fff;
 }
 
 header h1{
@@ -57,7 +66,7 @@ header section{
     font-size: 24px;
 }
 
-header ul{
+header ul, footer ul{
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -65,7 +74,7 @@ header ul{
     transition: 0.25s ease-in-out;
 }
 
-header ul li{ list-style: none; }
+header ul li, footer ul li { list-style: none; }
 
 header ul li a{
     text-decoration: none;
@@ -74,7 +83,7 @@ header ul li a{
     position: relative;
 }
 
-header ul li a:not(.active):hover{ font-weight: 700; }
+ul li a:not(.active):hover{ font-weight: 700; }
 
 /* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
 header ul li a::before {
@@ -91,7 +100,7 @@ header ul li a::before {
     transition: transform 0.3s ease;
 }
 
-header ul li a:hover::before, header ul li a.active::before{
+ul li a:hover::before, ul li a.active::before{
     transform: scaleX(1);
 }
 
@@ -185,6 +194,29 @@ header .btn{
     top: 8px;
 }
 
+footer{
+    background: #005BAA;
+    color: #fff;
+}
+
+main{ padding-top: 250px; }
+
+footer ul li a{ color: #fff; }
+
+footer .row{
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+}
+
+.social_media{
+    gap: 15px;
+}
+
+footer p{
+    text-align: center;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
     header ul{ display: none; }
@@ -223,7 +255,7 @@ header .btn{
         line-height: 112.61px;
     }
 
-    header{ padding: 2rem; }
+    header, footer{ padding: 2rem; }
 
     .hamburguer{ display: block; }
 
@@ -236,18 +268,44 @@ header .btn{
         gap: 15px
     }
 
-    ul li{
+    header ul li{
         width: 100%;
         text-align: center;
     }
 
-    ul li:not(:last-of-type){
+    header ul li:not(:last-of-type){
         border-bottom: solid 2px #bbb;
         padding-bottom: 15px;
     }
 
-    ul li a{
+    header ul li a{
         font-size: 2em;
     }
 
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (max-width: 768px) {
+    .links_uteis{
+        display: none;
+    }
+
+    footer .row{
+        justify-content: center;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+    .logo {
+        font-size: 65px;
+    }
+
+    header, footer{
+        padding: 1rem;
+    }
+
+    header ul li a {
+        font-size: 1.5em;
+    }
 }
