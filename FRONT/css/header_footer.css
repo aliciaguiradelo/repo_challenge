@@ -197,6 +197,7 @@ header .btn{
 footer{
     background: #005BAA;
     color: #fff;
+    margin-top: 3rem;
 }
 
 main{ padding-top: 250px; }
@@ -209,13 +210,9 @@ footer .row{
     gap: 35px;
 }
 
-.social_media{
-    gap: 15px;
-}
+.social_media{ gap: 15px; }
 
-footer p{
-    text-align: center;
-}
+footer p{ text-align: center; }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
