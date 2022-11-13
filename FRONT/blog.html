@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
+    <title>DevZilla</title>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <h1 class="logo">devzilla</h1>
+            <section>
+                <a href="#" class="my_account">
+                    <img src="img/icon_person.png">
+                    minha conta
+                </a>
+                <a href="#" class="saved">
+                    <img src="img/icon_save.png">
+                    itens salvos
+                </a> 
+            </section>
+        </div>
+        <div class="row btns_menu">
+            <input type="checkbox" id="menu" />
+            <div class="hamburguer">
+                <button class="btn btn-primary btn-menu">
+                    <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                    é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+                    <label for="menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </button>
+            </div>
+            <ul>
+                <li><a href="#">início</a></li>
+                <li><a href="#" class="active">artigos</a></li>
+                <li><a href="#">IPOs</a></li>
+                <li><a href="#">sobre nós</a></li>
+                <li><a href="#">preciso de ajuda</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="O que você está procurando?">
+                <button class="btn btn-primary">
+                    <img src="img/icon_search.png">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="img/banner_b3.png">
+            <div class="wrap_title">
+                <span>Todos os IPOs</span>
+                <br>
+                <span>em um só lugar</span>
+            </div>
+            <div class="mask_banner"></div>
+        </section>
+
+        <section class="empresas container">
+            <h1 class="line_after">Artigos recentes</h1>
+            <div>
+                <article>
+                    
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="row links_uteis">
+            <h2>Links úteis:</h2>
+            <ul>
+                <li><a href="#">início</a></li>
+                <li><a href="#">artigos</a></li>
+                <li><a href="#">B3</a></li>
+                <li><a href="#">IPOs</a></li>
+                <li><a href="#">sobre nós</a></li>
+                <li><a href="#">preciso de ajuda</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <h2>Siga-nos:</h2>
+            <ul class="social_media">
+                <li><a href="#"><img src="img/icon_fb.svg"></a></li>
+                <li><a href="#"><img src="img/icon_yt.svg"></a></li>
+                <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+            </ul>
+        </div>
+
+        <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+    </footer>
+</body>
+</html>
