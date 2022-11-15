@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,800,900,900i&display=swap');
 
 header, footer{ padding: 3em; font: 110% system-ui; }
 
@@ -9,6 +9,7 @@ header{
     width: 100vw;
     box-sizing: border-box;
     background: #fff;
+    z-index: 99999;
 }
 
 header h1{
@@ -61,7 +62,7 @@ header ul, footer ul{
     transition: 0.25s ease-in-out;
 }
 
-header ul li, footer ul li { list-style: none; }
+ul li { list-style: none; }
 
 header ul li a{
     text-decoration: none;

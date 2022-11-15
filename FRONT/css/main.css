@@ -42,6 +42,7 @@ a:hover{ opacity: .9; }
     top: 40%;
     left: 50%;
     z-index: 2;
+    cursor: pointer;
 }
 
 .wrap_title span{
@@ -87,14 +88,16 @@ p{ line-height: 160%; }
     color: #fff;
 }
 
-.arrow::after{
+.btn_primary::after{
     content: '';
-    background: url('../img/icon_arrow_right.svg') center / contain;
+   
     width: 25px;
     height: 25px;
     display: inline-block;
     background-position: center;
 }
+
+.arrow::after{ background: url('../img/icon_arrow_right.svg') center / contain; }
 
 .line_after::after{
     width: 130px;
@@ -142,6 +145,9 @@ p{ line-height: 160%; }
 
 .c_title, .card small{
     margin-top: 0;
+}
+
+.c_title, .card small, #artigo .banner h2{
     overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -158,7 +164,7 @@ p{ line-height: 160%; }
 
 .btn_secondary::after{ background: url('../img/arrow_blue.svg') center / contain no-repeat; }
 
-input:not(.search input){
+input:not(.search input), textarea{
     outline: 0;
     border: none;
     padding: 10px 25px;
@@ -183,6 +189,105 @@ input:not(.search input){
 
 .banner h2{ color: #333333; }
 
+.btn.share{
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    cursor: pointer;
+}
+
+.share::after{ background: url('../img/icon_share.svg') center / contain no-repeat; }
+
+#artigo .banner .wrap_title{ top: 20%; }
+
+.wrap_title .btn{ margin-top: 40px; }
+
+.like::after{ 
+    background: url('../img/icon_heart.svg') center / contain no-repeat; 
+    width: 25px;
+    height: 20px;
+}
+
+.like{
+    border: solid 2px #AD7449;
+    background: transparent;
+    color: #AD7449;
+    font-weight: 700;
+    transition: .5s;
+}
+
+.like:hover{
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    color: #fff;
+}
+
+.like:hover::after{ filter:  brightness(0) invert(1); }
+
+.relacionados .card{ width: 100%; }
+
+#conteudo_artigo .row{ gap: 10%; }
+
+.conteudo{ 
+    margin-top: 1rem; 
+    font-weight: 600;
+    text-align: justify;
+}
+
+.referencias ul{ padding: 0; }
+
+.referencias ul li{
+    margin-top: 15px;
+    font-size: .85rem;
+}
+
+.comentario{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile{
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    padding: 5px;
+}
+
+.comentario p{
+    font-weight: 700;
+    color: #555;
+    padding: 5px 20px;
+    border: 1px solid #777777;
+    border-radius: 25px;
+    margin-top: .5rem;
+}
+
+.comentario h3{
+    margin-bottom: 0;
+    color: #333;
+}
+
+#novo_comentario{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#novo_comentario textarea{
+    width: 86%;
+}
+
+#novo_comentario .btn{
+    justify-self: flex-end;
+    margin-left: auto;
+    margin-top: 0;
+}
+
+#novo_comentario .btn::after{
+    display: none;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
     .banner img{ object-fit: cover; }
@@ -196,12 +301,20 @@ input:not(.search input){
         margin-bottom: 2rem;
     }
 
-    #blog .banner .wrap_title span{
+    .wrap_title span{
         font-size: 35px;
     }
 
     .wrap_title{
         left: 40%;
+    }
+
+    #conteudo_artigo .row {
+        flex-direction: column;
+    }
+
+    #novo_comentario textarea {
+        width: 80%;
     }
 }
 
@@ -225,9 +338,7 @@ input:not(.search input){
 
     .bg_gray .width_80{ width: 80%; }
 
-    .btn{ margin: 1.5rem auto; }
-
-    .card .btn{ margin: 20px 0 0; }
+    .container .btn{ margin: 1.5rem auto; }
 
     .container{ margin: 2rem 1rem; }
 
@@ -236,6 +347,11 @@ input:not(.search input){
     #blog .wrap_title{
         top: 15%;
         left: 30%;
+    }
+
+    #novo_comentario .btn{
+        margin-left: auto;
+        margin-right: 0;
     }
 }
 
@@ -256,7 +372,7 @@ input:not(.search input){
 
     .card{ width: 100%;}
 
-    #blog .banner .wrap_title span {
+    .wrap_title span {
         font-size: 25px;
     }
 
@@ -264,4 +380,8 @@ input:not(.search input){
         left: 20%;
         top: 20%;
     }
+    
+    #novo_comentario textarea {
+        width: 67%;
+    } 
 }
