@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/empresas.css">
+        <title>DevZilla</title>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <h1 class="logo">devzilla</h1>
+
+                <section>
+                    <a href="#" class="my_account">
+                        <img src="img/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="#" class="saved">
+                        <img src="img/icon_save.png">
+                        itens salvos
+                    </a> 
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="./index.html">início</a></li>
+                    <li><a href="./blog.html">artigos</a></li>
+                    <li><a href="./empresas.html" class="active">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <main id="empresas">
+            <section class="banner">
+                <img src="img/banner_b3.png">
+                <div class="wrap_title">
+                    <span>Veja todos IPO's</span>
+                    <br>
+                    <span>em andamento</span>
+                </div>
+                <div class="mask_banner"></div>
+            </section>
+
+            <section class="container" id="lista_ipos">   
+                <h1 class="line_after">IPO's em andamento</h1>
+
+                <div class="lista_empresacards">
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empresacard">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="#">início</a></li>
+                    <li><a href="#">artigos</a></li>
+                    <li><a href="#">B3</a></li>
+                    <li><a href="#">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+    </body>
+</html>
