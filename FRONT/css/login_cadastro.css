@@ -1,0 +1,29 @@
+.container_form{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap_form{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    background: rgba(238, 238, 238, 0.22);
+    border: 1px solid #CCCCCC;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.wrap_form img{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+}
+
+.wrap_form form{
+    width: 50%;
+}
