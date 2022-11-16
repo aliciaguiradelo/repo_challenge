@@ -288,6 +288,85 @@ input:not(.search input), textarea{
     display: none;
 }
 
+.lista_empresacards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.empresacard img{
+    width: 70%;
+    height: 25vh;
+    border-radius: 7px 7px 0 0;
+    min-height: 170px;
+    object-fit: cover;
+}
+
+.empresacard{
+    box-shadow: 0px 1px 2px rgba(22, 40, 62, 0.35);
+    border: solid 1px #bbb;
+    border-radius: 7px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.cardemp{
+    margin-top: 0px;
+
+}
+
+.empresacard_content{ padding: 20px 20px 50px 20px;}
+
+.c_title{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin: auto;
+    padding-bottom: 3vh;
+}
+
+.empresacard_content > small{
+    font-size: 1.3em;
+}
+
+.empresacard_content > div > small{
+    font-size: 1em;
+}
+
+.valorInin{
+    text-align: right;
+}
+
+.empresacard_content small span{
+    font-weight: 700;
+}
+
+.empresacard_content > .c_title, .empresacard_content > small{
+    text-align: center;
+    margin-top: 0;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* numero de linhas a serem mostradas */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.campoTexto{
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 10px 5%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 25px;
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    color: #fff;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
     .banner img{ object-fit: cover; }

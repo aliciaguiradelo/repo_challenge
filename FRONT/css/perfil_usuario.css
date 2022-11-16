@@ -1,0 +1,31 @@
+.formulario > form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.formulario > form > div{
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+    height: 10vh;
+    justify-content: space-around;
+}
+.formulario > form > div > small{
+    font-size: 1em;
+}
+.formulario > form > div > small > span{
+    font-weight: 700;
+}
+.block{
+    display: block;
+    height: 8vh;
+    margin-top: 30px;
+}
+.block > button{
+    height: 5vh;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    border: none;
+    color: #fff;
+    margin-top: 5px;
+}
