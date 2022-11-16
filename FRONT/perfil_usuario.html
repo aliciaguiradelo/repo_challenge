@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/header_footer.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/perfil_usuario.css">
         <title>DevZilla</title>
     </head>
     <body>
@@ -205,5 +204,20 @@
             <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
 
         </footer>
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                
+                if(scrollY>200){
+                    if (prevScrollpos > currentScrollPos) {
+                        document.querySelector("header").style.top = "0";
+                    } else {
+                        document.querySelector("header").style.top = "-35vh";
+                    }
+                    prevScrollpos = currentScrollPos;
+                }
+            }
+        </script>
     </body>
 </html>

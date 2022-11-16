@@ -207,5 +207,20 @@
             <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
 
         </footer>
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                
+                if(scrollY>250){
+                    if (prevScrollpos > currentScrollPos) {
+                        document.querySelector("header").style.top = "0";
+                    } else {
+                        document.querySelector("header").style.top = "-35vh";
+                    }
+                    prevScrollpos = currentScrollPos;
+                }
+            }
+        </script>
     </body>
 </html>
