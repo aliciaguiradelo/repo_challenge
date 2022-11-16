@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>DevZilla</title>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <h1 class="logo">devzilla</h1>
+
+                <section>
+                    <a href="#" class="my_account">
+                        <img src="img/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="#" class="saved">
+                        <img src="img/icon_save.png">
+                        itens salvos
+                    </a> 
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="/">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html" class="active">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="banner_qs">
+               <div class="container row">
+                    <div class="column">
+                        <h1>Todas as <span>IPOs disponíveis</span> em um só lugar!</h1>
+                    </div>
+                    <div class="column">
+                        <img src="./"
+                    </div>
+               </div>
+            </section>
+
+            <section class="row container" id="section1">
+                <div class="column">
+                    <img src="img/illustr_quem_somos.svg">
+                </div>
+                
+                <div class="column">
+                    <h1 class="line_after">Quem Somos</h1>
+                    <p class="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.
+                    </strong></p>
+                    <a href="#" class="btn btn_primary arrow">Ler Mais</a>
+                </div>
+            </section>
+
+
+            <section class="bg_gray">
+                <div class="container width_80">
+                    <h1>Nosso Blog</h1>
+                    <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos <strong>artigos</strong> e fique por dentro dos termos usados e das <strong>ofertas públicas</strong> que iniciarem! </p>
+                    <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                </div>
+            </section>
+
+            <section class="container" id="lista_ipos">   
+                <h1 class="line_after">IPOs disponíveis</h1>
+
+                <div class="lista_cards">
+                    <div class="card">
+                        <img src="./img/b3_employees.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="./img/IPOS.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="./img/IPOS.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn_secondary arrow">ver todas</a>
+            </section>
+
+
+            <section class="container" id="lista_artigos">   
+                <h1 class="line_after">Artigos</h1>
+
+                <div class="lista_cards">
+                    <div class="card">
+                        <img src="./img/b3_employees.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="./img/IPOS.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="./img/IPOS.png">
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn_secondary arrow">Mais artigos</a>
+            </section>
+
+
+            <section class="bg_gray">
+                <div class="container" id="newsletter">
+                    <h1>Receba as novidades por e-mail</h1>
+                    <p>Dessa forma você ficará por dentro de <strong>todas as notícias</strong> </p>
+                    <input type="email" placeholder="Seu endereço de e-mail">
+                    <a href="#" class="btn btn_primary arrow">cadastrar</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="#">início</a></li>
+                    <li><a href="#">artigos</a></li>
+                    <li><a href="#">B3</a></li>
+                    <li><a href="#">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                
+                if(scrollY>250){
+                    if (prevScrollpos > currentScrollPos) {
+                        document.querySelector("header").style.top = "0";
+                    } else {
+                        document.querySelector("header").style.top = "-35vh";
+                    }
+                    prevScrollpos = currentScrollPos;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -322,10 +322,10 @@ input:not(.search input), textarea{
 .empresacard_content{ padding: 20px 20px 50px 20px;}
 
 .c_title{
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     text-transform: uppercase;
     margin: auto;
-    margin-bottom: 2vvh;
+    margin-bottom: 1em;
 }
 
 .empresacard_content > small{
