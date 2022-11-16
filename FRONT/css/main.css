@@ -81,6 +81,7 @@ p{ line-height: 160%; }
     gap: 15px;
     align-items: center;
     margin-top: 25px;
+    border: none;
 }
 
 .btn_primary{

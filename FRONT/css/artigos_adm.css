@@ -1,0 +1,58 @@
+.topo_adm_artigos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topo_adm_artigos > div{
+    width: 25%;
+    height: 5vh;
+}
+.topo_adm_artigos > h1{
+    width: 20%;
+}
+.topo_adm_artigos > button{
+    width: 20%;
+    height: 5vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.tabela_atigos *{
+    margin: 0;
+    padding: 0;
+}
+.tabela_atigos{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabela_atigos th{
+    color: #ACACAC;
+    text-align: justify;
+    padding-left: 15px;
+}
+.linha_artigos{
+    border: 1px solid #ACACAC;
+}
+.tabela_atigos td{
+    padding-left: 15px;
+}
+.tabela_atigos tr{
+    height: 8vh;
+}
+.table_id{
+    width: 5%;
+    text-align: justify;
+}
+.table_titulo{
+    text-align: justify;
+}
+.table_data{
+    width: 10%;
+    text-align: justify;
+}
+.table_icon{
+    width: 5%;
+    text-align: justify;
+}
