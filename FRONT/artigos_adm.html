@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/header_footer.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/artigos_adm.css">
         <title>DevZilla</title>
     </head>
     <body>
@@ -61,6 +62,28 @@
             </div>
         </header>
 
+        <div id="fade" class="hide"></div>
+        <modal id="modal" class="hide">
+            <div class="modal-header">
+              <h2>Este é o Modal</h2>
+              <button id="close-modal">Fechar</button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, quam?
+                Quas accusantium id cupiditate iste veritatis repudiandae odio dolore
+                voluptas. Eum, deserunt quod. Sit similique laudantium assumenda
+                repellat vel necessitatibus.
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius alias
+                voluptate doloremque, totam inventore autem quis non error! Earum
+                ullam fuga, officiis voluptates pariatur unde et adipisci ducimus non
+                obcaecati.
+              </p>
+            </div>
+        </modal>
+
         <main id="artigos_adm">
             <section class="container">
                 <div class="topo_adm_artigos">
@@ -71,7 +94,7 @@
                             <img src="img/icon_search.png">
                         </button>
                     </div>
-                    <button class="btn btn_primary arrow">Adicionar novo artigo</button>
+                    <button class="btn btn_primary arrow" id="open-modal">Adicionar novo artigo</button>
                 </div>
             </section>
 
@@ -174,6 +197,21 @@
                     prevScrollpos = currentScrollPos;
                 }
             }
+
+            const openModalButton = document.querySelector("#open-modal");
+            const closeModalButton = document.querySelector("#close-modal");
+            const modal = document.querySelector("#modal");
+            const fade = document.querySelector("#fade");
+
+            const toggleModal = () => {
+            modal.classList.toggle("hide");
+            fade.classList.toggle("hide");
+            };
+
+            [openModalButton, closeModalButton, fade].forEach((el) => {
+            el.addEventListener("click", () => toggleModal());
+            });
+
         </script>
     </body>
 </html>
