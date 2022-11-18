@@ -8,6 +8,8 @@ h1, h2, h3{
     color: #16283E;
 }
 
+p{ color: #444; }
+
 h1{
     font-weight: 700;
     font-size: 36px;
@@ -58,7 +60,7 @@ a:hover{ opacity: .9; }
 
 .container{ 
     justify-content: space-around; 
-    margin: 5rem;
+    padding: 5rem;
 }
 
 .column{ width: 50%; }
@@ -509,9 +511,9 @@ input:not(.search input), textarea{
 
     .bg_gray .width_80{ width: 80%; }
 
-    .container .btn{ margin: 1.5rem auto; }
+    .container .btn{ padding: 1.5rem auto; }
 
-    .container{ margin: 2rem 1rem; }
+    .container{ padding: 2rem 1rem; }
 
     .bg_gray{ padding: 1rem 0 2rem 0; }
 
@@ -537,7 +539,7 @@ input:not(.search input), textarea{
     .bg_gray .width_80{ width: fit-content; }
 
     .bg_gray .container{
-        margin: 1rem; 
+        padding: 1rem; 
         text-align: center; 
     }
 

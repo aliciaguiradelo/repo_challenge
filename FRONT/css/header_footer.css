@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,800,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amaranth:400,700i,700&display=swap');
 
 header, footer{ padding: 3em; font: 110% system-ui; }
 
@@ -221,7 +222,10 @@ footer .row{
 
 .social_media{ gap: 15px; }
 
-footer p{ text-align: center; }
+footer p{ 
+    text-align: center; 
+    color: #fff;
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
