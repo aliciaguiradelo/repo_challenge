@@ -13,6 +13,7 @@ public class Usuario {
 	private String papel;
 	
 	private ArrayList<Postagem> postagens = new ArrayList<>();
+	private ArrayList<Empresa>  empresas = new ArrayList<>();
 	
 	public Usuario() {
 		
@@ -77,6 +78,14 @@ public class Usuario {
 
 	public ArrayList<Postagem> getPostagens() {
 		return postagens;
+	}
+
+	public ArrayList<Empresa> getEmpresas() {
+		return empresas;
+	}
+
+	public void addEmpresa(Empresa empresa) {
+		this.empresas.add(empresa);
 	}
 
 	public void addPostagem(Postagem postagem) {

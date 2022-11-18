@@ -11,6 +11,7 @@ public class Postagem {
 	private String imgUrl;
 	private Date date;
 	private int likes;
+	private String categoria;
 	private Usuario usuario;
 	private ArrayList<Comentario> comentarios = new ArrayList<>();
 	
@@ -81,6 +82,14 @@ public class Postagem {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria.getDescricao();
 	}
 
 	public ArrayList<Comentario> getComentarios() {
