@@ -1,0 +1,63 @@
+.banner_dashboard *{
+    margin: 0;
+    padding: 0;
+}
+.banner_dashboard{
+    display: flex;
+    justify-content: space-between;
+}
+.banner_dashboard > img{
+    width: 30%;
+    padding-right: 10%;
+}
+.banner_dashboard > div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+}
+.banner_dashboard > div > h2{
+    font-size: 2em;
+    font-weight: 700;
+    color: #AD7449;
+}
+.banner_dashboard > div > p{
+    font-size: 1.2em;
+}
+.negrito_p{
+    font-weight: 800;
+}
+.bloco_maisvistos *{
+    margin: 0;
+    padding: 0;
+}
+.bloco_maisvistos{
+    display: flex;
+    justify-content: space-between;
+}
+.bloco_maisvistos > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 25%;
+    padding: 10px 30px;
+    border-radius: 7px;
+    background-color: #eeeeeecb;
+    box-shadow: 3px 4px 10px 0px rgba(166,166,166,1);
+}
+.bloco_maisvistos > div > h2{
+    color: #042B4D;
+    font-size: 2em;
+    text-align: center;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+}
+.bloco_maisvistos > div > p{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    height: 7vh;
+    font-weight: 600;
+}
