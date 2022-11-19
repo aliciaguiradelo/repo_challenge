@@ -56,6 +56,7 @@
 }
 #modal form textarea{
     height: 25vh;
+    max-height: 25vh;
     resize: vertical;
     overflow-y: scroll;
     padding-top: 10px;
