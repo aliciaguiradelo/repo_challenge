@@ -10,6 +10,62 @@
         <title>DevZilla</title>
     </head>
     <body>
+        <header>
+            <div class="row">
+                <a href="index.html">
+                    <h1 class="logo">devzilla</h1>
+                </a>
+
+                <section>
+                    <a href="perfil_usuario.html" class="my_account">
+                        <img src="img/icons/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="perfil_usuario.html#artigos_salvos" class="saved">
+                        <img src="img/icons/icon_save.png">
+                        itens salvos
+                    </a>
+
+                    <small>Ainda não tem conta? <strong><a href="cadastro.html" class="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" class="text_blue">faça login</a></strong></small>
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icons/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
         <section class="container container_form">
             <div class="wrap_form">
                 <img src="./img/b3_login.png">
@@ -17,27 +73,54 @@
                     <h2>Bem vindo de volta!</h2>
                     <small>Para continuar, por favor insira seus dados.</small>
 
-                    <img src="./img/illustr_login.svg">
+                    <img src="./img/ilustracoes/illustr_login.svg">
 
                     <label for="email">Email</label>
                     <div class="wrap_input">
-                        <img src="./img/icon_envelope.svg">
+                        <img src="./img/icons/icon_envelope.svg">
                         <input type="email" placeholder="Digite seu email" id="email">
                     </div>
 
                     <label for="email">Senha</label>
                     <div class="wrap_input">
-                        <img src="./img/icon_lock.svg">
+                        <img src="./img/icons/icon_lock.svg">
                         <input type="password" placeholder="Digite sua senha" id="senha">
                     </div>
 
                     <a href="#" class="btn btn_primary arrow">Entrar</a>
 
                     <a class="outros_links" href="#">Esqueceu a senha? <strong>clique aqui</strong></a>
-                    <a class="outros_links" href="#">Ainda não possui conta? <strong>clique aqui</strong></a>
+                    <a class="outros_links" href="cadastro.html">Ainda não possui conta? <strong>clique aqui</strong></a>
                     
                 </form>
             </div>
         </section>
+
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="https://www.b3.com.br/pt_br/" target="_blank">B3</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icons/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+        <script src="js/script.js"></script>
     </body>
 </html>

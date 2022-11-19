@@ -48,7 +48,7 @@
 }
 #modal form input, #modal form select, #modal form textarea{
     padding: 0;
-    height: 4vh;
+    /* height: 4vh; */
     font-size: 1rem;
     border-radius: 7px;
     padding: 0px 10px;
@@ -91,7 +91,7 @@
     color: #fff;
     font-size: 14px;
     padding: 0px 10px;
-    height: 4vh;
+    /* height: 4vh; */
     margin-top: 15px;
     background: linear-gradient(90deg, #005BAA -8.15%, hsla(208, 100%, 33%, 0.984) -8.14%, #042B4D 110.27%);
 }
@@ -100,4 +100,12 @@
     height: 16px;
     margin-right: 4px;
 }
-  
+ 
+
+.arrow::after{
+    background-image: url('../img/icons/addsquare.svg');
+}
+
+.editar{
+    background-image: url('../') ;
+}

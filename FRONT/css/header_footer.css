@@ -11,6 +11,7 @@ header{
     box-sizing: border-box;
     background: #fff;
     z-index: 99999;
+    transition: 0.2s;
 }
 
 header h1{
@@ -50,6 +51,10 @@ header section{
     margin-bottom: 1.5em;
 }
 
+header section small{
+    margin-top: 1em;
+}
+
 .my_account{
     font-weight: 700;
     font-size: 24px;
@@ -65,7 +70,7 @@ header ul, footer ul{
 
 ul li { list-style: none; }
 
-header ul li a{
+header ul li a, footer ul li a{
     text-decoration: none;
     font-family: 'Nunito', sans-serif;
     color: #222;
@@ -75,7 +80,7 @@ header ul li a{
 ul li a:not(.active):hover{ font-weight: 700; }
 
 /* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
-header ul li a::before {
+header ul li a::before, footer ul li a::before {
     content: "";
     position: absolute;
     display: block;
@@ -88,6 +93,8 @@ header ul li a::before {
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
+
+footer ul li a::before{ background: #fff; }
 
 ul li a:hover::before, ul li a.active::before{
     transform: scaleX(1);
@@ -129,7 +136,7 @@ header .btn img{
     background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
     width: 20%;
     border-radius: 0 50px 50px 0;
-    height: 50px;
+    height: 39px;
     position: relative;
     top: -2px;
     right: -2px;

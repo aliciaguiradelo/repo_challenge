@@ -96,7 +96,7 @@ p{ line-height: 160%; }
     color: #fff;
 }
 
-.btn_primary::after{
+.btn_primary::after, .arrow::after{
     content: '';  
     width: 25px;
     height: 25px;
@@ -104,7 +104,7 @@ p{ line-height: 160%; }
     background-position: center;
 }
 
-.arrow::after{ background: url('../img/icon_arrow_right.svg') center / contain; }
+.arrow::after{ background: url('../img/icons/icon_arrow_right.svg') center / contain; }
 
 .line_after::after{
     width: 130px;
@@ -166,10 +166,16 @@ p{ line-height: 160%; }
 .btn_secondary{
     padding: 0;
     color: #16283E;
-    font-weight: 900;
+    font-weight: 700;
+    font-family: 'Work Sans';
 }
 
-.btn_secondary::after{ background: url('../img/arrow_blue.svg') center / contain no-repeat; }
+.btn_secondary::after{ background: url('../img/icons/arrow_blue.svg') center / contain no-repeat; }
+
+.img_card{
+    width: 100%;
+    height: 30%;
+}
 
 input:not(.search input), textarea{
     outline: 0;
@@ -201,14 +207,14 @@ input:not(.search input), textarea{
     cursor: pointer;
 }
 
-.share::after{ background: url('../img/icon_share.svg') center / contain no-repeat; }
+.share::after{ background: url('../img/icons/icon_share.svg') center / contain no-repeat; }
 
 #artigo .banner .wrap_title{ top: 20%; }
 
 .wrap_title .btn{ margin-top: 40px; }
 
 .like::after{ 
-    background: url('../img/icon_heart.svg') center / contain no-repeat; 
+    background: url('../img/icons/icon_heart.svg') center / contain no-repeat; 
     width: 25px;
     height: 20px;
 }
@@ -308,16 +314,17 @@ select{
 
 .lista_empresacards{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .empresacard img{
-    width: 70%;
-    height: 25vh;
+    width: 100%;
+    height: 30%;
     border-radius: 7px 7px 0 0;
     min-height: 170px;
     object-fit: cover;
+    max-height: 200px;
 }
 
 .empresacard{
@@ -328,7 +335,8 @@ select{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-bottom: 5em;
+    height: fit-content;
 }
 
 .cardemp{
@@ -425,7 +433,7 @@ select{
 }
 .topo_adm_artigos > div{
     width: 25%;
-    height: 5vh;
+    /* height: 5vh; */
 }
 .topo_adm_artigos > h1{
     width: 20%;
@@ -480,6 +488,12 @@ select{
     background: -webkit-linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#novo_comentario h3{
+    margin-bottom: 0;
+    vertical-align: middle;
+    margin-top: 0.3em;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

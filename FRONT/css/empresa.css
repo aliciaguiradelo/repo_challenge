@@ -285,9 +285,9 @@ td:first-of-type{
 
 .neutro{ color: #D18B57; }
 
-.caiu{ background-image: url('../img/caiu.svg') }
+.caiu{ background-image: url('../img/icons/caiu.svg') }
 
-.subiu{ background-image: url('../img/subiu.svg') }
+.subiu{ background-image: url('../img/icons/subiu.svg') }
 
 #balanco h1{
     margin-bottom: 0;

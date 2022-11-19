@@ -11,18 +11,22 @@
     <body>
         <header>
             <div class="row">
-                <h1 class="logo">devzilla</h1>
+                <a href="index.html">
+                    <h1 class="logo">devzilla</h1>
+                </a>
 
                 <section>
-                    <a href="#" class="my_account">
-                        <img src="img/icon_person.png">
+                    <a href="perfil_usuario.html" class="my_account">
+                        <img src="img/icons/icon_person.png">
                         minha conta
                     </a>
 
-                    <a href="#" class="saved">
-                        <img src="img/icon_save.png">
+                    <a href="perfil_usuario.html#artigos_salvos" class="saved">
+                        <img src="img/icons/icon_save.png">
                         itens salvos
-                    </a> 
+                    </a>
+
+                    <small>Ainda não tem conta? <strong><a href="cadastro.html" class="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" class="text_blue">faça login</a></strong></small>
                 </section>
             </div>
 
@@ -45,17 +49,17 @@
                 </div>
 
                 <ul>
-                    <li><a href="/" class="active">início</a></li>
+                    <li><a href="index.html" class="active">início</a></li>
                     <li><a href="blog.html">artigos</a></li>
                     <li><a href="empresas.html">IPOs</a></li>
-                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
                     <li><a href="#">preciso de ajuda</a></li>
                 </ul>
 
                 <div class="search">
                     <input type="text" placeholder="O que você está procurando?">
                     <button class="btn btn-primary">
-                        <img src="img/icon_search.png">
+                        <img src="img/icons/icon_search.png">
                     </button>
                 </div>
             </div>
@@ -74,14 +78,14 @@
 
             <section class="row container" id="section1">
                 <div class="column">
-                    <img src="img/illustr_quem_somos.svg">
+                    <img src="img/ilustracoes/illustr_quem_somos.svg">
                 </div>
                 
                 <div class="column">
                     <h1 class="line_after">Quem Somos</h1>
                     <p class="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.
                     </strong></p>
-                    <a href="#" class="btn btn_primary arrow">Ler Mais</a>
+                    <a href="sobre_nos.html" class="btn btn_primary arrow">Ler Mais</a>
                 </div>
             </section>
 
@@ -90,7 +94,7 @@
                 <div class="container width_80">
                     <h1>Nosso Blog</h1>
                     <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos <strong>artigos</strong> e fique por dentro dos termos usados e das <strong>ofertas públicas</strong> que iniciarem! </p>
-                    <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                    <a href="blog.html" class="btn btn_primary arrow">Saiba Mais</a>
                 </div>
             </section>
 
@@ -98,38 +102,53 @@
                 <h1 class="line_after">IPOs disponíveis</h1>
 
                 <div class="lista_cards">
-                    <div class="card">
-                        <img src="./img/b3_employees.png">
-                        <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                    <article class="card empresacard">
+                        <a href="empresa.html" class="img_card">
+                            <img src="./img/OBA_logo.png">
+                        </a>
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
 
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <small>Faixa de preço<br><span>R$ 9,48</span></small>
+                            <a href="empresa.html" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>20/11/2020</span></small>
+                                <small class="valorInin">Valor inicial<br><span>R$ 00,00</span></small>
+                            </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <img src="./img/IPOS.png">
-                        <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                    <article class="card empresacard">
+                        <a href="empresa.html" class="img_card">
+                            <img src="./img/OBA_logo.png">
+                        </a>
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
 
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <small>Faixa de preço<br><span>R$ 9,48</span></small>
+                            <a href="empresa.html" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>20/11/2020</span></small>
+                                <small class="valorInin">Valor inicial<br><span>R$ 00,00</span></small>
+                            </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <img src="./img/IPOS.png">
-                        <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                    <article class="card empresacard">
+                        <a href="empresa.html" class="img_card">
+                            <img src="./img/OBA_logo.png">
+                        </a>
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
 
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <small>Faixa de preço<br><span>R$ 9,48</span></small>
+                            <a href="empresa.html" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>20/11/2020</span></small>
+                                <small class="valorInin">Valor inicial<br><span>R$ 00,00</span></small>
+                            </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
-                <a href="#" class="btn btn_secondary arrow">ver todas</a>
+                <a href="empresas.html" class="btn btn_secondary arrow">ver todas</a>
             </section>
 
 
@@ -137,38 +156,44 @@
                 <h1 class="line_after">Artigos</h1>
 
                 <div class="lista_cards">
-                    <div class="card">
-                        <img src="./img/b3_employees.png">
+                    <article class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/IPOS.png">
+                        </a>
                         <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                            <h3 class="c_title">O que são IPOs e como elas funcionam?</h3>
 
                             <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <img src="./img/IPOS.png">
+                    <article class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/b3_employees.png">
+                        </a>
                         <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                            <h3 class="c_title">O que são IPOs e como elas funcionam?</h3>
 
                             <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <img src="./img/IPOS.png">
+                    <article class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/IPOS.png">
+                        </a>
                         <div class="card_content">
-                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+                            <h3 class="c_title">O que são IPOs e como elas funcionam?</h3>
 
                             <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
-                            <a href="#" class="btn btn_primary arrow">Saiba Mais</a>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
-                <a href="#" class="btn btn_secondary arrow">Mais artigos</a>
+                <a href="blog.html" class="btn btn_secondary arrow">Mais artigos</a>
             </section>
 
 
@@ -186,11 +211,11 @@
             <div class="row links_uteis">
                 <h2>Links úteis:</h2>
                 <ul>
-                    <li><a href="#">início</a></li>
-                    <li><a href="#">artigos</a></li>
-                    <li><a href="#">B3</a></li>
-                    <li><a href="#">IPOs</a></li>
-                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="https://www.b3.com.br/pt_br/" target="_blank">B3</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
                     <li><a href="#">preciso de ajuda</a></li>
                 </ul>
             </div>
@@ -198,29 +223,15 @@
             <div class="row">
                 <h2>Siga-nos:</h2>
                 <ul class="social_media">
-                    <li><a href="#"><img src="img/icon_fb.svg"></a></li>
-                    <li><a href="#"><img src="img/icon_yt.svg"></a></li>
-                    <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_linkedin.svg"></a></li>
                 </ul>
             </div>
 
             <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
 
         </footer>
-        <script>
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function() {
-                var currentScrollPos = window.pageYOffset;
-                
-                if(scrollY>250){
-                    if (prevScrollpos > currentScrollPos) {
-                        document.querySelector("header").style.top = "0";
-                    } else {
-                        document.querySelector("header").style.top = "-35vh";
-                    }
-                    prevScrollpos = currentScrollPos;
-                }
-            }
-        </script>
+        <script src="js/script.js"></script>
     </body>
 </html>
