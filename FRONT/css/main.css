@@ -87,7 +87,7 @@ p{ line-height: 160%; }
 }
 
 .btn_primary{
-    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    background: linear-gradient(90deg, #005BAA -8.15%, hsla(208, 100%, 33%, 0.984) -8.14%, #042B4D 110.27%);
     color: #fff;
 }
 

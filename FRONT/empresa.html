@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/empresa.css">
+        <title>DevZilla</title>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <h1 class="logo">devzilla</h1>
+
+                <section>
+                    <a href="#" class="my_account">
+                        <img src="img/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="#" class="saved">
+                        <img src="img/icon_save.png">
+                        itens salvos
+                    </a> 
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html" class="active">artigos</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="empresa">
+            <section class="container topo_empresas">
+                <div class="primeiro_topo">
+                    <div class="bloco_empresa">
+                        <small>Data início</small>
+                        <p>20/11/2020</p>
+                    </div>
+                    <div class="blocoAtiva_empresa">
+                        <small>Status</small>
+                        <p>Ativa</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="segundo_topo">
+                    <small>Setor</small>
+                    <p>Comércio varejista de hortifrutigranjeiros</p>
+                </div>
+                <hr>
+                <div class="terceiro_topo">
+                    <div>
+                        <small>Faixa de preço inicial</small>
+                        <p>R$ 00,00</p>
+                    </div>
+                </div>
+            </section>
+            <section class="container apresentacao_empresa">
+                <div class="imagem_empresa">
+                    <img src="./img/OBA_logo.png" alt="">
+                </div>
+                <div class="informacoes_empresa">
+                    <div>
+                        <h2>GRUPO FARTURA DE HORTIFRUT S.A.</h2>
+                        <small>04.972.092/0001-22</small>
+                    </div>
+                    <small><strong>Setor:</strong> Comércio varejista de hortifrutigranjeiros</small>
+                    <button class="btn btn_primary arrow">Prospecto</button>
+                </div>
+            </section>
+            <section class="container governanca" style="padding-top: 0px;">
+                <h1 class="line_after">Diretoria (Governança)</h1>
+                <article>
+                    <div>
+                        <img src="./img/time/Arthur.jpg" alt="">
+                        <div>
+                            <p>Alex Alves dos Santos Brito</p>
+                            <small>Diretor Presidente</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/time/Arthur.jpg" alt="">
+                        <div>
+                            <p>Alexandre Otomo de Almeida</p>
+                            <small>Diretor Financeiro e Diretor de Relações com Investidores</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/time/Arthur.jpg" alt="">
+                        <div>
+                            <p>Alessandra Medeiros de Oliveira</p>
+                            <small>Diretora sem designação específica</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/time/Arthur.jpg" alt="">
+                        <div>
+                            <p>Cezar Lucas de Gusmão</p>
+                            <small>Diretor sem designação específica</small>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <div class="gray_wallpaper">
+                <section class="container" style="padding-bottom: 2rem;">
+                    <h1 class="line_after">SOBRE O GRUPO A EMPRESA</h1>
+                    <p>Com mais de 40 anos de experiência no setor de alimentos frescos, o Oba Hortifruti é uma rede varejista especializada em produtos perecíveis frescos de FLV que representam, em média, 77% das vendas das nossas lojas em 30 de setembro de 2020. Desde o início das operações em 1979, calcamos nosso crescimento em 3 pilares estratégicos que entendemos serem essenciais para o nosso sucesso: Experiência de Compra Única, Preocupação Com o Produto e Excelência Operacional. Oferecemos produtos alimentícios de alta qualidade, com foco em saúde e bem-estar e um comprometimento rigoroso com o atendimento ao cliente. Devido ao nosso foco em qualidade, frescor e atendimento, mais da metade de nossa base de clientes frequenta nossas lojas ao menos uma vez por mês. Essa alta frequência nos oferece uma grande proximidade aos nossos clientes e uma oportunidade de maximizar cada vez mais nosso share of wallet com novos produtos.</p>
+                </section>
+                <section class="container" style="padding-top: 0px;">
+                    <h1 class="line_after">DESTINO DOS RECURSOS DO IPO</h1>
+                    <p>A Companhia pretende utilizar os recursos líquidos provenientes da Oferta Primária de acordo com seu plano de negócios para: (i) abertura de novas lojas, (ii) investimento nos canais digitais, e (iii) investimento na cadeia de logística.</p>
+                </section>
+            </div>
+            
+        </main>
+        
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="#">início</a></li>
+                    <li><a href="#">artigos</a></li>
+                    <li><a href="#">B3</a></li>
+                    <li><a href="#">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+
+
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                
+                if(scrollY>250){
+                    if (prevScrollpos > currentScrollPos) {
+                        document.querySelector("header").style.top = "0";
+                    } else {
+                        document.querySelector("header").style.top = "-35vh";
+                    }
+                    prevScrollpos = currentScrollPos;
+                }
+            }
+        </script>
+    </body>
+</html>
