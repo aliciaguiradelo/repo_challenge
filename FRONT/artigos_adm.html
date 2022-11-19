@@ -64,24 +64,47 @@
 
         <div id="fade" class="hide"></div>
         <modal id="modal" class="hide">
-            <div class="modal-header">
-              <h2>Este é o Modal</h2>
-              <button id="close-modal">Fechar</button>
-            </div>
-            <div class="modal-body">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, quam?
-                Quas accusantium id cupiditate iste veritatis repudiandae odio dolore
-                voluptas. Eum, deserunt quod. Sit similique laudantium assumenda
-                repellat vel necessitatibus.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius alias
-                voluptate doloremque, totam inventore autem quis non error! Earum
-                ullam fuga, officiis voluptates pariatur unde et adipisci ducimus non
-                obcaecati.
-              </p>
-            </div>
+            <section class="container" style="padding: 30px 40px;">
+                <h1 class="line_after">Crie um novo artigo</h1>
+                <form>
+                    <div>
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="Digite o título do artigo">
+                    </div>
+                    <div>
+
+                        <input type="file" name="file-input" id="file-input" class="file-input__input" />
+                        <label class="file-input__label" for="file-input">
+                            <svg 
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fas"
+                            data-icon="upload"
+                            class="svg-inline--fa fa-upload fa-w-16"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                            </svg>
+                            <span>Adiciona a imagem</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="categoria">Categoria</label>
+                        <select name="categoria" id="categoria">
+                            <option disabled selected>Escolha uma opção</option>
+                            <option value="ensino">Ensino</option>
+                            <option value="termos">Termos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="texto">Texto</label>
+                        <textarea name="" id="texto" rows="10"></textarea>
+                    </div>
+                    <button class="btn btn_cancelar" id="close-modal">Cancelar</button>
+                    <button class="btn btn_criar">Criar</button>
+                </form>
+            </section>
         </modal>
 
         <main id="artigos_adm">
