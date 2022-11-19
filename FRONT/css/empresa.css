@@ -148,3 +148,41 @@
     background-color: #EEEEEE;
     text-align: justify;
 }
+.indicadores_tabela *{
+    margin: 0;
+    padding: 0;
+}
+.indicadores_tabela{
+    width: 100%;
+}
+.indicadores_tabela > p{
+    text-transform: uppercase;
+    color: #AD7449;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.linha_indicadores{
+    display: flex;
+    padding-bottom: 20px;
+    align-items: center;
+}
+.bloco_indicadores{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15%;
+    min-width: 150px;
+    padding: 20px 10px;
+}
+.linhaBaixo_indicadores{
+    display: flex;
+    justify-content: space-between;
+}
+.linha_indicadores hr{
+    width: 2px;
+    border: 0px;
+    border-top: 2px solid #8d8d8d;
+    background-color: #8d8d8d;
+    margin: 0px 10px;
+    height: 60px;
+}
