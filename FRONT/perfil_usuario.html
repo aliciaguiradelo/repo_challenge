@@ -11,18 +11,22 @@
     <body>
         <header>
             <div class="row">
-                <h1 class="logo">devzilla</h1>
+                <a href="index.html">
+                    <h1 class="logo">devzilla</h1>
+                </a>
 
                 <section>
-                    <a href="#" class="my_account">
-                        <img src="img/icon_person.png">
+                    <a href="perfil_usuario.html" class="my_account">
+                        <img src="img/icons/icon_person.png">
                         minha conta
                     </a>
 
-                    <a href="#" class="saved">
-                        <img src="img/icon_save.png">
+                    <a href="perfil_usuario.html#artigos_salvos" class="saved">
+                        <img src="img/icons/icon_save.png">
                         itens salvos
-                    </a> 
+                    </a>
+
+                    <small>Ainda não tem conta? <strong><a href="cadastro.html" class="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" class="text_blue">faça login</a></strong></small>
                 </section>
             </div>
 
@@ -45,10 +49,10 @@
                 </div>
 
                 <ul>
-                    <li><a href="index.html">início</a></li>
-                    <li><a href="blog.html" class="active">artigos</a></li>
+                    <li><a href="index.html" class="active">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
                     <li><a href="empresas.html">IPOs</a></li>
-                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
                     <li><a href="#">preciso de ajuda</a></li>
                     <li><a href="dashboard_adm.html">Dashboard (admin)</a></li>
                 </ul>
@@ -56,7 +60,7 @@
                 <div class="search">
                     <input type="text" placeholder="O que você está procurando?">
                     <button class="btn btn-primary">
-                        <img src="img/icon_search.png">
+                        <img src="img/icons/icon_search.png">
                     </button>
                 </div>
             </div>
@@ -66,6 +70,9 @@
 
             <section class="container formulario paddingarrumado">
                 <h1 class="line_after">Meu perfil</h1>
+                <div>
+                    <img src="./img/banner_perfil.svg" alt="">
+                </div>
                 <form method="POST">
                     <div class="contentInput">
                         <label for="nomeCompleto">Nome completo</label>
@@ -205,20 +212,6 @@
             <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
 
         </footer>
-        <script>
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function() {
-                var currentScrollPos = window.pageYOffset;
-                
-                if(scrollY>200){
-                    if (prevScrollpos > currentScrollPos) {
-                        document.querySelector("header").style.top = "0";
-                    } else {
-                        document.querySelector("header").style.top = "-35vh";
-                    }
-                    prevScrollpos = currentScrollPos;
-                }
-            }
-        </script>
+        <script src="js/script.js"></script>
     </body>
 </html>

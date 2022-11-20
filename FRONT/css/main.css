@@ -399,6 +399,16 @@ select{
     color: #fff;
 }
 
+.formulario > div{
+    display: flex;
+    margin-top: -12vh;
+    padding-bottom: 4vh;
+}
+.formulario > div > img{
+    position: block;
+    margin: auto;
+    width: 200px;
+}
 .formulario > form{
     display: flex;
     flex-wrap: wrap;
