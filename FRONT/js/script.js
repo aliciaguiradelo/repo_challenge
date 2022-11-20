@@ -5,7 +5,7 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
     
-    if(scrollY>250){
+    if(scrollY>150){
         if (prevScrollpos > currentScrollPos) {
             document.querySelector("header").style.top = "0";
             document.querySelector("header").style.paddingBottom = "3em";
