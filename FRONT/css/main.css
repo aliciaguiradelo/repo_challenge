@@ -222,6 +222,8 @@ input:not(.search input), textarea{
     height: 20px;
 }
 
+.pen::after{ background: url('../img/icons/pen.svg') center / contain no-repeat; }
+
 .like{
     border: solid 2px #AD7449;
     background: transparent;
@@ -230,9 +232,19 @@ input:not(.search input), textarea{
     transition: .5s;
 }
 
+.pen{
+    border: solid 2px #005BAA;
+    background: transparent;
+    color: #005BAA;
+}
+
 .like:hover{
     background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
     color: #fff;
+}
+
+.pen:hover{
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
 }
 
 .like:hover::after{ filter:  brightness(0) invert(1); }
@@ -240,6 +252,11 @@ input:not(.search input), textarea{
 .relacionados .card{ width: 100%; }
 
 #conteudo_artigo .row{ gap: 10%; }
+
+.btns{ 
+    justify-content: flex-start;
+    gap: 3% !important;
+}
 
 .conteudo{ 
     margin-top: 1rem; 
