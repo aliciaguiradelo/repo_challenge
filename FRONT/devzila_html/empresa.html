@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/empresa.css">
+        <title>DevZilla</title>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <a href="index.html">
+                    <h1 class="logo">devzilla</h1>
+                </a>
+
+                <section>
+                    <a href="perfil_usuario.html" class="my_account">
+                        <img src="img/icons/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="perfil_usuario.html#artigos_salvos" class="saved">
+                        <img src="img/icons/icon_save.png">
+                        itens salvos
+                    </a>
+
+                    <small>Ainda não tem conta? <strong><a href="cadastro.html" class="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" class="text_blue">faça login</a></strong></small>
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="empresas.html" class="active">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                    <li><a href="dashboard_adm.html">dashboard (admin)</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icons/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="empresa">
+            <section class="container topo_empresas">
+                <div class="primeiro_topo">
+                    <div class="bloco_empresa">
+                        <small>Data início</small>
+                        <p>20/11/2020</p>
+                    </div>
+                    <div class="blocoAtiva_empresa">
+                        <small>Status</small>
+                        <p>Ativa</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="segundo_topo">
+                    <small>Setor</small>
+                    <p>Comércio varejista de hortifrutigranjeiros</p>
+                </div>
+                <hr>
+                <div class="terceiro_topo">
+                    <div>
+                        <small>Faixa de preço inicial</small>
+                        <p class="text_blue">R$ 00,00</p>
+                    </div>
+                </div>
+            </section>
+            <section class="container apresentacao_empresa" style="padding-bottom: 0px;">
+                <div class="imagem_empresa">
+                    <img src="./img/OBA_logo.png" alt="">
+                </div>
+                <div class="informacoes_empresa">
+                    <div>
+                        <h2>GRUPO FARTURA DE HORTIFRUT S.A.</h2>
+                        <small>04.972.092/0001-22</small>
+                    </div>
+                    <small><strong>Setor:</strong> Comércio varejista de hortifrutigranjeiros</small>
+                    <small><strong>Status:</strong> Ativa</small>
+                    <small><strong>Valor inicial:</strong> R$ 00,00</small>
+                    <button class="btn btn_primary arrow">Prospecto</button>
+                </div>
+
+                <div class="direcionamentos">
+                    <div>
+                        <h2>Informações importantes:</h2>
+                        <a href="#governanca" class="btn btn_primary arrow text_blue">Diretoria da empresa</a>
+                        <a href="#sobre" class="btn btn_primary arrow text_blue">Sobre a OBA Hortifruti</a>
+                        <a href="#destino" class="btn btn_primary arrow text_blue">Destino dos recursos</a>
+                        <a href="#indicadores" class="btn btn_primary arrow text_blue">Indicadores financeiros</a>
+                        <a href="#balanco" class="btn btn_primary arrow text_blue">Balanços Patrimoniais</a>
+                    </div>
+                </div>
+            </section>
+            <section class="container governanca" id="governanca">
+                <h1 class="line_after">Diretoria (Governança)</h1>
+                <article>
+                    <div>
+                        <img src="./img/ilustracoes/default_pic.svg" alt="">
+                        <div>
+                            <p>Alex Alves dos Santos Brito</p>
+                            <small>Diretor Presidente</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/Governanca/Alexandre.jpg" alt="Alexandre Otomo de Almeida">
+                        <div>
+                            <p>Alexandre Otomo de Almeida</p>
+                            <small>Diretor Financeiro e Diretor de Relações com Investidores</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/Governanca/Alessandra.jpg" alt="Alessandra Medeiros de Oliveira">
+                        <div>
+                            <p>Alessandra Medeiros de Oliveira</p>
+                            <small>Diretora sem designação específica</small>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./img/ilustracoes/default_pic.svg" alt="">
+                        <div>
+                            <p>Cezar Lucas de Gusmão</p>
+                            <small>Diretor sem designação específica</small>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <div class="gray_wallpaper">
+                <section class="container" style="padding-bottom: 0px;" id="sobre">
+                    <h1 class="line_after">SOBRE O GRUPO A EMPRESA</h1>
+                    <p>Com mais de 40 anos de experiência no setor de alimentos frescos, o Oba Hortifruti é uma rede varejista especializada em produtos perecíveis frescos de FLV que representam, em média, 77% das vendas das nossas lojas em 30 de setembro de 2020. Desde o início das operações em 1979, calcamos nosso crescimento em 3 pilares estratégicos que entendemos serem essenciais para o nosso sucesso: Experiência de Compra Única, Preocupação Com o Produto e Excelência Operacional. Oferecemos produtos alimentícios de alta qualidade, com foco em saúde e bem-estar e um comprometimento rigoroso com o atendimento ao cliente. Devido ao nosso foco em qualidade, frescor e atendimento, mais da metade de nossa base de clientes frequenta nossas lojas ao menos uma vez por mês. Essa alta frequência nos oferece uma grande proximidade aos nossos clientes e uma oportunidade de maximizar cada vez mais nosso share of wallet com novos produtos.</p>
+                </section>
+                <section class="container" id="destino">
+                    <h1 class="line_after">DESTINO DOS RECURSOS DO IPO</h1>
+                    <p>A Companhia pretende utilizar os recursos líquidos provenientes da Oferta Primária de acordo com seu plano de negócios para: (i) abertura de novas lojas, (ii) investimento nos canais digitais, e (iii) investimento na cadeia de logística.</p>
+                </section>
+            </div>
+
+            <!-- <section class="container">
+                <h1 class="line_after">INDICADORES DO GRUPO FARTURA DE HORTIFRUT</h1>
+                <div class="indicadores_tabela">
+                    <p>Indicadores de Valuation</p>
+                    <div class="linha_indicadores">
+                        <div class="bloco_indicadores">
+                            <p>P/L</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>P/VP</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>VPA</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>LPA</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                    </div>
+                </div>
+                <div class="indicadores_tabela">
+                    <p>Indicadores de Rentabilidade</p>
+                    <div class="linha_indicadores">
+                        <div class="bloco_indicadores">
+                            <p>ROE</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-%</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>ROIC</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-%</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>         
+                        <hr>
+                    </div>
+                </div>
+                <div class="indicadores_tabela">
+                    <p>Indicadores de Endividamento</p>
+                    <div class="linha_indicadores">
+                        <div class="bloco_indicadores">
+                            <p>Dív. líquida/PL</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>Dív. líquida/EBITDA</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>         
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>PL/Ativos</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>Passivos/Ativos</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>-</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>         
+                        <hr>
+                    </div>
+                </div>
+                <div class="indicadores_tabela">
+                    <p>Indicadores de Eficiência</p>
+                    <div class="linha_indicadores">
+                        <div class="bloco_indicadores">
+                            <p>M. Bruta</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>40,60%</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>          
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>M. EBITDA</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>11,80%</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>         
+                        <hr>
+                        <div class="bloco_indicadores">
+                            <p>M. Líquida</p>
+                            <div class="linhaBaixo_indicadores">
+                                <p>3,40%</p>
+                                <img src="./img/icons/icon_email_terra.svg" alt="">
+                            </div>
+                        </div>        
+                        <hr>
+                    </div>
+                </div>
+            </section> -->
+
+            <section class="container section_table" id="indicadores">
+                
+                <div class="row">
+                    <h1 class="line_after">Indicadores financeiros da empresa </h1>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>2020 (R$ em milhões)</th>
+                                <th>2021 (R$ em milhões)</th>
+                                <th>Variação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Receita bruta (R$)</td>
+                                <td><span class="neutro">=</span>1.936</td>
+                                <td><span class="subiu"></span>2.197</td>
+                                <td>13,4 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Receita líquida (R$)</td>
+                                <td><span class="neutro">=</span>1780</td>
+                                <td><span class="subiu"></span>2.017</td>
+                                <td>13,3 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lucro bruto (R$)</td>
+                                <td><span class="subiu"></span>800</td>
+                                <td><span class="caiu"></span>717</td>
+                                <td>11,6 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Margem bruta (%)</td>
+                                <td><span class="neutro">=</span>39,7 %</td>
+                                <td><span class="subiu"></span>40,3 %</td>
+                                <td>0,6 p.p.</td>
+                            </tr>
+
+                            <tr>
+                                <td>EBITDA</td>
+                                <td><span class="neutro">=</span>181</td>
+                                <td><span class="subiu"></span>188</td>
+                                <td>3,8 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Margem EBITDA</td>
+                                <td><span class="neutro">=</span>10,2 %</td>
+                                <td><span class="subiu"></span>9,3 %</td>
+                                <td>(0,9) p.p.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lucro Líquido</td>
+                                <td><span class="subiu"></span>44</td>
+                                <td><span class="caiu"></span>21</td>
+                                <td>-53,1 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Margem Líquida</td>
+                                <td><span class="subiu"></span>2,5 %</td>
+                                <td><span class="caiu"></span>1,0 %</td>
+                                <td>(1,4) p.p.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Dívida Líquida</td>
+                                <td><span class="caiu"></span>194,3</td>
+                                <td><span class="subiu"></span>376,7</td>
+                                <td> - </td>
+                            </tr>
+
+                            <tr>
+                                <td>Receita Líquida Total</td>
+                                <td><span class="subiu"></span>1780</td>
+                                <td><span class="subiu"></span>2017</td>
+                                <td>13,3 %</td>
+                            </tr>
+
+                            <tr>
+                                <td>Número de lojas</td>
+                                <td><span class="subiu"></span>61</td>
+                                <td><span class="subiu"></span>72</td>
+                                <td>18 %</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <label for="periodo_indicadores">Período referente:</label>
+                        <select id="periodo_indicadores">
+                            <option>2020-2021</option>
+                            <option>2018-2019</option>
+                            <option>2016-2017</option>
+                            <option>2015-2014</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="container section_table" id="balanco">
+                <div class="row">
+                    <h1 class="line_after">Balanços patrimoniais </h1>
+                    <h3>ATIVOS </h3>
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th colspan="2">Controladora (R$ em milhões)</th>
+                                <th colspan="2">Consolidado (R$ em milhões)</th>
+                            </tr>
+                        </thead>
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>2020</th>
+                                <th>2021</th>
+                                <th>2020</th>
+                                <th>2021</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Circulante (R$)</td>
+                                <td><span class="neutro">=</span>431.808</td>
+                                <td><span class="subiu"></span>601.634</td>
+                                <td><span class="neutro">=</span>430.855</td>
+                                <td><span class="subiu"></span>601.805</td>
+                            </tr>
+
+                            <tr>
+                                <td>Realizável a longo prazo</td>
+                                <td><span class="neutro">=</span>75.404</td>
+                                <td><span class="subiu"></span>96.744</td>
+                                <td><span class="neutro">=</span>75.790</td>
+                                <td><span class="subiu"></span>95.710</td>
+                            </tr>
+
+                            <tr>
+                                <td>Não circulante</td>
+                                <td><span class="neutro">=</span>668.071</td>
+                                <td><span class="subiu"></span>904.460</td>
+                                <td><span class="neutro">=</span>668.496</td>
+                                <td><span class="subiu"></span>903.426</td>
+                            </tr>
+
+                            <tr>
+                                <td>Total do ativo</td>
+                                <td><span class="neutro">=</span> 1.099.879</td>
+                                <td><span class="subiu"></span>1.506.094</td>
+                                <td><span class="neutro">=</span> 1.099.351</td>
+                                <td><span class="subiu"></span> 1.505.231</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <label for="periodo_indicadores">Período referente:</label>
+                        <select id="periodo_indicadores">
+                            <option>2020-2021</option>
+                            <option>2018-2019</option>
+                            <option>2016-2017</option>
+                            <option>2015-2014</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- <h1 class="line_after">Balanços patrimoniais </h1> -->
+                    <h3>PASSIVOS </h3>
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th colspan="2">Controladora (R$ em milhões)</th>
+                                <th colspan="2">Consolidado (R$ em milhões)</th>
+                            </tr>
+                        </thead>
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>2020</th>
+                                <th>2021</th>
+                                <th>2020</th>
+                                <th>2021</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Circulante (R$)</td>
+                                <td><span class="neutro">=</span>347.087</td>
+                                <td><span class="subiu"></span>522.989</td>
+                                <td><span class="neutro">=</span>347.310</td>
+                                <td><span class="subiu"></span>523.161</td>
+                            </tr>
+
+                            <tr>
+                                <td>Não circulante</td>
+                                <td><span class="neutro">=</span>537.157</td>
+                                <td><span class="subiu"></span>754.813</td>
+                                <td><span class="neutro">=</span>536.406</td>
+                                <td><span class="subiu"></span>753.778</td>
+                            </tr>
+
+                            <tr>
+                                <td>Total do passivo</td>
+                                <td><span class="neutro">=</span>884.244</td>
+                                <td><span class="subiu"></span>1.277.802</td>
+                                <td><span class="neutro">=</span>883.716</td>
+                                <td><span class="subiu"></span>1.276.939</td>
+                            </tr>
+
+                            <tr>
+                                <td>Patrimônio líquido</td>
+                                <td><span class="neutro">=</span> 215.635</td>
+                                <td><span class="subiu"></span>228.292</td>
+                                <td><span class="neutro">=</span>215.635</td>
+                                <td><span class="subiu"></span>228.292</td>
+                            </tr>
+
+                            <tr>
+                                <td>Total do passivo e patrimônio líquido</td>
+                                <td><span class="neutro">=</span> 1.099.879</td>
+                                <td><span class="subiu"></span>1.506.094</td>
+                                <td><span class="neutro">=</span>1.099.351</td>
+                                <td><span class="subiu"></span>1.505.231</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <label for="periodo_indicadores">Período referente:</label>
+                        <select id="periodo_indicadores">
+                            <option>2020-2021</option>
+                            <option>2018-2019</option>
+                            <option>2016-2017</option>
+                            <option>2015-2014</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="https://www.b3.com.br/pt_br/" target="_blank">B3</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icons/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icons/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+        <script src="js/script.js"></script>
+    </body>
+</html>

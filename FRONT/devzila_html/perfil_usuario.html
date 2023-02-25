@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>DevZilla</title>
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <a href="index.html">
+                    <h1 class="logo">devzilla</h1>
+                </a>
+
+                <section>
+                    <a href="perfil_usuario.html" class="my_account">
+                        <img src="img/icons/icon_person.png">
+                        minha conta
+                    </a>
+
+                    <a href="perfil_usuario.html#artigos_salvos" class="saved">
+                        <img src="img/icons/icon_save.png">
+                        itens salvos
+                    </a>
+
+                    <small>Ainda não tem conta? <strong><a href="cadastro.html" class="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" class="text_blue">faça login</a></strong></small>
+                </section>
+            </div>
+
+            <div class="row btns_menu">
+                
+                <input type="checkbox" id="menu" />
+                <div class="hamburguer">
+
+                    <button class="btn btn-primary btn-menu">
+                        <!-- não tem como estilizar um botao só quando ele ta pressionado ou nao no css puro, o checkbox 
+                        é uma "gambiarra" que permite estilizar mostrando o menu se estiver clicado e escondendo se não tiver -->
+
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </button>
+
+                </div>
+
+                <ul>
+                    <li><a href="index.html">início</a></li>
+                    <li><a href="blog.html">artigos</a></li>
+                    <li><a href="empresas.html">IPOs</a></li>
+                    <li><a href="sobre_nos.html">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                    <li><a href="dashboard_adm.html">dashboard (admin)</a></li>
+                </ul>
+
+                <div class="search">
+                    <input type="text" placeholder="O que você está procurando?">
+                    <button class="btn btn-primary">
+                        <img src="img/icons/icon_search.png">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="perfilUsuario">
+
+            <section class="container formulario paddingarrumado">
+                <h1 class="line_after">Meu perfil</h1>
+                <div>
+                    <img src="./img/banner_perfil.svg" alt="">
+                </div>
+                <form method="POST">
+                    <div class="contentInput">
+                        <label for="nomeCompleto">Nome completo</label>
+                        <input type="text" name="nome" id="nomeCompleto" placeholder="Mehrab Bozorgi">
+                    </div>
+                    <div class="contentInput">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Mehrabbozorgi.business@gmail.com">
+                    </div>
+                    <div class="contentInput">
+                        <label for="DtNasc">Data de nascimento</label>
+                        <input type="date" name="DtNasc" id="DtNasc">
+                    </div>
+                    <div class="contentInput">
+                    </div>
+                    <div class="block">
+                        <small>Se desejar alterar a conta, <span>clique aqui</span></small>
+                        <button class="btn btn_primary arrow">Salvar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="container paddingarrumado" id="artigos_salvos">   
+                <h1 class="line_after">Empresas marcadas como favoritas</h1>
+
+                <div class="lista_empresacards">
+                    <div class="empresacard cardemp">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+
+                            <small>Faixa de preço<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="empresacard cardemp">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="empresacard cardemp">
+                        <img src="./img/OBA_logo.png">
+                        <div class="empresacard_content">
+                            <h3 class="c_title">GRUPO FARTURA DE HORTIFRUT S.A.</h3>
+                            
+                            <small>Faixa de preco<br><span>R$ 9,48</span></small>
+                            <div href="#" class="campoTexto">
+                                <small class="dataInin">Data início<br><span>A definir</span></small>
+                                <small class="valorInin">Valor inicial<br><span>A definir</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="container" id="mais_populares">   
+                <h1 class="line_after">Artigos marcados como favoritos</h1>
+
+                <div class="lista_empresacards">
+                    <div class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/b3_employees.png">
+                        </a>
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/IPOS.png">
+                        </a>
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <a href="artigo_individual.html">
+                            <img src="./img/b3_employees.png">
+                        </a>
+                        <div class="card_content">
+                            <h3 class="c_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero quis veniam quidem aliquid accusantium harum assumenda aspernatur voluptatibus quasi.</h3>
+
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae blanditiis repudiandae consequuntur quam qui at, cumque molestiae vero odit.</small>
+                            <a href="artigo_individual.html" class="btn btn_primary arrow">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="row links_uteis">
+                <h2>Links úteis:</h2>
+                <ul>
+                    <li><a href="#">início</a></li>
+                    <li><a href="#">artigos</a></li>
+                    <li><a href="#">B3</a></li>
+                    <li><a href="#">IPOs</a></li>
+                    <li><a href="#">sobre nós</a></li>
+                    <li><a href="#">preciso de ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <h2>Siga-nos:</h2>
+                <ul class="social_media">
+                    <li><a href="#"><img src="img/icon_fb.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_yt.svg"></a></li>
+                    <li><a href="#"><img src="img/icon_linkedin.svg"></a></li>
+                </ul>
+            </div>
+
+            <p>DevZilla | Todos os direitos reservados<sup>©</sup></p>
+
+        </footer>
+        <script src="js/script.js"></script>
+    </body>
+</html>

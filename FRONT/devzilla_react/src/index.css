@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500i,600,700,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,800,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amaranth:400,700i,700&display=swap');
+
+body{ 
+  margin: 0; 
+  font-family: 'Nunito';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3{
+  font-family: 'Work Sans';
+  color: #16283E;
 }
+
+p{ color: #444; }
+
+label{ 
+  display: block;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+a{ transition: .3s; text-decoration: none; }
+
+a:hover{ opacity: .9; }

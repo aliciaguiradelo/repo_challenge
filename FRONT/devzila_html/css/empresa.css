@@ -1,0 +1,302 @@
+.topo_empresas *{
+    margin: 0;
+    padding: 0;
+}
+.topo_empresas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.primeiro_topo{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+.segundo_topo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+.terceiro_topo{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    box-shadow: 3px 4px 10px 0px rgba(166,166,166,1);
+    border-radius: 20px;
+}
+.blocoAtiva_empresa{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    box-shadow: 3px 4px 10px 0px rgba(166,166,166,1);
+    border-radius: 20px;
+    margin-right: 30px;
+}
+.bloco_empresa{
+    background-color: #0459A2;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 3px 4px 10px 0px rgba(166,166,166,1);
+}
+.bloco_empresa > small, .bloco_empresa > p{
+    color: white;
+}
+.topo_empresas div > small{
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+.topo_empresas div > p{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+.topo_empresas hr{
+    width: 2px;
+    border: 0px;
+    border-top: 1px solid #8d8d8d;
+    background-color: #8d8d8d;
+}
+.blocoAtiva_empresa p {
+    color: #0B8C3D;
+    text-transform: uppercase;
+}
+.terceiro_topo div p {
+    font-size: 2em;
+    font-weight: 900;
+}
+.apresentacao_empresa{
+    padding-top: 0px;
+    display: flex;
+    gap: 5%;
+    /* padding-right: 20%; */
+    justify-content: flex-start;
+}
+.imagem_empresa{
+    width: 30%;
+}
+.imagem_empresa img{
+    width: 100%;
+    border-radius: 20px;
+    /* aspect-ratio: 2 /1; */
+    object-fit: cover;
+    box-shadow: 3px 4px 10px 0px rgba(166,166,166,1);
+}
+.informacoes_empresa{
+    /* padding: 30px 0; */
+    /* padding-left: 5%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 15px;
+    width: 30%;
+}
+
+.direcionamentos{
+    width: 30%;
+}
+
+.direcionamentos .btn_primary{
+    padding: 0;
+    font-weight: 900;
+    margin-top: 15px;
+}
+
+.direcionamentos .arrow::after{
+    background-image: url('../img/icons/icon_arrowcircledown.svg');
+}
+
+.informacoes_empresa h2, .direcionamentos h2{
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+    font-size: 1.6em;
+    background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.informacoes_empresa small{
+    font-size: 1em;
+}
+.informacoes_empresa button{
+    margin: 0px;
+}
+.governanca > article{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.governanca > article > div{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.governanca > article > div > img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 100% !important;
+    box-sizing: border-box;
+    border: solid 5px #0e3d65;
+}
+.governanca > article > div div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.governanca > article > div p{
+    font-size: 1.7em;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+.governanca > article > div small{
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+}
+.gray_wallpaper{
+    background-color: #EEEEEE;
+    text-align: justify;
+}
+.indicadores_tabela *{
+    margin: 0;
+    padding: 0;
+}
+.indicadores_tabela{
+    width: 100%;
+}
+.indicadores_tabela > p{
+    text-transform: uppercase;
+    color: #AD7449;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.linha_indicadores{
+    display: flex;
+    padding-bottom: 20px;
+    align-items: center;
+}
+.bloco_indicadores{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15%;
+    min-width: 150px;
+    padding: 20px 10px;
+}
+.linhaBaixo_indicadores{
+    display: flex;
+    justify-content: space-between;
+}
+.linha_indicadores hr{
+    width: 2px;
+    border: 0px;
+    border-top: 2px solid #8d8d8d;
+    background-color: #8d8d8d;
+    margin: 0px 10px;
+    height: 60px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 65%;
+    color: #444;
+    margin-bottom: 3em;
+}
+
+tbody tr:not(:last-of-type){
+    border-bottom: solid 1px #B9B9B9 ;
+}
+
+th{
+    text-align: left;
+    color: #fff;
+}
+
+thead{
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+}
+
+th, td{
+    padding: 10px 25px;
+}
+
+td:not(:first-of-type), th:not(:first-of-type){
+    text-align: center;
+}
+
+.section_table h1, h3{
+    width: 100%;
+}
+
+.section_table .row{
+    align-items: center;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+}
+
+.section_table .row div{
+    width: 25%;
+}
+
+label, select{
+    font-size: 1.5em;
+}
+
+label{
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+td span{
+    font-weight: 900;
+    display: inline-block;
+    margin-right: 7px;
+    width: 1.3em;
+    height: 1.3em;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+td:first-of-type{
+    font-weight: 700;
+}
+
+.neutro{ color: #D18B57; }
+
+.caiu{ background-image: url('../img/icons/caiu.svg') }
+
+.subiu{ background-image: url('../img/icons/subiu.svg') }
+
+#balanco h1{
+    margin-bottom: 0;
+}
+
+.section_table h3{
+    margin-bottom: 1.5em;
+}
+
+.section_table:not(:last-of-type){
+    padding-bottom: 0;
+}
