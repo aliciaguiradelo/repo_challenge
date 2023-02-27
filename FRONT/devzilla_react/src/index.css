@@ -7,6 +7,8 @@ body{
   font-family: 'Nunito';
 }
 
+main{ padding-top: 250px; }
+
 h1, h2, h3{
   font-family: 'Work Sans';
   color: #16283E;
