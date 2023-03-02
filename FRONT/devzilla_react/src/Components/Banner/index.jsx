@@ -2,11 +2,15 @@ import Image from '../../Assets/Images/banner_b3.png'
 import './style.css'
 
 function quebra_string(string){
-    let arr_str = string.split('')
+    var qtd = 10
+    var qtdX = 0
 
-    for (let i = 0; i < string.lenght; i++){
-        if(i % 10 === 0) arr_str.splice(i, 0, "<br/>")
-        arr_str.join()
+    str_br = ''
+
+    if(string.length == qtd + qtdX){
+        qtd = qtd + 10
+        qtdX = qtdX + 1
+        div.value = valor + 'X'
     }
 
     return(arr_str.toString())
