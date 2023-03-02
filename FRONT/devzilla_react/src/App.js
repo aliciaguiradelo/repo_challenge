@@ -9,7 +9,7 @@ function App() {
       <Header />
 
       <main>   
-        <Banner />
+        <Banner titulo="Todos os IPOs em um só lugar" />
       </main>
       
       <Footer />
