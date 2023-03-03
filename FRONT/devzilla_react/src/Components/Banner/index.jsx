@@ -1,33 +1,34 @@
+import { useEffect } from 'react';
 import Image from '../../Assets/Images/banner_b3.png'
 import './style.css'
 
-function quebra_string(string){
-    var qtd = 10
-    var qtdX = 0
+export default function Banner(props){
 
-    str_br = ''
+    const { titulo } = props;
 
-    if(string.length == qtd + qtdX){
-        qtd = qtd + 10
-        qtdX = qtdX + 1
-        div.value = valor + 'X'
+    function quebra_string(str){
+    
+        let str_arr = str.split(" ");
+        let nova_str = '<span>'
+    
+        for(let i = 0; i < str_arr.length; i++){
+            nova_str += str_arr[i]
+    
+            if ((i + 1) % 4 === 0) nova_str += "</span> <br /> <span>"
+            else nova_str += ' '
+        }
+        return(nova_str)
     }
 
-    return(arr_str.toString())
-}
+    const string = quebra_string(titulo)
 
-export default function Banner(props){
     return(
         <section className="banner">
             <img
                 src={Image}
                 alt=""
             />
-            <div className="wrap_title">
-                <span>{quebra_string(props.titulo)}</span>
-                <br />
-                <span>em um só lugar</span>
-            </div>
+            <div dangerouslySetInnerHTML={{ __html: string }} className="wrap_title"></div>
             <div className="mask_banner"></div>
         </section>
     )
