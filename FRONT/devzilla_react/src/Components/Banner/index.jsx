@@ -20,7 +20,7 @@ export default function Banner(props){
         return(nova_str)
     }
 
-    const string = quebra_string(titulo)
+    const title = quebra_string(titulo)
 
     return(
         <section className="banner">
@@ -28,7 +28,7 @@ export default function Banner(props){
                 src={Image}
                 alt=""
             />
-            <div dangerouslySetInnerHTML={{ __html: string }} className="wrap_title"></div>
+            <div dangerouslySetInnerHTML={{ __html: title }} className="wrap_title"></div>
             <div className="mask_banner"></div>
         </section>
     )

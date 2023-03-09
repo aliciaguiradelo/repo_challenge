@@ -18,7 +18,7 @@ header ul li a, footer ul li a{
 ul li a:not(.active):hover{ font-weight: 700; }
 
 /* esse item é o "risquinho" que fica depois do link quando passa o mouse em cima */
-header ul li a::before, footer ul li a::before {
+header .menu li a::before, footer .menu li a::before {
     content: "";
     position: absolute;
     display: block;
@@ -32,13 +32,21 @@ header ul li a::before, footer ul li a::before {
     transition: transform 0.3s ease;
 }
 
-footer ul li a::before{ background: #fff; }
+footer .menu li a::before{ background: #fff; }
 
 ul li a:hover::before, ul li a.active::before{
     transform: scaleX(1);
 }
 
-a.active{
+.social_media img{
+    transition: .3s;
+}
+
+.social_media img:hover{
+    transform: translateY(-5px);
+}
+
+header a.active{
     background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -5,7 +5,7 @@ function RotasMenu(props){
     return(
         <>
         { props.hasButton && <Button /> }
-            <ul>
+            <ul className='menu'>
                 <li><a href="index.html" className="active">início</a></li>
                 <li><a href="blog.html">artigos</a></li>
                 <li><a href="empresas.html">IPOs</a></li>

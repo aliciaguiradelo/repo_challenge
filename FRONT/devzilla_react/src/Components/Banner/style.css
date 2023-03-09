@@ -35,3 +35,41 @@
     font-weight: 700;
     font-size: 45px;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (max-width: 992px) {
+    .banner img{ object-fit: cover; }
+
+    main { padding-top: 220px; }
+
+    .wrap_title span{
+        font-size: 35px;
+    }
+
+    .wrap_title{
+        left: 40%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (max-width: 768px) {
+    .wrap_title{ left: 40%; }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+    .wrap_title{ left: 20%; }
+
+    .wrap_title span{ font-size: 35px; }
+
+    .wrap_title span {
+        font-size: 25px;
+    }
+
+    #blog .wrap_title{
+        left: 20%;
+        top: 20%;
+    }
+
+    main { padding-top: 190px; }
+}

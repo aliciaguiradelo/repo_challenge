@@ -7,6 +7,23 @@ import './style.css'
 import Menu from '../RotasMenu'
 
 export default function Header(){
+
+    // DIMINUIR O MENU QUANDO O USUÁRIO SCROLLA
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    
+    if(window.scrollY>150){
+        if (prevScrollpos > currentScrollPos) {
+            document.querySelector("header").style.top = "0";
+            document.querySelector("header").style.paddingBottom = "3em";
+        } else {
+            document.querySelector("header").style.top = "-15vh";
+            document.querySelector("header").style.paddingBottom = "1em";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+}
     return(
         <header>
             <div className="row">
@@ -31,6 +48,7 @@ export default function Header(){
 
             <div className="row btns_menu">
                 
+                {/* HasButton indica que na versão mobile do site vai aparecer o btn hamburguer que abre o menu */}
                 <Menu hasButton />
 
                 <div className="search">
