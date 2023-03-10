@@ -36,6 +36,31 @@ a:hover{ opacity: .9; }
   -webkit-text-fill-color: transparent;
 }
 
+.container{ 
+  justify-content: space-around; 
+  padding: 5rem;
+}
+
+.column{ width: 50%; }
+
+.width_80{ width: 80%; }
+
+.column img{ 
+  display: flex;
+  margin: auto;
+}
+
+select{
+  outline: 0;
+  background: rgba(238, 238, 238, 0.22);
+  border: 1px solid #555555;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: .5em;
+  font-family: 'Nunito';
+  width: 100%;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
 

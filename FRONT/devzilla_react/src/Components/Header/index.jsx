@@ -13,7 +13,7 @@ export default function Header(){
     window.onscroll = function() {
     let currentScrollPos = window.pageYOffset;
     
-    if(window.scrollY>150){
+    if(window.scrollY>50){
         if (prevScrollpos > currentScrollPos) {
             document.querySelector("header").style.top = "0";
             document.querySelector("header").style.paddingBottom = "3em";
