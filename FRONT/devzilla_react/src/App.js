@@ -10,7 +10,8 @@ import ListaCards from './Components/ListaArtigos';
 import artigos from './Assets/DadosExemplos/blog.json'
 import ipos from './Assets/DadosExemplos/ipos.json'
 
-import IllustrQuemSomos from './Assets/Illustrations/illustr_quem_somos.svg'
+import IllustrBlog from './Assets/Illustrations/illustr_quem_somos.svg'
+import IllustrIPO from './Assets/Illustrations/illustr_investing.svg'
 
 export default function App() {
   return (
@@ -28,9 +29,11 @@ export default function App() {
         />
 
         <Section1 />
-        {/* <Section2 /> */}
-        <ListaCards dados={artigos} tipo="materia" />
         <ListaCards dados={ipos} tipo="ipo" />
+
+        <Section2 />
+        <ListaCards dados={artigos} tipo="materia" />
+
         <Newsletter />
       </main>
 
@@ -41,20 +44,20 @@ export default function App() {
 
 function Section1(){
   return(
-    <section class="row container" id="section1">
-      <div class="column">
-        <img src={IllustrQuemSomos} />
+    <section className="row container" id="section1">
+      <div className="column">
+        <img src={IllustrIPO} />
       </div>
       
-      <div class="column">
-        <h1 class="line_before">Quem Somos</h1>
-        <p class="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.
-        </strong></p>
+      <div className="column">
+        <h1 className="line_before">Quem Somos</h1>
+        <p className="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.</strong> Aqui você acessa todas as ofertas disponíveis e pode <strong>comparar entre elas para investir com mais confiança.</strong>
+        </p>
 
         <Button 
-          link="sobre_nos"
+          link="ofertas"
           icon_name="arrow"
-          texto="ler mais"
+          texto="ofertas disponíveis"
         />
       </div>
     </section>
@@ -63,17 +66,22 @@ function Section1(){
 
 function Section2(){
   return(
-    <section class="bg_gray">
-      <div class="container width_80">
-        <h1 className='line_before'>Nosso Blog</h1>
-        <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos <strong>artigos</strong> e fique por dentro dos termos usados e das <strong>ofertas públicas</strong> que iniciarem! </p>
-        
-        <Button 
-          link="blog"
-          icon_name="arrow"
-          texto="saiba mais"
-        />
+    <section className="row container" id="section2">
 
+      <div className="column">
+        <h1 className="line_before">Nosso Blog</h1>
+        <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos artigos e fique por dentro! Nossa missão é <strong>facilitar o assunto</strong> e te ajudar a ir da organização financeira até o mundo dos investimentos!
+        </p>
+
+        <Button 
+          link="sobre_nos"
+          icon_name="arrow"
+          texto="ler mais"
+        />
+      </div>
+
+      <div className="column">
+        <img src={IllustrBlog} />
       </div>
     </section>
   )
@@ -81,9 +89,9 @@ function Section2(){
 
 function Newsletter(){
   return(
-    <section class="bg_gray">
-      <div class="container" id="newsletter">
-        <h1 className='line_before'>Receba as novidades por e-mail</h1>
+    <section className="bg_gray">
+      <div className="container" id="newsletter">
+        <h1 classNameName='line_before'>Receba as novidades por e-mail</h1>
         <p>Dessa forma você ficará por dentro de <strong>todas as notícias</strong> </p>
         <input type="email" placeholder="Seu endereço de e-mail" />
 

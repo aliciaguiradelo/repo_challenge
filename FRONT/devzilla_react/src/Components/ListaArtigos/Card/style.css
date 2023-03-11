@@ -7,9 +7,10 @@
 
 .card{
     box-shadow: 0px 1px 2px rgba(22, 40, 62, 0.35);
-    border: solid 1px #bbb;
+    border: solid 1px #e5e5e5;
     border-radius: 7px;
     width: 30%;
+    background: #fff;
 }
 
 .card_content{ padding: 20px; }
@@ -94,19 +95,22 @@
 }
 
 .atualizacao{
-    display: inline-block;
-    margin: 10px 0;
+    display: flex;
+    margin: 10px auto;
     margin-bottom: 20px;
     border: solid 1px #000;
     border-radius: 2px;
     padding: 2px 5px;
     font-size: smaller;
+    width: fit-content;
+    align-items: center;
 }
 
 .atualizacao img{
     width: 13px;
     object-position: center;
-    height: 15px;
+    height: 13px;
+    margin-right: 3px;
 }
 
 .caiu{

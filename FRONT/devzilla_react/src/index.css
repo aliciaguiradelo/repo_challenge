@@ -89,6 +89,16 @@ input:not(.search input), textarea {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: auto;
+}
+
+.line_after::after{
+  width: 130px;
+  content: '';
+  background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+  display: block;
+  height: 5px;
+  margin-top: 10px;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
