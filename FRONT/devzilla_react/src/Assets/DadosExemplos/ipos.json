@@ -1,12 +1,38 @@
 [
     {
         "id": 1,
-        "titulo": "O que são IPOs e como funcionam",
-        "imagem": "ipos_blog.jpg",
-        "subtitulo": "A sigla IPO significa “Initial Public Offering” ou “Oferta Pública Inicial”, traduzido para o português. Ela descreve um evento realizado na Bolsa de Valores em que a empresa, pela primeira vez, oferece a oportunidade a investidores de se tornarem sócios por meio da compra de ações.",
-        "termos": ["IPO", "Ações", "Investimento", "Ofertas Públicas"]
+        "nome": "TG Real Estate",
+        "cor": "#3D4A76",
+        "imagem": "tg_re.png",
+        "status": "ativa",
+        "valor": "9,75",
+        "atualizacao": ["caiu", "49.3%"]
     },
     {
-        
+        "id": 2,
+        "nome": "Nubank",
+        "cor": "#9D02D9",
+        "imagem": "nubank.png",
+        "status": "finalizada",
+        "valor": "23,48",
+        "atualizacao": ["caiu", "49.3%"]
+    },
+    {
+        "id": 3,
+        "nome": "Nubank",
+        "cor": "#9D02D9",
+        "imagem": "nubank.png",
+        "status": "finalizada",
+        "valor": "23,48",
+        "atualizacao": ["caiu", "49.3%"]
+    },
+    {
+        "id": 4,
+        "nome": "Nubank",
+        "cor": "#9D02D9",
+        "imagem": "nubank.png",
+        "status": "finalizada",
+        "valor": "23,48",
+        "atualizacao": ["caiu", "49.3%"]
     }
 ]

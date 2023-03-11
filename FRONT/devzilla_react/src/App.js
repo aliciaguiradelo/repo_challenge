@@ -5,9 +5,10 @@ import Header from './Components/Header';
 import Banner from './Components/Banner';
 import BannerSlider from './Components/Slider';
 import Button from './Components/Button';
-import ListaArtigos from './Components/ListaArtigos';
+import ListaCards from './Components/ListaArtigos';
 
 import artigos from './Assets/DadosExemplos/blog.json'
+import ipos from './Assets/DadosExemplos/ipos.json'
 
 import IllustrQuemSomos from './Assets/Illustrations/illustr_quem_somos.svg'
 
@@ -28,7 +29,8 @@ export default function App() {
 
         <Section1 />
         {/* <Section2 /> */}
-        <ListaArtigos artigos={artigos}/>
+        <ListaCards dados={artigos} tipo="materia" />
+        <ListaCards dados={ipos} tipo="ipo" />
         <Newsletter />
       </main>
 

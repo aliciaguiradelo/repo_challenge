@@ -1,20 +1,19 @@
 import './style.css'
-import Card from './CardArtigo'
+import Card from './Card'
 
-export default function ListaArtigos(props){
-    const { artigos } = props
+export default function ListaCards(props){
+    const { dados, tipo } = props
 
     return(
         <section class="container" id="lista_artigos">   
             <h1 class="line_after">Matérias</h1>
 
             <div class="lista_cards">
-                { artigos.map((artigo) =>{
+                { dados.map((artigo) =>{
                     return(
                         <Card 
-                            titulo={artigo.titulo}
-                            subtitulo={artigo.subtitulo}
-                            imagem={artigo.imagem}
+                            tipo={tipo}
+                            dados={artigo}
                         />
                     )
                 }) }
