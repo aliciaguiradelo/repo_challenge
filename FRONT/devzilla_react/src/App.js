@@ -4,6 +4,10 @@ import Footer from './Components/Footer';
 import Header from './Components/Header';
 import Banner from './Components/Banner';
 import BannerSlider from './Components/Slider';
+import Button from './Components/Button';
+import ListaArtigos from './Components/ListaArtigos';
+
+import artigos from './Assets/DadosExemplos/blog.json'
 
 import IllustrQuemSomos from './Assets/Illustrations/illustr_quem_somos.svg'
 
@@ -23,7 +27,8 @@ export default function App() {
         />
 
         <Section1 />
-        <Section2 />
+        {/* <Section2 /> */}
+        <ListaArtigos artigos={artigos}/>
         <Newsletter />
       </main>
 
@@ -40,10 +45,15 @@ function Section1(){
       </div>
       
       <div class="column">
-        <h1 class="line_after">Quem Somos</h1>
+        <h1 class="line_before">Quem Somos</h1>
         <p class="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.
         </strong></p>
-        <a href="sobre_nos.html" class="btn btn_primary arrow">Ler Mais</a>
+
+        <Button 
+          link="sobre_nos"
+          icon_name="arrow"
+          texto="ler mais"
+        />
       </div>
     </section>
   )
@@ -53,9 +63,15 @@ function Section2(){
   return(
     <section class="bg_gray">
       <div class="container width_80">
-        <h1>Nosso Blog</h1>
+        <h1 className='line_before'>Nosso Blog</h1>
         <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos <strong>artigos</strong> e fique por dentro dos termos usados e das <strong>ofertas públicas</strong> que iniciarem! </p>
-        <a href="blog.html" class="btn btn_primary arrow">Saiba Mais</a>
+        
+        <Button 
+          link="blog"
+          icon_name="arrow"
+          texto="saiba mais"
+        />
+
       </div>
     </section>
   )
@@ -65,10 +81,16 @@ function Newsletter(){
   return(
     <section class="bg_gray">
       <div class="container" id="newsletter">
-        <h1>Receba as novidades por e-mail</h1>
+        <h1 className='line_before'>Receba as novidades por e-mail</h1>
         <p>Dessa forma você ficará por dentro de <strong>todas as notícias</strong> </p>
         <input type="email" placeholder="Seu endereço de e-mail" />
-        <a href="#" class="btn btn_primary arrow">cadastrar</a>
+
+        <Button 
+          link="sobre_nos"
+          icon_name="arrow"
+          texto="cadastrar"
+        />
+
       </div>
     </section>
   )

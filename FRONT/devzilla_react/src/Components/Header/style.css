@@ -57,8 +57,8 @@ header section small{
 }
 
 .search{
-    border: solid 2px #AD7449;
-    border-radius: 50px;
+    border: solid 2px #ad744990;
+    border-radius: 5px;
     display: flex;
     height: 35px;
     width: 300px;
@@ -71,34 +71,15 @@ header section small{
     border: none;
 }
 
-.artigobtn .btn img{
-    width: 20px;
-    height: 20px;
+header .btn svg{
+    transform: scale(1.5);
 }
 
-header .btn img{
-    width: 20px;
-    height: 20px;
-}
-
-.artigobtn .btn{
-    background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
-    width: 20%;
-    border-radius: 0 50px 50px 0;
-    height: 39px;
-    position: relative;
-    top: -2px;
-    right: -2px;
-    transition: .3s;
-    margin: 0;
-    border: none;
-    cursor: pointer;
-}
 
 header .btn{
     background: -webkit-linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
     width: 20%;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 5px 5px 0;
     height: 38px;
     position: relative;
     top: -2px;
