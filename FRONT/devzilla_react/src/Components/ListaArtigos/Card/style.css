@@ -130,4 +130,31 @@
 /* Extra small devices (phones, 600px and down) */
 @media screen and (max-width: 600px) {
     .card{ width: 100%;}
+
+    .card.ipo{
+        width: 49%;
+    }
+
+    .ipo .card_content{
+        /* padding: 10px; */
+    }
+
+    .ipo .logo{   
+        width: 30px;
+        height: 30px;
+        min-height: 30px;
+    }
+
+    .ipo .wrap_img{
+        padding: 5px 10px;
+    }
+
+    .ipo .btn {
+        font-size: .8em;
+        gap: 5px;
+    }
+
+    .ipo .c_title{
+        font-size: 17px;
+    }
 }

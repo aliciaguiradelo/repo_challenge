@@ -1,0 +1,57 @@
+#filter{
+    flex-wrap: wrap;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 2.5em;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+#filter h2{
+    width: 100%;
+}
+
+#filter input{
+    width: 65%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#filter select{
+    width: 32% !important;
+    margin: 0;
+    border: solid 1px #c5c5c5;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#blog .card{
+    margin-bottom: 3em;
+}
+
+#blog .container.bg_gray{
+    padding-top: 2.5em;
+}
+
+@media screen and (max-width: 992px) {
+    #filter{
+        width: 100%;
+    }
+
+    #filter select{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 992px){
+    #filter select, #filter input{
+        width: 100%;
+    }
+
+    #filter select{
+        margin-top: 1em;
+    }
+}

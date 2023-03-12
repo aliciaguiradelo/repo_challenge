@@ -1,14 +1,15 @@
 import './style.css'
 import Card from './Card'
+import Button from '../Button'
 
 export default function ListaCards(props){
-    const { dados, tipo } = props
+    const { dados, tipo, botao } = props
 
     return(
-        <section class="container bg_gray">   
-            <h1 class="line_after">{ tipo == 'materia' ? 'Matérias' : 'Ofertas Públicas Iniciais' }</h1>
+        <section className="container bg_gray">   
+            <h1 className="line_after">{ tipo == 'materia' ? 'Matérias' : 'Ofertas Públicas Iniciais' }</h1>
 
-            <div class="lista_cards">
+            <div className="lista_cards">
                 { dados.map((artigo) =>{
                     return(
                         <Card 
@@ -19,6 +20,15 @@ export default function ListaCards(props){
                 }) }
                 
             </div>
+
+            { botao && 
+                <Button
+                    link=""
+                    icon_name="arrow_long"
+                    texto="Ver todas"
+                    style="secondary"
+                />  
+            }
         </section>
     )
 }

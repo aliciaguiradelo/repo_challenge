@@ -1,12 +1,12 @@
 .banner{ 
     height: 70vh; 
     position: relative;
-    z-index: -1;
 }
 
-.banner img{
+#img_banner{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .mask_banner{
@@ -36,9 +36,17 @@
     font-size: 45px;
 }
 
+.wave{
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
-    .banner img{ object-fit: cover; }
+    #img_banner{ object-fit: cover; }
 
     main { padding-top: 220px; }
 
@@ -53,12 +61,12 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media screen and (max-width: 768px) {
-    .wrap_title{ left: 40%; }
+    .wrap_title{ left: 25%; }
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media screen and (max-width: 600px) {
-    .wrap_title{ left: 20%; }
+    .wrap_title{ left: 15%; }
 
     .wrap_title span{ font-size: 35px; }
 

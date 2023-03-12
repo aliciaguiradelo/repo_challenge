@@ -6,6 +6,8 @@ import './style.css'
 
 import Menu from '../RotasMenu'
 
+import { Link } from 'react-router-dom'
+
 export default function Header(){
 
     // DIMINUIR O MENU QUANDO O USUÁRIO SCROLLA
@@ -16,7 +18,7 @@ export default function Header(){
     if(window.scrollY>50){
         if (prevScrollpos > currentScrollPos) {
             document.querySelector("header").style.top = "0";
-            document.querySelector("header").style.paddingBottom = "3em";
+            document.querySelector("header").style.paddingBottom = "1.5em";
         } else {
             document.querySelector("header").style.top = "-15vh";
             document.querySelector("header").style.paddingBottom = "1em";
@@ -27,9 +29,9 @@ export default function Header(){
     return(
         <header>
             <div className="row">
-                <a href="index.html">
+                <Link to="/">
                     <h1 className="logo">devzilla</h1>
-                </a>
+                </Link>
 
                 <section>
                     <a href="perfil_usuario.html" className="my_account">
@@ -37,10 +39,10 @@ export default function Header(){
                         minha conta
                     </a>
 
-                    <a href="perfil_usuario.html#artigos_salvos" className="saved">
-                        <IconSave />
-                        itens salvos
-                    </a>
+                    {/* <a href="perfil_usuario.html#artigos_salvos" className="saved"> */}
+                        {/* <IconSave /> */}
+                        {/* itens salvos */}
+                    {/* </a> */}
 
                     <small>Ainda não tem conta? <strong><a href="cadastro.html" className="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" className="text_blue">faça login</a></strong></small>
                 </section>

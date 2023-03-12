@@ -1,17 +1,19 @@
 import './style.css'
 import Button from './Button'
 
+import { Link } from 'react-router-dom'
+
 function RotasMenu(props){
     return(
         <>
         { props.hasButton && <Button /> }
             <ul className='menu'>
-                <li><a href="index.html" className="active">início</a></li>
-                <li><a href="blog.html">artigos</a></li>
-                <li><a href="empresas.html">IPOs</a></li>
-                <li><a href="sobre_nos.html">sobre nós</a></li>
-                <li><a href="#">preciso de ajuda</a></li>
-                <li><a href="dashboard_adm.html">dashboard (admin)</a></li>
+                <li><Link to="/" className="active">início</Link></li>
+                <li><Link to="/blog">artigos</Link></li>
+                <li><Link to="/ofertas">IPOs</Link></li>
+                <li><Link to="/sobre">sobre nós</Link></li>
+                <li><Link to="/">preciso de ajuda</Link></li>
+                <li><Link to="/dashboard">dashboard (admin)</Link></li>
             </ul>
         </>    
     );

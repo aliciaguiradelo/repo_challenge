@@ -25,7 +25,6 @@ p{ line-height: 160%; }
 
     .column, .line_after{
         width: 100%;
-        text-align: center;
     }
 
     .width_80{ width: 100%; }

@@ -4,7 +4,7 @@ footer{
     /* margin-top: 3rem; */
 }
 
-footer ul li a, footer h2{ color: #fff; }
+footer ul li a, footer h2{ color: #fff !important; }
 
 footer .row{
     justify-content: flex-start;
