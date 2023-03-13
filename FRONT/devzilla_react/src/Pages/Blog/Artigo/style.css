@@ -1,0 +1,55 @@
+#artigo .container{
+    gap: 5em;
+}
+
+#cards{
+    width: 70%;
+}
+
+#cards .container{
+    padding: 0;
+}
+
+#cards h1{
+    display: none;
+}
+
+#cards article{
+    width: 100%;
+}
+
+#subtitulo{
+    font-weight: bolder;
+}
+
+#content{
+    margin-top: 2em;
+}
+
+#content ul li{
+    list-style: disc;
+    margin-top: .5em;
+    color: #444
+}
+
+#ref li::marker{
+    font-size: small;
+}
+
+#ref ol{
+    padding-left: 1em;
+}
+
+#ref{
+    margin-top: 4em;
+}
+
+@media screen and (max-width: 769px){
+    #artigo .container{
+        flex-direction: column;
+    }
+
+    #cards {
+        width: 100%;
+    }
+}

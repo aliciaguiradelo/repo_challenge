@@ -6,7 +6,7 @@ export default function Card(props){
     const { tipo, dados } = props
 
     return(
-        tipo == 'materia' ? <Materia item={dados} /> : <IPO item={dados} />     
+        tipo === 'materia' ? <Materia item={dados} /> : <IPO item={dados} />     
     )
 }
 
@@ -14,7 +14,7 @@ function Materia(props){
     const { id, imagem, titulo, subtitulo } = props.item
     return(
         <article className="card artigo">
-            <a href="artigo_individual.html">
+            <a href="/blog/artigo">
                 <img src={require(`../../../Assets/Images/blog/${imagem}`)}/>
             </a>
             <div className="card_content">
@@ -22,7 +22,7 @@ function Materia(props){
                 <small>{subtitulo}</small>
 
                 <Button
-                    link="artigo_individual"
+                    link="/blog/artigo"
                     icon_name="arrow"
                     texto="ler mais"
                     style="secondary"
