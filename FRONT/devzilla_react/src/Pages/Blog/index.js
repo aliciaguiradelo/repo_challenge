@@ -17,7 +17,7 @@ export default function Blog(){
 
             <main id='blog'>
                 <Banner 
-                    imagem="investimento.jpg"
+                    imagem="banner_blog.jpg"
                     titulo="Aprenda mais sobre investimento, ofertas e educação financeira!"
                 />
 
