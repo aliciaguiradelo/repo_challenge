@@ -1,0 +1,27 @@
+main#admin{
+    display: flex;
+}
+
+.conteudo_admin{
+    width: 82%;
+}
+
+.conteudo_admin .bg_gray{
+    padding: 0;
+    background-color: #fff
+}
+
+.conteudo_admin .bg_gray h1{
+    display: none;
+}
+
+.conteudo_admin .card{
+    width: 32%;
+    margin-bottom: 2em;
+}
+
+.conteudo_admin button::after{
+    display: none;
+    margin: 0;
+    height: fit-content;
+}

@@ -3,6 +3,8 @@
     border-radius: 7px 7px 0 0;
     height: 200px;
     object-fit: cover;
+    overflow: hidden;
+    transition: .3s;
 }
 
 .card{
@@ -11,6 +13,11 @@
     border-radius: 7px;
     width: 30%;
     background: #fff;
+    overflow: hidden;
+}
+
+.card a{
+    overflow: hidden;
 }
 
 .card_content{ padding: 20px; }
@@ -117,6 +124,10 @@
     color: #A43202;
     border-color: #A43202;
     background: rgba(189, 56, 0, 0.09);;
+}
+
+.card img:hover{
+    transform: scale(1.1);
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
