@@ -130,6 +130,36 @@
     transform: scale(1.1);
 }
 
+.wrapper_img{
+    display: block;
+    position: relative;
+}
+
+.icon_opt{
+    position: absolute;
+    font-size: 1.5em;
+    padding: .3em;
+    top: 1em;
+    right: 1em;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.delete{
+    top: 3em;
+    background: #d0352ab8;
+}
+
+.edit{
+    background: #ffc107b9;
+}
+
+.ipo .card_content{
+    position: relative;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
     .card{ 

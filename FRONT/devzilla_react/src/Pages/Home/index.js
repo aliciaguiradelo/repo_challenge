@@ -29,10 +29,10 @@ export default function App() {
         />
 
         <Section1 />
-        <ListaCards dados={ipos.slice(0, 4)} tipo="ipo" botao />
+        <ListaCards dados={ipos.slice(0, 4)} tipo="ipo" botao/>
 
         <Section2 />
-        <ListaCards dados={artigos.slice(0, 3)} tipo="materia" botao />
+        <ListaCards dados={artigos.slice(0, 3)} tipo="materia" botao admOptions={false} />
 
         <Newsletter />
       </main>

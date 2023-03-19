@@ -57,3 +57,8 @@
 .btn_secondary{
     padding: 0;
 }
+
+.btn_tertiary{
+    background: linear-gradient(90deg, #AD7449 -9.09%, #D18B57 109.44%);
+    color: #fff;
+}

@@ -3,7 +3,7 @@ import Card from './Card'
 import Button from '../Button'
 
 export default function ListaCards(props){
-    const { dados, tipo, botao } = props
+    const { dados, tipo, botao, admOptions } = props
 
     return(
         <section className="container bg_gray">   
@@ -15,6 +15,7 @@ export default function ListaCards(props){
                         <Card 
                             tipo={tipo}
                             dados={artigo}
+                            admOptions={admOptions}
                         />
                     )
                 }) }

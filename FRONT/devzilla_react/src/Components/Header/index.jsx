@@ -30,7 +30,7 @@ export default function Header(){
         <header>
             <div className="row">
                 <Link to="/">
-                    <h1 className="logo">devzilla</h1>
+                    <h1 className="logo">investium</h1>
                 </Link>
 
                 <section>
