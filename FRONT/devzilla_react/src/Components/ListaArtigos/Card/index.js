@@ -241,7 +241,7 @@ function IPO(props){
                 </span> */}
 
                 <Button
-                    link="artigo_individual"
+                    link="/ofertas/ipo"
                     icon_name="arrow"
                     texto="mais detalhes"
                     style="secondary"

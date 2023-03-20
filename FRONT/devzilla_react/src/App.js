@@ -3,12 +3,8 @@ import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
 import Artigo from "./Pages/Blog/Artigo";
 import Ofertas from "./Pages/Ofertas";
-
+import Oferta from "./Pages/Ofertas/Oferta";
 import Admin from "./Pages/Admin";
-import Artigos from "./Pages/Admin/Artigos";
-import Comentarios from "./Pages/Admin/Comentarios";
-import Dashboard from "./Pages/Admin/Dashboard";
-import AdminOfertas from "./Pages/Admin/Ofertas";
 
 export default function App() {
   return (
@@ -18,6 +14,7 @@ export default function App() {
           <Route element = { <Blog /> }  path="/blog" />
           <Route element = { <Artigo /> }  path="/blog/artigo" />
           <Route element = { <Ofertas /> }  path="/ofertas" />
+          <Route element = { <Oferta /> }  path="/ofertas/ipo" />
           <Route element = { <Admin /> }  path="/admin/*" />
           {/* <Route component = { Sobre }  path="/sobre" /> */}
       </Routes>

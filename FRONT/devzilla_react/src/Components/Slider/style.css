@@ -36,3 +36,7 @@
 .slick-prev {
     left: 100px;
 }
+
+.slick-dots{
+    bottom: 15px;
+}

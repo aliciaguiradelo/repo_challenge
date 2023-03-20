@@ -38,7 +38,7 @@ export default function Ofertas(){
                 </section>
 
                 <section id="container_filter" className='container'>
-                    <aside>
+                    {/* <aside>
                         <h2>Filtrar por:</h2>
 
                         <div className='filtro'>
@@ -76,7 +76,7 @@ export default function Ofertas(){
                                 </div>
                             </div>
                         </div>
-                    </aside>
+                    </aside> */}
 
                     <ListaCards 
                         tipo="ipos" 

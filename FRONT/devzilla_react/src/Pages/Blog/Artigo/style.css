@@ -6,6 +6,10 @@
     width: 70%;
 }
 
+#cards .lista_cards{
+    background: #fff;
+}
+
 #cards .container{
     padding: 0;
 }
@@ -16,6 +20,7 @@
 
 #cards article{
     width: 100%;
+    margin-bottom: 2em;
 }
 
 #subtitulo{
