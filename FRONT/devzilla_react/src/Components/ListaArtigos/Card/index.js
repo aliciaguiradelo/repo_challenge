@@ -220,7 +220,7 @@ function IPO(props){
 
         <article className="card ipo">
             <div className="card_content">
-                <a href="empresa.html" className='wrap_img' style={{background: cor}}>
+                <a href="/ofertas/ipo" className='wrap_img' style={{background: cor}}>
                     <img src={require(`../../../Assets/Images/ipo/${imagem}`)} className="logo"/>
                 </a>
 

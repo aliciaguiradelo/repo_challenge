@@ -27,6 +27,8 @@ ChartJS.register(
     Legend
 );
 
+import { IoIosArrowDropdownCircle } from 'react-icons/io';
+
 export default function Oferta () {
 
     const ipo = ipos[0];
@@ -135,11 +137,11 @@ function ApresentacaoEmpresa(props){
             <div className="direcionamentos">
                 <div>
                     <h2>Informações importantes:</h2>
-                    <a href="#governanca" className="btn btn_primary arrow text_blue">Diretoria da empresa</a>
-                    <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a OBA Hortifruti</a>
-                    <a href="#destino" className="btn btn_primary arrow text_blue">Destino dos recursos</a>
-                    <a href="#indicadores" className="btn btn_primary arrow text_blue">Indicadores financeiros</a>
-                    <a href="#balanco" className="btn btn_primary arrow text_blue">Balanços Patrimoniais</a>
+                    <a href="#governanca" className="btn btn_primary arrow text_blue">Diretoria da empresa <IoIosArrowDropdownCircle /> </a>
+                    <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a OBA Hortifruti <IoIosArrowDropdownCircle /></a>
+                    <a href="#destino" className="btn btn_primary arrow text_blue">Destino dos recursos <IoIosArrowDropdownCircle /></a>
+                    <a href="#indicadores" className="btn btn_primary arrow text_blue">Indicadores financeiros <IoIosArrowDropdownCircle /></a>
+                    <a href="#balanco" className="btn btn_primary arrow text_blue">Balanços Patrimoniais <IoIosArrowDropdownCircle /></a>
                 </div>
             </div>
         </section>
