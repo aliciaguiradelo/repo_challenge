@@ -113,13 +113,27 @@
     -webkit-text-fill-color: transparent !important;
 }
 
+.apresentacao_empresa .wrap_img {
+    display: flex;
+    padding: 15px 20px;
+    border-radius: 7px;
+    width: 20%;
+    justify-content: center;
+}
+
+.apresentacao_empresa .wrap_img img{
+    width: 50%;
+    height: auto !important;
+    object-fit: contain;
+}
+
 .direcionamentos svg{
     color: #042B4D;
     font-size: 1.5em;
 }
 
 .informacoes_empresa h2, .direcionamentos h2{
-    text-transform: lowercase;
+    text-transform: uppercase;
     margin: 0;
     padding: 0;
     padding-bottom: 15px;

@@ -18,6 +18,13 @@ import {
 
 import { Bar } from 'react-chartjs-2';
 
+import { IoIosArrowDropdownCircle } from 'react-icons/io';
+
+import default_profile from '../../../Assets/Governanca/default_pic.svg'
+import default_profile_female from '../../../Assets/Governanca/default_pic_female.svg'
+import alessandra from '../../../Assets/Governanca/Alessandra.jpg'
+import alexandre from '../../../Assets/Governanca/Alexandre.jpg'
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -27,11 +34,9 @@ ChartJS.register(
     Legend
 );
 
-import { IoIosArrowDropdownCircle } from 'react-icons/io';
-
 export default function Oferta () {
 
-    const ipo = ipos[0];
+    const ipo = ipos[1];
     const relacionados = ipos.slice(1, 3);
 
     return(
@@ -120,9 +125,9 @@ function ApresentacaoEmpresa(props){
 
     return(
         <section className="container apresentacao_empresa">
-            <div className="imagem_empresa">
-                <img src={require(`../../../Assets/Images/ipo/${ipo.imagem}`)}/>
-            </div>
+            <a href="/ofertas/ipo" className='wrap_img' style={{background: ipo.cor}}>
+                <img src={require(`../../../Assets/Images/ipo/${ipo.imagem}`)} className="logo"/>
+            </a>
             <div className="informacoes_empresa">
                 <div>
                     <h2>{ipo.nome}</h2>
@@ -154,28 +159,28 @@ function Governanca(){
             <h1 className="line_after">Diretoria (Governança)</h1>
             <article>
                 <div>
-                    <img src="./img/ilustracoes/default_pic.svg" alt="" />
+                    <img src={default_profile} alt="" />
                     <div>
                         <p>Alex Alves dos Santos Brito</p>
                         <small>Diretor Presidente</small>
                     </div>
                 </div>
                 <div>
-                    <img src="./img/Governanca/Alexandre.jpg" alt="Alexandre Otomo de Almeida" />
+                    <img src={alexandre} alt="Alexandre Otomo de Almeida" />
                     <div>
                         <p>Alexandre Otomo de Almeida</p>
                         <small>Diretor Financeiro e Diretor de Relações com Investidores</small>
                     </div>
                 </div>
                 <div>
-                    <img src="./img/Governanca/Alessandra.jpg" alt="Alessandra Medeiros de Oliveira" />
+                    <img src={alessandra} alt="Alessandra Medeiros de Oliveira" />
                     <div>
                         <p>Alessandra Medeiros de Oliveira</p>
                         <small>Diretora sem designação específica</small>
                     </div>
                 </div>
                 <div>
-                    <img src="./img/ilustracoes/default_pic.svg" alt="" />
+                    <img src={default_profile} alt="" />
                     <div>
                         <p>Cezar Lucas de Gusmão</p>
                         <small>Diretor sem designação específica</small>

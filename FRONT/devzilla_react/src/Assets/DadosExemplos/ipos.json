@@ -96,8 +96,90 @@
         "cor": "#9D02D9",
         "imagem": "nubank.png",
         "status": "finalizada",
+        "setor": "financeiro",
+        "cnpj": "04.972.092/0001-22",
         "valor": "23,48",
-        "atualizacao": ["caiu", "49.3%"]
+        "atualizacao": ["caiu", "49.3%"],
+        "indicadores_financeiros_liquido": {
+            "labels": ["2019", "2020", "2021"],
+            "datasets": [
+              {
+                "label": "Receita Líquida",
+                "data": [1750, 1780, 1917],
+                "backgroundColor": "#0B8C3D"
+              },
+              {
+                "label": "Dívida Líquida",
+                "data": [190, 194.3, 376.7],
+                "backgroundColor": "#BD3800"
+              },
+              {
+                "label": "Lucro Líquido",
+                "data": [42, 44, 21],
+                "backgroundColor": "#D18B57"
+              }
+            ]
+          },
+          "indicadores_financeiros_bruto": {
+            "labels": ["2019", "2020", "2021"],
+            "datasets": [
+              {
+                "label": "Receita Bruta",
+                "data": [1900, 1936, 2197],
+                "backgroundColor": "#0B8C3D"
+              },
+              {
+                "label": "Dívida Bruta",
+                "data": [190, 194.3, 376.7],
+                "backgroundColor": "#BD3800"
+              },
+              {
+                "label": "Lucro Bruto",
+                "data": [700, 800, 717],
+                "backgroundColor": "#D18B57"
+              }
+            ]
+          },
+          "balancos_patrimoniais_ativo": {
+            "labels": ["2019", "2020", "2021"],
+            "datasets": [
+              {
+                "label": "Circulante",
+                "data": [431808, 431808, 601634],
+                "backgroundColor": "#005BAA"
+              },
+              {
+                "label": "Não circulante",
+                "data": [668071, 668071, 904460],
+                "backgroundColor": "#D18B57"
+              },
+              {
+                "label": "Total do ativo",
+                "data": [1099879, 1099879, 1506094],
+                "backgroundColor": "#0B8C3D"
+              }
+            ]
+          },
+          "balancos_patrimoniais_passivo": {
+            "labels": ["2019", "2020", "2021"],
+            "datasets": [
+              {
+                "label": "Circulante",
+                "data": [431808, 431808, 601634],
+                "backgroundColor": "#005BAA"
+              },
+              {
+                "label": "Não circulante",
+                "data": [668071, 668071, 904460],
+                "backgroundColor": "#D18B57"
+              },
+              {
+                "label": "Total do passivo",
+                "data": [1099879, 1099879, 1506094],
+                "backgroundColor": "#0B8C3D"
+              }
+            ]
+          }
     },
     {
         "id": 3,
