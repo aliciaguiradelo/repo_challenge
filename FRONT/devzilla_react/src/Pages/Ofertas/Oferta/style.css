@@ -70,7 +70,7 @@
 }
 .terceiro_topo div p {
     font-size: 2em;
-    font-weight: 900;
+    font-weight: 700;
 }
 .apresentacao_empresa{
     padding-top: 0px;
@@ -233,15 +233,18 @@
     height: 60px;
 }
 
-/* table {
+#empresa table {
     border-collapse: collapse;
-    width: 65%;
+    width: 100%;
     color: #444;
-    margin-bottom: 3em;
-} */
+}
 
-tbody tr:not(:last-of-type){
+#empresa tbody tr:not(:last-of-type){
     border-bottom: solid 1px #B9B9B9 ;
+}
+
+tr:nth-child(even){
+    background-color: rgb(211, 211, 211);
 }
 
 th{
@@ -314,5 +317,39 @@ canvas {
 }
 
 .charts_section{
-    gap: 10em;
+    gap: 5em;
+}
+
+.wrap_data{
+    border: solid 1px rgb(172, 171, 171);
+    padding: 1.5em;
+    border-radius: 10px;
+}
+
+.wrap_data h2{
+    margin-top: 0;
+    margin-bottom: .5em;
+}
+
+.wrap_filter select{
+    font-size: .7em;
+    padding: 3px 5px;
+    width: fit-content;
+    margin-left: 1em;
+}
+
+.wrap_filter label{
+    font-size: .7em;
+    font-weight: 700;
+    color: rgb(58, 58, 58);
+    display: inline;
+}
+
+.indicadores, .indicadores .charts_section {
+    width: 70%;
+    margin: auto;
+}
+
+.charts_section .wrap_data{
+    width: 100%;
 }

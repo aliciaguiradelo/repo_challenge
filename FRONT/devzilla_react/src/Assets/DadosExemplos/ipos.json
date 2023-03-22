@@ -100,6 +100,17 @@
         "cnpj": "04.972.092/0001-22",
         "valor": "23,48",
         "atualizacao": ["caiu", "49.3%"],
+        "lucro": {
+          "labels": ["2018", "2019", "2020", "2021", "2022"],
+            "datasets": [
+              {
+                "label": "Lucro",
+                "data": [38, 39, 42, 44, 45],
+                "backgroundColor": "#D18B57",
+                "borderColor": "#D18B57"
+              }
+            ]
+        },
         "indicadores_financeiros_liquido": {
             "labels": ["2019", "2020", "2021"],
             "datasets": [

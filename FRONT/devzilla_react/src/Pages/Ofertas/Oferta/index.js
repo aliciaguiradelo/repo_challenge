@@ -5,6 +5,8 @@ import './style.css'
 
 import ipos from '../../../Assets/DadosExemplos/ipos.json'
 
+import { useState } from 'react'
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -13,10 +15,11 @@ import {
     Title,
     Tooltip,
     Legend,
-    ArcElement
+    LineElement,
+    PointElement
 } from 'chart.js';
 
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
@@ -34,10 +37,21 @@ ChartJS.register(
     Legend
 );
 
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+  
+
 export default function Oferta () {
 
     const ipo = ipos[1];
-    const relacionados = ipos.slice(1, 3);
+    const relacionados = ipos.slice(1, 3)
 
     return(
         <div>
@@ -47,41 +61,85 @@ export default function Oferta () {
                     <ApresentacaoEmpresa ipo={ipo} />
                     <Governanca />
                     <Sobre />
-
-                    <div className="container" style={{paddingBottom: 0}}>    
-                        <h1 className="line_after">Indicadores financeiros da empresa</h1>
-                    </div>
-
-                    <div className="container row charts_section" style={{paddingTop: 0}}>
-                        <div className="column">
-                            <h2>Valores Brutos</h2>
-                            <Bar data={ipo.indicadores_financeiros_bruto} />
-                        </div>
-
-                        <div className="column">
-                            <h2>Valores Líquidos</h2>
-                            <Bar data={ipo.indicadores_financeiros_liquido} />
-                        </div>
-                    </div>
-
-                    <div className="container" style={{paddingBottom: 0, paddingTop: 0}}>    
-                        <h1 className="line_after">Balanços Patrimoniais</h1>
-                    </div>
-
-                    <div className="container row charts_section" style={{paddingTop: 0}}>
-                        <div className="column">
-                            <h2>Ativos</h2>
-                            <Bar data={ipo.balancos_patrimoniais_ativo} />
-                        </div>
-
-                        <div className="column">
-                            <h2>Passivos</h2>
-                            <Bar data={ipo.balancos_patrimoniais_passivo} />
-                        </div>
-                    </div>
+                    <IndicadoresFinanceiros ipo={ipo}/>
+                    
                 </main>
             <Footer />
         </div>
+    )
+}
+
+function IndicadoresFinanceiros(props){
+    const ipo = props.ipo;
+    const [visualizacao, setVisualizacao] = useState();
+
+    
+    const options = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Lucro',
+          },
+        },
+      };
+
+    return(
+        <>
+            <div className="container indicadores" style={{paddingBottom: 0}}>    
+                <h1 className="line_after">Indicadores financeiros da empresa</h1>
+            </div>
+
+            <div className="container row charts_section indicadores" style={{paddingTop: 0}}>
+                <div className="column wrap_data">
+                    <h2>Valores Brutos</h2>
+                    <div className="wrap_filter">
+                        <label>Tipo de visualização: </label>
+                        <select 
+                            id="visualizacao" 
+                            onChange={(e)=> 
+                                setVisualizacao(e.target.value)
+                            }
+                            value={visualizacao}
+                        >
+                            <option value="barra">Geral (Gráfico de barra)</option>
+                            <option value="linha">Específica (Gráfico de linha)</option>
+                            <option value="tabela">Detalhada (tabela)</option>
+                        </select>
+                    </div>
+
+                        { visualizacao === 'tabela' ? <Table /> : visualizacao === 'barra' ?
+                        <Bar data={ipo.indicadores_financeiros_bruto} /> :
+                        <Line options={options} data={ipo.lucro} /> }
+
+                    
+                </div>
+
+                {/* <div className="column wrap_data">
+                    <h2>Valores Líquidos</h2>
+                    <Bar data={ipo.indicadores_financeiros_liquido} />
+                </div> */}
+            </div>
+
+            <div className="container" style={{paddingBottom: 0, paddingTop: 0}}>    
+                <h1 className="line_after">Balanços Patrimoniais</h1>
+            </div>
+
+            <div className="container row charts_section" style={{paddingTop: 0}}>
+                <div className="column wrap_data">
+                    <h2>Ativos</h2>
+                    <Bar data={ipo.balancos_patrimoniais_ativo} />
+                </div>
+
+                <div className="column wrap_data">
+                    <h2>Passivos</h2>
+                    <Bar data={ipo.balancos_patrimoniais_passivo} />
+                </div>
+            </div>
+        </>
     )
 }
 
@@ -203,5 +261,99 @@ function Sobre(){
                 <p>A Companhia pretende utilizar os recursos líquidos provenientes da Oferta Primária de acordo com seu plano de negócios para: (i) abertura de novas lojas, (ii) investimento nos canais digitais, e (iii) investimento na cadeia de logística.</p>
             </section>
         </div>
+    )
+}
+
+function Table(){
+    return(
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>2020 (R$ em milhões)</th>
+                    <th>2021 (R$ em milhões)</th>
+                    <th>Variação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Receita bruta (R$)</td>
+                    <td><span class="neutro">=</span>1.936</td>
+                    <td><span class="subiu"></span>2.197</td>
+                    <td>13,4 %</td>
+                </tr>
+
+                <tr>
+                    <td>Receita líquida (R$)</td>
+                    <td><span class="neutro">=</span>1780</td>
+                    <td><span class="subiu"></span>2.017</td>
+                    <td>13,3 %</td>
+                </tr>
+
+                <tr>
+                    <td>Lucro bruto (R$)</td>
+                    <td><span class="subiu"></span>800</td>
+                    <td><span class="caiu"></span>717</td>
+                    <td>11,6 %</td>
+                </tr>
+
+                <tr>
+                    <td>Margem bruta (%)</td>
+                    <td><span class="neutro">=</span>39,7 %</td>
+                    <td><span class="subiu"></span>40,3 %</td>
+                    <td>0,6 p.p.</td>
+                </tr>
+
+                <tr>
+                    <td>EBITDA</td>
+                    <td><span class="neutro">=</span>181</td>
+                    <td><span class="subiu"></span>188</td>
+                    <td>3,8 %</td>
+                </tr>
+
+                <tr>
+                    <td>Margem EBITDA</td>
+                    <td><span class="neutro">=</span>10,2 %</td>
+                    <td><span class="subiu"></span>9,3 %</td>
+                    <td>(0,9) p.p.</td>
+                </tr>
+
+                <tr>
+                    <td>Lucro Líquido</td>
+                    <td><span class="subiu"></span>44</td>
+                    <td><span class="caiu"></span>21</td>
+                    <td>-53,1 %</td>
+                </tr>
+
+                <tr>
+                    <td>Margem Líquida</td>
+                    <td><span class="subiu"></span>2,5 %</td>
+                    <td><span class="caiu"></span>1,0 %</td>
+                    <td>(1,4) p.p.</td>
+                </tr>
+
+                <tr>
+                    <td>Dívida Líquida</td>
+                    <td><span class="caiu"></span>194,3</td>
+                    <td><span class="subiu"></span>376,7</td>
+                    <td> - </td>
+                </tr>
+
+                <tr>
+                    <td>Receita Líquida Total</td>
+                    <td><span class="subiu"></span>1780</td>
+                    <td><span class="subiu"></span>2017</td>
+                    <td>13,3 %</td>
+                </tr>
+
+                <tr>
+                    <td>Número de lojas</td>
+                    <td><span class="subiu"></span>61</td>
+                    <td><span class="subiu"></span>72</td>
+                    <td>18 %</td>
+                </tr>
+            </tbody>
+        </table>
     )
 }
