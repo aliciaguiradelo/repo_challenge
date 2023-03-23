@@ -71,7 +71,7 @@ export default function Oferta () {
 
 function IndicadoresFinanceiros(props){
     const ipo = props.ipo;
-    const [visualizacao, setVisualizacao] = useState();
+    const [visualizacao, setVisualizacao] = useState('barra');
 
     
     const options = {
@@ -95,7 +95,7 @@ function IndicadoresFinanceiros(props){
 
             <div className="container row charts_section indicadores" style={{paddingTop: 0}}>
                 <div className="column wrap_data">
-                    <h2>Valores Brutos</h2>
+                    {/* <h2>Valores Brutos</h2> */}
                     <div className="wrap_filter">
                         <label>Tipo de visualização: </label>
                         <select 
@@ -149,7 +149,7 @@ function Topo(props){
 
     return(
         <section className="container topo_empresas">
-            <div className="primeiro_topo">
+            {/* <div className="primeiro_topo"> */}
                 <div className="bloco_empresa">
                     <small>Data início</small>
                     <p>20/11/2020</p>
@@ -158,22 +158,17 @@ function Topo(props){
                     <small>Status</small>
                     <p>{ipo.status}</p>
                 </div>
-            </div>
 
-            <hr />
+                <div className="segundo_topo">
+                    <small>Setor</small>
+                    <p>{ipo.setor}</p>
+                </div>
 
-            <div className="segundo_topo">
-                <small>Setor</small>
-                <p>{ipo.setor}</p>
-            </div>
-            <hr />
-            
-            <div className="terceiro_topo">
-                <div>
+                <div className="terceiro_topo">
                     <small>Faixa de preço inicial</small>
                     <p className="text_blue">R$ {ipo.valor}</p>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     )
 }
@@ -183,7 +178,7 @@ function ApresentacaoEmpresa(props){
 
     return(
         <section className="container apresentacao_empresa">
-            <a href="/ofertas/ipo" className='wrap_img' style={{background: ipo.cor}}>
+            <a href="https://nubank.com.br/relatorios-financeiros/" className='wrap_img' style={{background: ipo.cor}}>
                 <img src={require(`../../../Assets/Images/ipo/${ipo.imagem}`)} className="logo"/>
             </a>
             <div className="informacoes_empresa">
@@ -201,7 +196,7 @@ function ApresentacaoEmpresa(props){
                 <div>
                     <h2>Informações importantes:</h2>
                     <a href="#governanca" className="btn btn_primary arrow text_blue">Diretoria da empresa <IoIosArrowDropdownCircle /> </a>
-                    <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a OBA Hortifruti <IoIosArrowDropdownCircle /></a>
+                    <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a Nubank <IoIosArrowDropdownCircle /></a>
                     <a href="#destino" className="btn btn_primary arrow text_blue">Destino dos recursos <IoIosArrowDropdownCircle /></a>
                     <a href="#indicadores" className="btn btn_primary arrow text_blue">Indicadores financeiros <IoIosArrowDropdownCircle /></a>
                     <a href="#balanco" className="btn btn_primary arrow text_blue">Balanços Patrimoniais <IoIosArrowDropdownCircle /></a>
@@ -253,12 +248,12 @@ function Sobre(){
     return(
         <div className="gray_wallpaper">
             <section className="container" id="sobre">
-                <h1 className="line_after">SOBRE O GRUPO A EMPRESA</h1>
-                <p>Com mais de 40 anos de experiência no setor de alimentos frescos, o Oba Hortifruti é uma rede varejista especializada em produtos perecíveis frescos de FLV que representam, em média, 77% das vendas das nossas lojas em 30 de setembro de 2020. Desde o início das operações em 1979, calcamos nosso crescimento em 3 pilares estratégicos que entendemos serem essenciais para o nosso sucesso: Experiência de Compra Única, Preocupação Com o Produto e Excelência Operacional. Oferecemos produtos alimentícios de alta qualidade, com foco em saúde e bem-estar e um comprometimento rigoroso com o atendimento ao cliente. Devido ao nosso foco em qualidade, frescor e atendimento, mais da metade de nossa base de clientes frequenta nossas lojas ao menos uma vez por mês. Essa alta frequência nos oferece uma grande proximidade aos nossos clientes e uma oportunidade de maximizar cada vez mais nosso share of wallet com novos produtos.</p>
+                <h1 className="line_after">SOBRE A EMPRESA NUBANK</h1>
+                <p>uma das maiores plataformas de serviços financeiros digitais no mundo, servindo aproximadamente 75 milhões de clientes no Brasil, México e Colômbia. Em nossa posição de liderança, usamos tecnologia proprietária e práticas inovadoras para criar novas soluções e experiências financeiras para indivíduos e PMEs. Guiando-se sempre por sua missão, estão contribuindo para aumentar o acesso financeiro na América Latina.</p>
             </section>
             <section className="container" id="destino">
                 <h1 className="line_after">DESTINO DOS RECURSOS DO IPO</h1>
-                <p>A Companhia pretende utilizar os recursos líquidos provenientes da Oferta Primária de acordo com seu plano de negócios para: (i) abertura de novas lojas, (ii) investimento nos canais digitais, e (iii) investimento na cadeia de logística.</p>
+                <p>Os R$ 16,5 bilhões que a companhia estima captar na oferta primária de seu IPO terão quatro destinos: capital de giro (crescimento), despesas operacionais (reforçar sua estrutura), despesas de capital (conceder mais crédito) e em investimentos e aquisições potenciais.</p>
             </section>
         </div>
     )
@@ -266,94 +261,96 @@ function Sobre(){
 
 function Table(){
     return(
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>2020 (R$ em milhões)</th>
-                    <th>2021 (R$ em milhões)</th>
-                    <th>Variação</th>
-                </tr>
-            </thead>
+        <div className="wrap_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>2020 (R$ em milhões)</th>
+                        <th>2021 (R$ em milhões)</th>
+                        <th>Variação</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td>Receita bruta (R$)</td>
-                    <td><span class="neutro">=</span>1.936</td>
-                    <td><span class="subiu"></span>2.197</td>
-                    <td>13,4 %</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Receita bruta (R$)</td>
+                        <td>1.936</td>
+                        <td>2.197</td>
+                        <td>13,4 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Receita líquida (R$)</td>
-                    <td><span class="neutro">=</span>1780</td>
-                    <td><span class="subiu"></span>2.017</td>
-                    <td>13,3 %</td>
-                </tr>
+                    <tr>
+                        <td>Receita líquida (R$)</td>
+                        <td>1780</td>
+                        <td>2.017</td>
+                        <td>13,3 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Lucro bruto (R$)</td>
-                    <td><span class="subiu"></span>800</td>
-                    <td><span class="caiu"></span>717</td>
-                    <td>11,6 %</td>
-                </tr>
+                    <tr>
+                        <td>Lucro bruto (R$)</td>
+                        <td>800</td>
+                        <td>717</td>
+                        <td>11,6 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Margem bruta (%)</td>
-                    <td><span class="neutro">=</span>39,7 %</td>
-                    <td><span class="subiu"></span>40,3 %</td>
-                    <td>0,6 p.p.</td>
-                </tr>
+                    <tr>
+                        <td>Margem bruta (%)</td>
+                        <td>39,7 %</td>
+                        <td>40,3 %</td>
+                        <td>0,6 p.p.</td>
+                    </tr>
 
-                <tr>
-                    <td>EBITDA</td>
-                    <td><span class="neutro">=</span>181</td>
-                    <td><span class="subiu"></span>188</td>
-                    <td>3,8 %</td>
-                </tr>
+                    <tr>
+                        <td>EBITDA</td>
+                        <td>181</td>
+                        <td>188</td>
+                        <td>3,8 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Margem EBITDA</td>
-                    <td><span class="neutro">=</span>10,2 %</td>
-                    <td><span class="subiu"></span>9,3 %</td>
-                    <td>(0,9) p.p.</td>
-                </tr>
+                    <tr>
+                        <td>Margem EBITDA</td>
+                        <td>10,2 %</td>
+                        <td>9,3 %</td>
+                        <td>(0,9) p.p.</td>
+                    </tr>
 
-                <tr>
-                    <td>Lucro Líquido</td>
-                    <td><span class="subiu"></span>44</td>
-                    <td><span class="caiu"></span>21</td>
-                    <td>-53,1 %</td>
-                </tr>
+                    <tr>
+                        <td>Lucro Líquido</td>
+                        <td>44</td>
+                        <td>21</td>
+                        <td>-53,1 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Margem Líquida</td>
-                    <td><span class="subiu"></span>2,5 %</td>
-                    <td><span class="caiu"></span>1,0 %</td>
-                    <td>(1,4) p.p.</td>
-                </tr>
+                    <tr>
+                        <td>Margem Líquida</td>
+                        <td>2,5 %</td>
+                        <td>1,0 %</td>
+                        <td>(1,4) p.p.</td>
+                    </tr>
 
-                <tr>
-                    <td>Dívida Líquida</td>
-                    <td><span class="caiu"></span>194,3</td>
-                    <td><span class="subiu"></span>376,7</td>
-                    <td> - </td>
-                </tr>
+                    <tr>
+                        <td>Dívida Líquida</td>
+                        <td>194,3</td>
+                        <td>376,7</td>
+                        <td> - </td>
+                    </tr>
 
-                <tr>
-                    <td>Receita Líquida Total</td>
-                    <td><span class="subiu"></span>1780</td>
-                    <td><span class="subiu"></span>2017</td>
-                    <td>13,3 %</td>
-                </tr>
+                    <tr>
+                        <td>Receita Líquida Total</td>
+                        <td>1780</td>
+                        <td>2017</td>
+                        <td>13,3 %</td>
+                    </tr>
 
-                <tr>
-                    <td>Número de lojas</td>
-                    <td><span class="subiu"></span>61</td>
-                    <td><span class="subiu"></span>72</td>
-                    <td>18 %</td>
-                </tr>
-            </tbody>
-        </table>
+                    <tr>
+                        <td>Número de lojas</td>
+                        <td>61</td>
+                        <td>72</td>
+                        <td>18 %</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     )
 }
