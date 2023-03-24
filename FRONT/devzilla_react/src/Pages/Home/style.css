@@ -16,11 +16,6 @@ p{ line-height: 160%; }
     margin-top: 0;
 }
 
-#section2{
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-}
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media screen and (max-width: 768px) {
     #section1 { 
@@ -33,6 +28,11 @@ p{ line-height: 160%; }
     }
 
     .width_80{ width: 100%; }
+
+    #section2{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
