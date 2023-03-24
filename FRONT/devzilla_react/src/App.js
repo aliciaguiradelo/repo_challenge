@@ -6,6 +6,8 @@ import Ofertas from "./Pages/Ofertas";
 import Oferta from "./Pages/Ofertas/Oferta";
 import Admin from "./Pages/Admin";
 import Sobre from "./Pages/Sobre";
+import Cadastro from "./Pages/Cadastro";
+import Login from "./Pages/Login";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
           <Route element = { <Oferta /> }  path="/ofertas/ipo" />
           <Route element = { <Admin /> }  path="/admin/*" />
           <Route element = { <Sobre /> }  path="/sobre" />
+          <Route element = { <Cadastro /> }  path="/cadastro" />
+          <Route element = { <Login /> }  path="/login" />
       </Routes>
 
       {/* <Switch>

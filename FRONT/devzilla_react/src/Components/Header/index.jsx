@@ -44,7 +44,7 @@ export default function Header(){
                         {/* itens salvos */}
                     {/* </a> */}
 
-                    <small>Ainda não tem conta? <strong><a href="cadastro.html" className="text_blue">cadastre-se</a></strong> ou <strong><a href="login.html" className="text_blue">faça login</a></strong></small>
+                    <small>Ainda não tem conta? <strong><Link to="/cadastro" className="text_blue">cadastre-se</Link></strong> ou <strong><Link to="/login" className="text_blue">faça login</Link></strong></small>
                 </section>
             </div>
 

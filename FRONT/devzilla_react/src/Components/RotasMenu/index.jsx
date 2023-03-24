@@ -1,19 +1,19 @@
 import './style.css'
 import Button from './Button'
 
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function RotasMenu(props){
     return(
         <>
         { props.hasButton && <Button /> }
             <ul className='menu'>
-                <li><Link to="/" className="active">início</Link></li>
-                <li><Link to="/blog">blog</Link></li>
-                <li><Link to="/ofertas">IPOs</Link></li>
-                <li><Link to="/sobre">sobre nós</Link></li>
-                {/* <li><Link to="/">preciso de ajuda</Link></li> */}
-                <li><Link to="/admin/artigos"> admin </Link></li>
+                <li><NavLink activeClassName='is-active' to="/">início</NavLink></li>
+                <li><NavLink activeClassName='is-active' to="/blog">blog</NavLink></li>
+                <li><NavLink activeClassName='is-active' to="/ofertas">IPOs</NavLink></li>
+                <li><NavLink activeClassName='is-active' to="/sobre">sobre nós</NavLink></li>
+                {/* <li><NavLactiveClassName='is-active' ink to="/">preciso de ajuda</NavLink></li> */}
+                <li><NavLink activeClassName='is-active' to="/admin/artigos"> admin </NavLink></li>
             </ul>
         </>    
     );

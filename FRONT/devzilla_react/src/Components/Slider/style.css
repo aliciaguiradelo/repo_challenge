@@ -40,3 +40,13 @@
 .slick-dots{
     bottom: 15px;
 }
+
+@media screen and (max-width: 768px) {
+    .slick-next {
+        right: 10px;
+    }
+    
+    .slick-prev {
+        left: 10px;
+    }
+}
