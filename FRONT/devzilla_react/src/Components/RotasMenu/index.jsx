@@ -11,8 +11,8 @@ function RotasMenu(props){
                 <li><Link to="/" className="active">início</Link></li>
                 <li><Link to="/blog">blog</Link></li>
                 <li><Link to="/ofertas">IPOs</Link></li>
-                {/* <li><Link to="/sobre">sobre nós</Link></li> */}
-                <li><Link to="/">preciso de ajuda</Link></li>
+                <li><Link to="/sobre">sobre nós</Link></li>
+                {/* <li><Link to="/">preciso de ajuda</Link></li> */}
                 <li><Link to="/admin/artigos"> admin </Link></li>
             </ul>
         </>    
