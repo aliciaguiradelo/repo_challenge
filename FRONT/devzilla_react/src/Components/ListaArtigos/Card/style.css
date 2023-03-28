@@ -152,6 +152,18 @@
     background: #d0352ab8;
 }
 
+.like, .save{
+    color: rgba(0, 91, 170, 0.984375);
+    font-size: 2em;
+    padding: 0;
+}
+
+.save{
+    color: rgba(0, 91, 170, 0.984375);
+    top: 20px;
+    right: 20px;
+}
+
 .edit{
     background: #ffc107b9;
 }

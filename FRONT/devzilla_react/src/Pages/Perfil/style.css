@@ -1,0 +1,30 @@
+#perfil .formulario img{
+    margin: auto;
+    display: flex;
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+#perfil form{
+    display: flex;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+#perfil .contentInput{
+    width: 45%;
+}
+
+.contentInput input{
+    width: 100%;
+}
+
+#perfil .btn_primary{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #perfil .contentInput{
+        width: 100%;
+    }
+}

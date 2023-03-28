@@ -81,6 +81,7 @@ input:not(.search input), textarea, select {
   font-family: 'nunito';
   font-size: 1rem;
   margin-top: .3em;
+  box-sizing: border-box;
 }
 
 #newsletter h1{ margin-bottom: 0; }

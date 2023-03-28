@@ -7,6 +7,9 @@ import artigos from '../../../Assets/DadosExemplos/blog.json'
 
 import './style.css'
 
+import { BsFillPersonFill } from 'react-icons/bs'
+import { AiOutlineHeart } from 'react-icons/ai'
+
 export default function Artigo(){
 
     const artigo = artigos[0];
@@ -29,6 +32,12 @@ export default function Artigo(){
                         <p id="subtitulo">{artigo.subtitulo}</p>
                         
                         <small>Artigos &gt; IPO &gt; {artigo.titulo} </small>
+
+                        <a class="btn btn_secondary curtir" href="#">
+                            Curtir
+                            <AiOutlineHeart />
+                        </a>
+
 
                         <div id="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus porta nibh, eget iaculis ligula elementum a. Vivamus efficitur molestie arcu, nec malesuada libero scelerisque et. Vestibulum non orci ut est placerat ultrices. Fusce dignissim sed eros sit amet consectetur. </p>
@@ -56,6 +65,42 @@ export default function Artigo(){
                                     </li>
                                 </ol>
                             </section>
+
+                            <section id="comentarios">   
+            
+                            <div class="comentario">
+                                <div class="profile">
+                                    <BsFillPersonFill />
+                                </div>
+                                <div>
+                                    <h3>José Dias</h3>
+                                    <p>Adorei a matéria! Aprendi muito com o conteúdo.</p>
+                                </div>
+                            </div>
+            
+                            <div class="comentario">
+                                <div class="profile">
+                                    <BsFillPersonFill />
+                                </div>
+            
+                                <div>
+                                    <h3>Maria Souza</h3>
+                                    <p>Muito bom! Sanei minhas dúvidas sobre IPOs. Vou compartilhar com meus amigos :)</p>
+                                </div>
+                                
+                            </div>
+            
+                            <div id="novo_comentario">
+                                <div class="profile">
+                                    <BsFillPersonFill />
+                                </div>
+                                <h3>João Ferreira</h3>
+            
+                                <textarea placeholder="O que você achou da matéria?" rows="3"></textarea>
+                                <a href="artigo_individual.html" class="btn btn_primary">comentar</a>
+                            </div>
+            
+                        </section>
                         </div>
                     </article>
 

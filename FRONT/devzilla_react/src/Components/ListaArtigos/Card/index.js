@@ -3,7 +3,9 @@ import Button from "../../Button"
 import atualizacao_icon from '../../../Assets/Icons/icon_arrow_down.svg'
 
 import { VscEdit } from 'react-icons/vsc'
-import { MdDeleteOutline } from 'react-icons/md'
+import { MdDeleteOutline, MdOutlineBookmarkBorder, MdOutlineBookmark } from 'react-icons/md'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+
 import { useState } from 'react'
 import Modal from '../../Modal'
 
@@ -35,6 +37,15 @@ function Materia(props){
         e.preventDefault();
         showDelete ? setShowDelete(false) : setShowDelete(true);
     }
+    
+    function handleSave(){
+        setSaved(isSaved ? false : true)
+        if (isSaved) return(<AiFillHeart className='icon_opt like' />)
+        else return(<AiOutlineHeart className='icon_opt like' />)
+    }
+
+    const [isSaved, setSaved] = useState(false)
+    const [icon, setIcon] = useState(handleSave)
 
     return(
         <>
@@ -102,8 +113,11 @@ function Materia(props){
                     { props.admOptions && 
                         <> 
                             <MdDeleteOutline className='icon_opt delete' onClick={toggleModalDelete} /> 
-                            <VscEdit className='icon_opt edit' onClick={toggleModalEdit}/> 
+                            <VscEdit className='icon_opt edit' onClick={toggleModalEdit}/>
                         </> }
+
+                    { <> {icon} </> }
+                    
                 </a>
                 <div className="card_content" id={typeof(props.admOptions)}>
                     <h3 className="c_title">{titulo}</h3>
@@ -149,17 +163,15 @@ function IPO(props){
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
-  const handleSkip = () => {
-  setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(prevSkipped => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+
+    function handleSave() {
+        setSaved(isSaved ? false : true)
+        if (isSaved) return ( <MdOutlineBookmark className = 'icon_opt save' /> )
+        else return ( <MdOutlineBookmarkBorder className = 'icon_opt save' /> )
+    }
+
+    const [isSaved, setSaved] = useState(false)
+    const [icon, setIcon] = useState(handleSave)
 
     return(
         <>
@@ -234,6 +246,8 @@ function IPO(props){
                         <MdDeleteOutline className='icon_opt delete' onClick={toggleModalDelete} /> 
                         <VscEdit className='icon_opt edit' onClick={toggleModalEdit}/> 
                     </> }
+
+                {<> {icon} </>}
 
                 {/* <span className={atualizacao[0]+ ' atualizacao'}>
                     <img src={atualizacao_icon} />

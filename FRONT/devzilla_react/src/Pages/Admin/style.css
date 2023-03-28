@@ -7,6 +7,10 @@ main#admin{
     margin-left: auto;
 }
 
+.conteudo_admin .like, .conteudo_admin .save{
+    display: none;
+}
+
 .conteudo_admin .bg_gray{
     padding: 0;
     background-color: #fff

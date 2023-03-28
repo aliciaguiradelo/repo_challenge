@@ -34,7 +34,7 @@ export default function Header(){
                 </Link>
 
                 <section>
-                    <a href="perfil_usuario.html" className="my_account">
+                    <a href="/perfil" className="my_account">
                         <IconPerson />
                         minha conta
                     </a>

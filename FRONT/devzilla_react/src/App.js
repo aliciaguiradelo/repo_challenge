@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
 import Artigo from "./Pages/Blog/Artigo";
@@ -8,6 +8,7 @@ import Admin from "./Pages/Admin";
 import Sobre from "./Pages/Sobre";
 import Cadastro from "./Pages/Cadastro";
 import Login from "./Pages/Login";
+import Perfil from "./Pages/Perfil";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route element = { <Sobre /> }  path="/sobre" />
           <Route element = { <Cadastro /> }  path="/cadastro" />
           <Route element = { <Login /> }  path="/login" />
+          <Route element = { <Perfil /> }  path="/perfil" />
       </Routes>
 
       {/* <Switch>
