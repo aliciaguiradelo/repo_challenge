@@ -103,6 +103,12 @@ input:not(.search input), textarea, select {
   margin-top: 10px;
 }
 
+.rsc {
+  position: fixed;
+  bottom: 70px;
+  right: 3em;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
 

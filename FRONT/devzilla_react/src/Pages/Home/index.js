@@ -13,6 +13,8 @@ import ipos from '../../Assets/DadosExemplos/ipos.json'
 import IllustrBlog from '../../Assets/Illustrations/illustr_quem_somos.svg'
 import IllustrIPO from '../../Assets/Illustrations/illustr_investing.svg'
 
+import ChatBot from 'react-simple-chatbot';
+
 export default function App() {
   return (
     <div>
@@ -35,6 +37,17 @@ export default function App() {
         <ListaCards dados={artigos.slice(0, 3)} tipo="materia" botao admOptions={false} />
 
         <Newsletter />
+        
+        <ChatBot
+          id="chatbot"
+          steps={[
+            {
+              id: 'hello-world',
+              message: 'Olá! Como posso te ajudar?',
+              end: true,
+            },
+          ]}
+        />
       </main>
 
       <Footer />
