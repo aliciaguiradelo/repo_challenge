@@ -9,6 +9,7 @@ import './style.css'
 
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { MdOutlineBookmarkBorder } from 'react-icons/md'
 
 export default function Artigo(){
 
@@ -33,11 +34,17 @@ export default function Artigo(){
                         
                         <small>Artigos &gt; IPO &gt; {artigo.titulo} </small>
 
-                        <a class="btn btn_secondary curtir" href="#">
-                            Curtir
-                            <AiOutlineHeart />
-                        </a>
+                        <div className="wrap_btns">
+                            <a className="btn btn_secondary curtir" href="#">
+                                Curtir
+                                <AiOutlineHeart />
+                            </a>
 
+                            <a className="btn btn_secondary curtir" href="#">
+                                Salvar
+                                <MdOutlineBookmarkBorder />
+                            </a>
+                        </div>
 
                         <div id="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus porta nibh, eget iaculis ligula elementum a. Vivamus efficitur molestie arcu, nec malesuada libero scelerisque et. Vestibulum non orci ut est placerat ultrices. Fusce dignissim sed eros sit amet consectetur. </p>

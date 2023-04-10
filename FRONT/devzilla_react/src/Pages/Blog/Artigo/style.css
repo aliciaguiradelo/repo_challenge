@@ -118,6 +118,11 @@
     margin-top: 20px;
 }
 
+.wrap_btns{
+    display: flex;
+    gap: 2em;
+}
+
 @media screen and (max-width: 769px){
     #artigo .container{
         flex-direction: column;

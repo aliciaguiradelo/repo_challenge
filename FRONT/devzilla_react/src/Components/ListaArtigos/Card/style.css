@@ -160,8 +160,17 @@
 
 .save{
     color: rgba(0, 91, 170, 0.984375);
-    top: 20px;
-    right: 20px;
+}
+
+.card_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card_footer .save{
+    position: inherit;
+
 }
 
 .edit{

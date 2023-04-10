@@ -38,10 +38,10 @@ function Materia(props){
         showDelete ? setShowDelete(false) : setShowDelete(true);
     }
     
-    function handleSave(){
+    function handleSave() {
         setSaved(isSaved ? false : true)
-        if (isSaved) return(<AiFillHeart className='icon_opt like' />)
-        else return(<AiOutlineHeart className='icon_opt like' />)
+        if (isSaved) return ( <MdOutlineBookmark className = 'icon_opt save' /> )
+        else return ( <MdOutlineBookmarkBorder className = 'icon_opt save' /> )
     }
 
     const [isSaved, setSaved] = useState(false)
@@ -115,21 +115,21 @@ function Materia(props){
                             <MdDeleteOutline className='icon_opt delete' onClick={toggleModalDelete} /> 
                             <VscEdit className='icon_opt edit' onClick={toggleModalEdit}/>
                         </> }
-
-                    { <> {icon} </> }
                     
                 </a>
                 <div className="card_content" id={typeof(props.admOptions)}>
                     <h3 className="c_title">{titulo}</h3>
                     <small>{subtitulo}</small>
 
-                    <Button
-                        link="/blog/artigo"
-                        icon_name="arrow"
-                        texto="ler mais"
-                        style="secondary"
-                    />
-                    
+                    <div className='card_footer'>
+                        <Button
+                            link="/blog/artigo"
+                            icon_name="arrow"
+                            texto="ler mais"
+                            style="secondary"
+                        />
+                        <> {icon} </>
+                    </div>
                 </div>
             </article>
         </>

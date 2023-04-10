@@ -38,7 +38,7 @@ export default function App() {
 
         <Newsletter />
         
-        <ChatBot
+        {/* <ChatBot
           id="chatbot"
           steps={[
             {
@@ -47,7 +47,7 @@ export default function App() {
               end: true,
             },
           ]}
-        />
+        /> */}
       </main>
 
       <Footer />
