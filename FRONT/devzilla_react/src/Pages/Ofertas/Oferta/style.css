@@ -328,8 +328,8 @@ canvas {
     box-sizing: border-box;
 }
 
-#destino{
-    padding-top: 0;
+#destino h1, #sobre h1{
+    margin-top: 0;
 }
 
 @media screen and (max-width: 991px) {

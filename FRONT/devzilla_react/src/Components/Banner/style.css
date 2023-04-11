@@ -1,6 +1,7 @@
 .banner{ 
     height: 70vh; 
     position: relative;
+    min-height: 500px;
 }
 
 #img_banner{

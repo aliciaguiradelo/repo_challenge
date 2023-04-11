@@ -80,7 +80,7 @@ input:not(.search input), textarea, select {
   border-radius: 5px;
   font-family: 'nunito';
   font-size: 1rem;
-  margin-top: .3em;
+  /* margin-top: .3em; */
   box-sizing: border-box;
 }
 

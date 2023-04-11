@@ -1,5 +1,6 @@
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
+import Campo from "../../Components/Campo";
 
 import img_login from '../../Assets/Images/b3_login.png'
 
@@ -33,6 +34,14 @@ export default function Cadastro(){
                                 <HiOutlineEnvelope />
                                 <input type="email" placeholder="Digite seu email" id="email" />
                             </div>
+
+                            <Campo
+                                label="Email"
+                                id="email"
+                                placeholder="Digite seu email"
+                                type="email"
+                                Icon={<HiOutlineEnvelope />}
+                            />
 
                             <label for="email">Senha</label>
                             <div class="wrap_input">

@@ -9,17 +9,18 @@ import { useState } from 'react'
 
 import {
     Chart as ChartJS,
-    CategoryScale,
     LinearScale,
+    CategoryScale,
     BarElement,
-    Title,
-    Tooltip,
-    Legend,
+    PointElement,
     LineElement,
-    PointElement
+    Legend,
+    Tooltip,
+    LineController,
+    BarController,
 } from 'chart.js';
 
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar, Line, Chart } from 'react-chartjs-2';
 
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
@@ -29,24 +30,16 @@ import alessandra from '../../../Assets/Governanca/Alessandra.jpg'
 import alexandre from '../../../Assets/Governanca/Alexandre.jpg'
 
 ChartJS.register(
-    CategoryScale,
     LinearScale,
+    CategoryScale,
     BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
     PointElement,
     LineElement,
-    Title,
+    Legend,
     Tooltip,
-    Legend
-  );
-  
+    LineController,
+    BarController
+);
 
 export default function Oferta () {
 
@@ -59,8 +52,9 @@ export default function Oferta () {
                 <main id="empresa">
                     <Topo ipo={ipo}/>
                     <ApresentacaoEmpresa ipo={ipo} />
-                    <Governanca />
                     <Sobre />
+                    <Governanca />
+                    <DestinoRecursos />
                     <IndicadoresFinanceiros ipo={ipo}/>
                     
                 </main>
@@ -72,20 +66,6 @@ export default function Oferta () {
 function IndicadoresFinanceiros(props){
     const ipo = props.ipo;
     const [visualizacao, setVisualizacao] = useState('barra');
-
-    
-    const options = {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Lucro',
-          },
-        },
-      };
 
     return(
         <>
@@ -106,14 +86,12 @@ function IndicadoresFinanceiros(props){
                             value={visualizacao}
                         >
                             <option value="barra">Geral (Gráfico de barra)</option>
-                            <option value="linha">Específica (Gráfico de linha)</option>
                             <option value="tabela">Detalhada (tabela)</option>
                         </select>
                     </div>
 
-                        { visualizacao === 'tabela' ? <Table /> : visualizacao === 'barra' ?
-                        <Bar data={ipo.indicadores_financeiros_bruto} /> :
-                        <Line options={options} data={ipo.lucro} /> }
+                        { visualizacao === 'tabela' ? <Table /> : 
+                        <Chart type='bar' data={ipo.indicadores_financeiros_bruto} /> }
 
                     
                 </div>
@@ -178,7 +156,7 @@ function ApresentacaoEmpresa(props){
 
     return(
         <section className="container apresentacao_empresa">
-            <a href="https://nubank.com.br/relatorios-financeiros/" className='wrap_img' style={{background: ipo.cor}}>
+            <a href="https://nubank.com.br/relatorios-financeiros/" target="_blank" className='wrap_img' style={{background: ipo.cor}}>
                 <img src={require(`../../../Assets/Images/ipo/${ipo.imagem}`)} className="logo"/>
             </a>
             <div className="informacoes_empresa">
@@ -251,6 +229,13 @@ function Sobre(){
                 <h1 className="line_after">SOBRE A EMPRESA NUBANK</h1>
                 <p>uma das maiores plataformas de serviços financeiros digitais no mundo, servindo aproximadamente 75 milhões de clientes no Brasil, México e Colômbia. Em nossa posição de liderança, usamos tecnologia proprietária e práticas inovadoras para criar novas soluções e experiências financeiras para indivíduos e PMEs. Guiando-se sempre por sua missão, estão contribuindo para aumentar o acesso financeiro na América Latina.</p>
             </section>
+        </div>
+    )
+}
+
+function DestinoRecursos(){
+    return(
+        <div className="gray_wallpaper">
             <section className="container" id="destino">
                 <h1 className="line_after">DESTINO DOS RECURSOS DO IPO</h1>
                 <p>Os R$ 16,5 bilhões que a companhia estima captar na oferta primária de seu IPO terão quatro destinos: capital de giro (crescimento), despesas operacionais (reforçar sua estrutura), despesas de capital (conceder mais crédito) e em investimentos e aquisições potenciais.</p>

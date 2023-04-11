@@ -33,16 +33,19 @@
             "labels": ["2019", "2020", "2021"],
             "datasets": [
               {
+                "type": "bar",
                 "label": "Receita Bruta",
                 "data": [1900, 1936, 2197],
                 "backgroundColor": "#0B8C3D"
               },
               {
+                "type": "line",
                 "label": "Dívida Bruta",
                 "data": [190, 194.3, 376.7],
                 "backgroundColor": "#BD3800"
               },
               {
+                "type": "bar",
                 "label": "Lucro Bruto",
                 "data": [700, 800, 717],
                 "backgroundColor": "#D18B57"
@@ -132,21 +135,27 @@
             ]
           },
           "indicadores_financeiros_bruto": {
-            "labels": ["2019", "2020", "2021"],
+            "labels": ["2018", "2019", "2020", "2021", "2022"],
             "datasets": [
               {
+                "type": "line",
+                "borderWidth": 2,
+                "fill": false,
+                "label": "Dívida Bruta",
+                "data": [190, 194.3, 376.7, 300, 413],
+                "backgroundColor": "#BD3800",
+                "borderColor": "#BD3800"
+              },
+              {
+                "type": "bar",
                 "label": "Receita Bruta",
-                "data": [1900, 1936, 2197],
+                "data": [1900, 1936, 2197, 2500, 2315],
                 "backgroundColor": "#0B8C3D"
               },
               {
-                "label": "Dívida Bruta",
-                "data": [190, 194.3, 376.7],
-                "backgroundColor": "#BD3800"
-              },
-              {
+                "type": "bar",
                 "label": "Lucro Bruto",
-                "data": [700, 800, 717],
+                "data": [700, 800, 717, 963, 813],
                 "backgroundColor": "#D18B57"
               }
             ]
