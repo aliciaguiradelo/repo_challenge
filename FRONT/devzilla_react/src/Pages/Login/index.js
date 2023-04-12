@@ -13,8 +13,13 @@ import { RiLockPasswordLine } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 
 import '../Cadastro/style.css'
+import { useState } from "react";
 
 export default function Cadastro(){
+
+    const [email, setEmail] = useState('')
+    const [errorEmail, setErrorEmail] = useState('')
+
     return(
         <div>
             <Header />
@@ -29,25 +34,26 @@ export default function Cadastro(){
 
                             <img src={ilustracao} />
 
-                            <label for="email">Email</label>
-                            <div class="wrap_input">
-                                <HiOutlineEnvelope />
-                                <input type="email" placeholder="Digite seu email" id="email" />
-                            </div>
-
                             <Campo
                                 label="Email"
                                 id="email"
                                 placeholder="Digite seu email"
                                 type="email"
-                                Icon={<HiOutlineEnvelope />}
+                                icon={<HiOutlineEnvelope />}
+                                // {{errorMsg != '' && hasError}
+                                hasError
+                                errorMsg={errorEmail}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
 
-                            <label for="email">Senha</label>
-                            <div class="wrap_input">
-                                <RiLockPasswordLine />
-                                <input type="password" placeholder="Digite sua senha" id="senha" />
-                            </div>
+                            <Campo
+                                label="Senha"
+                                id="senha"
+                                placeholder="Digite sua senha"
+                                type="password"
+                                icon={<RiLockPasswordLine />}
+                            />
 
                             <a href="#" class="btn btn_primary arrow">Entrar</a>
 
