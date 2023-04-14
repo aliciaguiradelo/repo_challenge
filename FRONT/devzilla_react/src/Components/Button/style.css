@@ -10,6 +10,7 @@
     border: none;
     font-family: 'Nunito';
     font-weight: 800;
+    transition: .3s;
 }
 
 .btn_primary{

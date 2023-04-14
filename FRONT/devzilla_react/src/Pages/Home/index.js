@@ -13,7 +13,7 @@ import ipos from '../../Assets/DadosExemplos/ipos.json'
 import IllustrBlog from '../../Assets/Illustrations/illustr_quem_somos.svg'
 import IllustrIPO from '../../Assets/Illustrations/illustr_investing.svg'
 
-import ChatBot from 'react-simple-chatbot';
+// import ChatBot from 'react-simple-chatbot';
 
 export default function App() {
   return (

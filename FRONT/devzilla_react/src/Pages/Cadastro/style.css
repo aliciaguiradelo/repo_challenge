@@ -5,7 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20vh;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 .container_form .wrap_form{

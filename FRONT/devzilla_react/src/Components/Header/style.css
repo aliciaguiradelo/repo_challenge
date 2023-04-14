@@ -6,7 +6,7 @@ header{
     width: 100vw;
     box-sizing: border-box;
     background: #fff;
-    z-index: 99999;
+    z-index: 20;
     transition: 0.2s;
 }
 

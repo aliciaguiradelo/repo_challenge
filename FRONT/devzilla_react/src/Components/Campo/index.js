@@ -3,18 +3,18 @@ import './style.css'
 export default function Campo (props){
     const { 
         label, 
-        hasError, 
         errorMsg, 
         id, 
         icon, 
         type, 
         placeholder, 
         value, 
-        onChange } = props
+        onChange,
+        onKeyUp } = props
     return(
         <>
-            <label for={id}>{label}</label>
-            <div class="wrap_input">
+            <label htmlFor={id}>{label}</label>
+            <div className="wrap_input">
                 {icon}
                 <input 
                     type={type} 
@@ -22,9 +22,10 @@ export default function Campo (props){
                     id={id} 
                     value={value}
                     onChange={onChange}
+                    onKeyUp={onKeyUp}
                 />
             </div>
-            { hasError && <span className='error' > {errorMsg} </span> }
+            { errorMsg != null && <span className='error' > {errorMsg} </span> }
         </>
     )
 }
