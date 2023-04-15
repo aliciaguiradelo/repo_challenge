@@ -11,6 +11,7 @@
     font-family: 'Nunito';
     font-weight: 800;
     transition: .3s;
+    font-size: .9em;
 }
 
 .btn_primary{
@@ -20,8 +21,8 @@
 
 .btn_primary::after, .arrow::after, .arrow_long::after{
     content: '';  
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     display: inline-block;
     background-position: center;
 }

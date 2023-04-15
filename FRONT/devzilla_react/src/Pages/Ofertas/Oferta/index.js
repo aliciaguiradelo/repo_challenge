@@ -7,6 +7,8 @@ import ipos from '../../../Assets/DadosExemplos/ipos.json'
 
 import { useState } from 'react'
 
+import comparison from '../../../Assets/Illustrations/illustr_comparison.svg'
+
 import {
     Chart as ChartJS,
     LinearScale,
@@ -70,7 +72,7 @@ function IndicadoresFinanceiros(props){
     return(
         <>
             <div className="container indicadores" style={{paddingBottom: 0}}>    
-                <h1 className="line_after">Indicadores financeiros da empresa</h1>
+                <h1 className="line_after">Indicadores financeiros</h1>
             </div>
 
             <div className="container row charts_section indicadores" style={{paddingTop: 0}}>
@@ -167,18 +169,25 @@ function ApresentacaoEmpresa(props){
                 <small><strong>Setor:</strong> {ipo.setor}</small>
                 <small><strong>Status:</strong> { ipo.status }</small>
                 <small><strong>Valor inicial:</strong> R$ {ipo.valor}</small>
-                <button className="btn btn_primary arrow">Prospecto</button>
+                <a href="#" className="btn btn_primary arrow">Prospecto</a>
             </div>
 
             <div className="direcionamentos">
                 <div>
-                    <h2>Informações importantes:</h2>
+                    <h2>Informações importantes</h2>
                     <a href="#governanca" className="btn btn_primary arrow text_blue">Diretoria da empresa <IoIosArrowDropdownCircle /> </a>
                     <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a Nubank <IoIosArrowDropdownCircle /></a>
                     <a href="#destino" className="btn btn_primary arrow text_blue">Destino dos recursos <IoIosArrowDropdownCircle /></a>
                     <a href="#indicadores" className="btn btn_primary arrow text_blue">Indicadores financeiros <IoIosArrowDropdownCircle /></a>
                     <a href="#balanco" className="btn btn_primary arrow text_blue">Balanços Patrimoniais <IoIosArrowDropdownCircle /></a>
                 </div>
+            </div>
+
+            <div className="comparar">
+                <h2>Comparar com outra oferta</h2>
+                <img src={comparison} />
+
+                <a href="#" className="btn btn_primary arrow">Comparar oferta </a>
             </div>
         </section>
     )
