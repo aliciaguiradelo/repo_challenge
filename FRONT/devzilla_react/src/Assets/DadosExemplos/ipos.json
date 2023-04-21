@@ -5,7 +5,8 @@
         "setor": "Imobiliário",
         "cor": "#3D4A76",
         "cnpj": "04.972.092/0001-22",
-        "imagem": "tg_re.png",
+        "imagem": "TGRE.png",
+        "imagem_dark": "TGRE_DARK.png",
         "status": "ativa",
         "valor": "9,75",
         "atualizacao": ["caiu", "49.3%"],
@@ -98,6 +99,7 @@
         "nome": "Nubank",
         "cor": "#9D02D9",
         "imagem": "nubank.png",
+        "imagem_dark": "nubank_dark.png",
         "status": "finalizada",
         "setor": "financeiro",
         "cnpj": "04.972.092/0001-22",
@@ -206,6 +208,7 @@
         "nome": "Nubank",
         "cor": "#9D02D9",
         "imagem": "nubank.png",
+        "imagem_dark": "nubank_dark.png",
         "status": "finalizada",
         "valor": "23,48",
         "atualizacao": ["caiu", "49.3%"]
@@ -215,6 +218,7 @@
         "nome": "Nubank",
         "cor": "#9D02D9",
         "imagem": "nubank.png",
+        "imagem_dark": "nubank_dark.png",
         "status": "finalizada",
         "valor": "23,48",
         "atualizacao": ["caiu", "49.3%"]

@@ -19,6 +19,8 @@
     padding: 3rem;
     border-radius: 0.5rem;
     z-index: 1000000;
+    max-height: 80%;
+    overflow-y: auto;
 }
 
 #fade,
@@ -44,7 +46,7 @@
     align-items: center;
 }
 
-.modal_header h1, .btn_close{
+.modal_header h1, .btn_close, .modal_footer .btn{
     margin-top: 0;
     display: block !important;
 }
@@ -56,3 +58,18 @@
     margin-bottom: auto;
 }
 
+.modal_footer .btn::after{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    #modal{
+        padding: 2em;
+        width: 75%;
+    }
+
+    .modal_header h1{
+        font-size: 1.8rem;
+        line-height: normal;
+    }
+}

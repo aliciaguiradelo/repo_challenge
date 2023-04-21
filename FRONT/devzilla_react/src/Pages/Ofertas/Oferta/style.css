@@ -357,6 +357,57 @@ canvas {
     margin-top: 0;
 }
 
+input[name="forma_pgt"]{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wrap_options{
+    display: flex;
+    gap: 1.5em;
+}
+
+.wrap_options label{
+    width: 25%;
+}
+
+.wrap_img.option {
+    border: solid 1px #a3a3a3;
+    margin: 0;
+    border-radius: 7px;
+    text-align: center;
+    flex-direction: column;
+    width: auto;
+}
+
+.wrap_img.option h3{
+    margin-bottom: 0;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option .logo{
+    width: 60%;
+    height: 60%;
+    display: block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+[name=forma_pgt] + div {
+    cursor: pointer;
+}
+
+[name=forma_pgt]:checked + div {
+    outline: 1px solid hsla(208, 100%, 33%, 0.984);
+    border-color: hsla(208, 100%, 33%, 0.984);
+}
+
 @media screen and (max-width: 991px) {
     .topo_empresas div{
         width: 40%;
@@ -408,6 +459,29 @@ canvas {
 
     .wrap_table {
         overflow: scroll;
+    }
+
+    .wrap_options{
+        flex-wrap: wrap;
+        gap: .5em;
+    }
+
+    .wrap_options label{
+        width: calc(25% - .5em);
+    }
+
+    .option .logo{
+        width: 100%;
+        height: 80%;
+    }
+
+    .option{
+        padding: 10px !important;
+    }
+
+    .option h3{
+        font-size: .7em;
+        line-height: normal;
     }
 }
 
