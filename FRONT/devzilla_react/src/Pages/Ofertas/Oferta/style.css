@@ -17,10 +17,10 @@
 }
 
 .bloco_empresa{
-    background-color: #0459A2;
+    /* background-color: #0459A2; */
 }
 .bloco_empresa > small, .bloco_empresa > p{
-    color: white;
+    /* color: white; */
 }
 .topo_empresas div > small{
     text-transform: uppercase;
@@ -35,6 +35,12 @@
     color: #0B8C3D;
     text-transform: uppercase;
 }
+
+.terceiro_topo, .terceiro_topo p{
+    background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
+    color: #fff
+}
+
 .terceiro_topo div p {
     font-size: 2em;
     font-weight: 700;

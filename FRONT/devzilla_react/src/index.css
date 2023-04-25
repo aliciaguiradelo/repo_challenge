@@ -116,6 +116,10 @@ input:not(.search input), textarea, select {
   right: 3em;
 }
 
+.Toastify__toast-container--bottom-right{
+  z-index: 9999999;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 992px) {
 

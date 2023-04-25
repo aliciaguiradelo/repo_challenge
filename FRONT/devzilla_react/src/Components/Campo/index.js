@@ -10,6 +10,7 @@ export default function Campo (props){
         placeholder, 
         value, 
         onChange,
+        accept,
         onKeyUp } = props
     return(
         <>
@@ -23,6 +24,7 @@ export default function Campo (props){
                     value={value}
                     onChange={onChange}
                     onKeyUp={onKeyUp}
+                    accept={accept}
                 />
             </div>
             { errorMsg != null && <span className='error' > {errorMsg} </span> }

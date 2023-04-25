@@ -13,10 +13,12 @@ import alexandre from '../../../Assets/Governanca/Alexandre.jpg'
 import IndicadoresFinanceiros from "./IndicadoresFinanceiros";
 import ApresentacaoEmpresa from "./ApresentacaoEmpresa"
 
+import { RxCalendar } from 'react-icons/rx'
+import { BiBuildings } from 'react-icons/bi'
+
 export default function Oferta () {
 
     const ipo = ipos[1];
-    const relacionados = ipos.slice(1, 3)
 
     return(
         <div>
@@ -44,7 +46,10 @@ function Topo(props){
             {/* <div className="primeiro_topo"> */}
                 <div className="bloco_empresa">
                     <small>Data início</small>
-                    <p>20/11/2020</p>
+                    <p>
+                        <RxCalendar />
+                        20/11/2020
+                    </p>
                 </div>
                 <div className="blocoAtiva_empresa">
                     <small>Status</small>
@@ -53,12 +58,15 @@ function Topo(props){
 
                 <div className="segundo_topo">
                     <small>Setor</small>
-                    <p>{ipo.setor}</p>
+                    <p>
+                        <BiBuildings />
+                        {ipo.setor}
+                    </p>
                 </div>
 
                 <div className="terceiro_topo">
                     <small>Faixa de preço inicial</small>
-                    <p className="text_blue">R$ {ipo.valor}</p>
+                    <p>R$ {ipo.valor}</p>
                 </div>
             {/* </div> */}
         </section>

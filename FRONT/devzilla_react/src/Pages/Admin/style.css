@@ -46,6 +46,9 @@ main#admin{
 .conteudo_admin #modal input, .conteudo_admin #modal select{
     width: 100%;
     box-sizing: border-box;
+}
+
+.error{
     margin-bottom: 1em;
 }
 
