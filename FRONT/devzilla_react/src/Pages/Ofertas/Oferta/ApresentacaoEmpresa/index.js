@@ -8,6 +8,8 @@ import Modal from "../../../../Components/Modal";
 
 import ipos from '../../../../Assets/DadosExemplos/ipos.json'
 
+import './style.css'
+
 export default function ApresentacaoEmpresa(props){
     const ipo = props.ipo
 
@@ -28,10 +30,10 @@ export default function ApresentacaoEmpresa(props){
                 onClose={toggleModal}
                 title={'Escolha uma oferta'}
             >
-                { step == 1 ? <SelecaoOferta /> : <SelecaoOferta /> }
+                { step == 1 ? <SelecaoOferta /> : <ComparacaoIPO ipos={ipos} /> }
 
                 <div className='modal_footer'>
-                    {/* <button className="btn btn_primary" onClick={setStep(2)}>Continuar</button> */}
+                    <button className="btn btn_primary" onClick={() => setStep(2)}>Continuar</button>
                 </div>
             </Modal>
 
@@ -87,7 +89,6 @@ function SelecaoOferta(){
                             defaultChecked={index == 0}
                             onChange={(e) => setOferta(e.target.value)} />
                         <div className="option wrap_img">
-                            
                             <span className='logo' style={{backgroundImage: `url(${logo})`}} />
                             <h3>{ipo.nome}</h3>
                         </div>
@@ -99,16 +100,37 @@ function SelecaoOferta(){
     )
 }
 
-function ComparacaoIPO(){
+function ComparacaoIPO(props){
+    const ipos = props.ipos
+    const logo1 = require(`../../../../Assets/Images/ipo/${ipos[0].imagem_dark}`)
+    const logo2 = require(`../../../../Assets/Images/ipo/${ipos[1].imagem_dark}`)
     return(
-        <>
+        <section id='comparacao'>
             <div className='empresa_info'>
-                KMDE
+                <div className="option wrap_img">
+                    <span className='logo' style={{backgroundImage: `url(${logo1})`}} />
+                </div>
+                <h3>{ipos[0].nome}</h3>
+                <small>{ipos[0].cnpj}</small>
+
+                <small><strong>Setor:</strong> {ipos[0].setor}</small>
+                <small><strong>Status:</strong> { ipos[0].status }</small>
+                <small><strong>Valor inicial:</strong> R$ {ipos[0].valor}</small>
+                <a href="#" className="btn btn_secondary arrow_long">Prospecto</a>
             </div>
 
             <div className='empresa_info'>
-                dfl
+                <div className="option wrap_img">
+                    <span className='logo' style={{backgroundImage: `url(${logo2})`}} />
+                </div>
+                <h3>{ipos[1].nome}</h3>
+
+                <small>{ipos[1].cnpj}</small>
+                <small><strong>Setor:</strong> {ipos[1].setor}</small>
+                <small><strong>Status:</strong> { ipos[1].status }</small>
+                <small><strong>Valor inicial:</strong> R$ {ipos[1].valor}</small>
+                <a href="#" className="btn btn_secondary arrow_long">Prospecto</a>
             </div>
-        </>
+        </section>
     )
 }
