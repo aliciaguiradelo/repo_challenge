@@ -13,8 +13,6 @@ import ipos from '../../Assets/DadosExemplos/ipos.json'
 import IllustrBlog from '../../Assets/Illustrations/illustr_quem_somos.svg'
 import IllustrIPO from '../../Assets/Illustrations/illustr_investing.svg'
 
-// import ChatBot from 'react-simple-chatbot';
-
 export default function App() {
   return (
     <div>
@@ -25,8 +23,8 @@ export default function App() {
         <BannerSlider
           banners={[
             <Banner titulo="Todos os IPOs disponíveis em um só lugar!" />,
-            <Banner titulo="Todos os IPOs em um só lugar" />,
-            <Banner titulo="Todos os IPOs em um só lugar" />
+            <Banner imagem="banner_blog.jpg" titulo="Aprenda mais sobre investimento, ofertas e educação financeira!" />,
+            <Banner imagem="investimento.jpg" titulo="Encontre as ofertas e compare para investir confiante!" />
           ]}
         />
 

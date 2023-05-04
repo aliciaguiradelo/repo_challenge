@@ -195,7 +195,7 @@ function IPO(props){
                 <Modal
                     show={showEdit}
                     onClose={toggleModalEdit}
-                    title={'Editar matéria'}
+                    title={'Editar IPO'}
                 >
 
                 <Stepper activeStep={activeStep} >
@@ -211,11 +211,6 @@ function IPO(props){
                     </Stepper>
 
                     { activeStep === 0  ? (<Step1 />) : activeStep === 1 ? (<Step2 />) : <Step3 /> }
-                    
-
-                    {/* Editor do conteúdo do artigo */}
-                    {/* <label for="conteudo">Conteúdo</label>
-                    <ReactQuill theme="snow" value={conteudo} onChange={setConteudo} id="conteudo" /> */}
 
                     <div className='modal_footer'>
                         <button className="btn btn_tertiary" onClick={ activeStep === 2 || activeStep === 0 ? toggleModalEdit : handleBack }>
@@ -223,7 +218,7 @@ function IPO(props){
                         </button>
 
                         <button className="btn btn_primary" onClick={ activeStep === 2 ? toggleModalEdit : handleNext }>
-                            { activeStep == 2 ? 'Cadastrar' : 'Continuar'}
+                            { activeStep == 2 ? 'Editar' : 'Continuar'}
                         </button>
                     </div>
                 </Modal>

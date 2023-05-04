@@ -116,8 +116,9 @@ input:not(.search input), textarea, select {
   right: 3em;
 }
 
-.Toastify__toast-container--bottom-right{
+.Toastify__toast-container--bottom-right, .Toastify{
   z-index: 9999999;
+  position: relative;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

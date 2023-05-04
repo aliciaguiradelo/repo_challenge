@@ -151,3 +151,7 @@ table .coment{
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active, .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed{
     color: rgba(0, 91, 170, 0.984375) !important;
 }
+
+#admin td{
+    padding: 5px 25px;
+}

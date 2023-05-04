@@ -55,15 +55,8 @@ export default function IndicadoresFinanceiros(props){
                     </div>
 
                         { visualizacao === 'tabela' ? <Table /> : 
-                        <Chart type='bar' data={ipo.indicadores_financeiros_bruto} /> }
-
-                    
+                        <Chart type='bar' data={ipo.indicadores_financeiros_bruto} /> }        
                 </div>
-
-                {/* <div className="column wrap_data">
-                    <h2>Valores Líquidos</h2>
-                    <Bar data={ipo.indicadores_financeiros_liquido} />
-                </div> */}
             </div>
 
             <div className="container" style={{paddingBottom: 0, paddingTop: 0}}>    
