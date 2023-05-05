@@ -1,5 +1,6 @@
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 
 import { Routes, Route, Outlet } from "react-router";
 
@@ -28,6 +29,8 @@ export default function Admin(){
 
                 <Outlet />
             </main>
+
+            <Footer />
         </div>
     )
 }
