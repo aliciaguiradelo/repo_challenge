@@ -5,8 +5,6 @@ import ChatBot from 'react-simple-chatbot';
 
 import chatbot from './Assets/DadosExemplos/chatbot.json'
 
-import { FloatingChatButton } from 'react-simple-chatbot';
-
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
 import Artigo from "./Pages/Blog/Artigo";
