@@ -29,10 +29,13 @@
 .topo_empresas div > p{
     font-weight: 700;
     font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
 }
 
 .blocoAtiva_empresa p {
-    color: #0B8C3D;
+    /* color: #0B8C3D; */
     text-transform: uppercase;
 }
 

@@ -53,7 +53,7 @@ function Topo(props){
                 </div>
                 <div className="blocoAtiva_empresa">
                     <small>Status</small>
-                    <p>{ipo.status}</p>
+                    <p className={ipo.status}>{ipo.status}</p>
                 </div>
 
                 <div className="segundo_topo">

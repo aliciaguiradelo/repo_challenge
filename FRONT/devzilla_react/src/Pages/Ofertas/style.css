@@ -93,6 +93,10 @@ aside{
     #filter select{
         width: 30%;
     }
+
+    .btn_secondary.arrow_long::after{
+        width: 15px;
+    }
 }
 
 @media screen and (max-width: 992px){

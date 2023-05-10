@@ -114,6 +114,7 @@ input:not(.search input), textarea, select {
   position: fixed;
   bottom: 70px;
   right: 3em;
+  z-index: 99;
 }
 
 .Toastify__toast-container--bottom-right, .Toastify{

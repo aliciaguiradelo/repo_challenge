@@ -58,3 +58,10 @@
 #comparacao canvas{
     margin-top: 1em;
 }
+
+@media screen and (max-width: 768px) {
+    #comparacao .wrap_filter {
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+}

@@ -155,3 +155,7 @@ table .coment{
 #admin td{
     padding: 5px 25px;
 }
+
+#admin label{
+    margin-top: 1em;
+}

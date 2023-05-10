@@ -10,7 +10,7 @@ function RotasMenu(props){
             <ul className='menu'>
                 <li><NavLink activeclassname='is-active' to="/">início</NavLink></li>
                 <li><NavLink activeclassname='is-active' to="/blog">blog</NavLink></li>
-                <li><NavLink activeclassname='is-active' to="/ofertas">IPOs</NavLink></li>
+                <li><NavLink activeclassname='is-active' to="/empresas">empresas</NavLink></li>
                 <li><NavLink activeclassname='is-active' to="/sobre">sobre nós</NavLink></li>
                 {/* <li><NavLactiveclassname='is-active' ink to="/">preciso de ajuda</NavLink></li> */}
                 <li><NavLink activeclassname='is-active' to="/admin/artigos"> admin </NavLink></li>

@@ -36,8 +36,8 @@ export default function App() {
           <Route element={<Home />} path="/" />
           <Route element={<Blog />} path="/blog" />
           <Route element={<Artigo />} path="/blog/artigo" />
-          <Route element={<Ofertas />} path="/ofertas" />
-          <Route element={<Oferta />} path="/ofertas/ipo" />
+          <Route element={<Ofertas />} path="/empresas" />
+          <Route element={<Oferta />} path="/empresas/ipo" />
           <Route element={<Admin />} path="/admin/*" />
           <Route element={<Sobre />} path="/sobre" />
           <Route element={<Cadastro />} path="/cadastro" />

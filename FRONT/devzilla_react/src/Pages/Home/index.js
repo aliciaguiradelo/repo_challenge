@@ -66,9 +66,9 @@ function Section1(){
         </p>
 
         <Button 
-          link="ofertas"
+          link="empresas"
           icon_name="arrow"
-          texto="ofertas disponíveis"
+          texto="ver empresas"
         />
       </div>
     </section>

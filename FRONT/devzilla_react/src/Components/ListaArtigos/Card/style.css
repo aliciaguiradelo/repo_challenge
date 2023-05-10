@@ -14,6 +14,11 @@
     width: 30%;
     background: #fff;
     overflow: hidden;
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-15px);
 }
 
 .card a{
@@ -127,7 +132,7 @@
 }
 
 .card img:hover{
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 .wrapper_img{
