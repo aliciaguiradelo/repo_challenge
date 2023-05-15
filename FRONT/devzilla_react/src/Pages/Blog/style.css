@@ -36,6 +36,11 @@
     padding-top: 2.5em;
 }
 
+#result{
+    text-align: center;
+    margin: 1em auto;
+}
+
 @media screen and (max-width: 992px) {
     #filter{
         width: 100%;

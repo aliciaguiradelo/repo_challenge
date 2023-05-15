@@ -32,7 +32,7 @@ export default function App() {
         <ListaCards dados={ipos.slice(0, 4)} tipo="ipo" botao/>
 
         <Section2 />
-        <ListaCards dados={artigos.slice(0, 3)} tipo="materia" botao admOptions={false} />
+        <ListaCards tipo="materia" botao admOptions={false} />
 
         <Newsletter />
         

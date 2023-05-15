@@ -17,7 +17,7 @@ export default function Card(props){
 }
 
 function Materia(props){
-    const { id, imagem, titulo, subtitulo } = props.item
+    const { id, imgUrl, titulo, conteudo } = props.item
 
     const [showEdit, setShowEdit] = useState(false)
     const toggleModalEdit = (e) => { 
@@ -100,8 +100,8 @@ function Materia(props){
                 </> }
 
             <article className="card artigo">
-                <a href="/blog/artigo" className='wrapper_img'>
-                    <img src={require(`../../../Assets/Images/blog/${imagem}`)}/>
+                <a href={`/blog/artigo/${id}`} className='wrapper_img'>
+                    <img src={require(`../../../Assets/Images/blog/${imgUrl}`)}/>
 
                     {/* Se ele for adm, mostra os campos de edição e exclusão */}
                     { props.admOptions && 
@@ -113,11 +113,11 @@ function Materia(props){
                 </a>
                 <div className="card_content" id={typeof(props.admOptions)}>
                     <h3 className="c_title">{titulo}</h3>
-                    <small>{subtitulo}</small>
+                    <small>{conteudo}</small>
 
                     <div className='card_footer'>
                         <Button
-                            link="/blog/artigo"
+                            link={`/blog/artigo/${id}`}
                             icon_name="arrow"
                             texto="ler mais"
                             style="secondary"

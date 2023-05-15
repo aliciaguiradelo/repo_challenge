@@ -35,7 +35,7 @@ export default function App() {
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Blog />} path="/blog" />
-          <Route element={<Artigo />} path="/blog/artigo" />
+          <Route element={<Artigo />} path="/blog/artigo/:id" />
           <Route element={<Ofertas />} path="/empresas" />
           <Route element={<Oferta />} path="/empresas/ipo" />
           <Route element={<Admin />} path="/admin/*" />
