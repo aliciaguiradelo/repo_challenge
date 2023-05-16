@@ -41,9 +41,11 @@ export default function Artigos(){
 
             toast.success('Sucesso! Aguarde para ser direcionado.')
 
-            setTimeout(() => {
-                window.location.href = '/blog/artigo'
-            }, 2500)
+            
+
+            // setTimeout(() => {
+            //     window.location.href = '/blog/artigo'
+            // }, 2500)
         }
 
         else toast.error('Algo deu errado! Revise os dados da matéria')
@@ -121,7 +123,6 @@ export default function Artigos(){
 
             <ListaCards 
                 tipo="materia"
-                dados={artigos}
                 admOptions
             />
 
@@ -142,7 +143,7 @@ export default function Artigos(){
                         onChange={e => setTitulo(e.target.value)}
                     />
 
-                    <label for="categoria">Categoria</label>
+                    <label htmlFor="categoria">Categoria</label>
                     <select 
                         id='categoria' 
                         className='wrap_input'
@@ -166,7 +167,7 @@ export default function Artigos(){
                     />
 
                     {/* Editor do conteúdo do artigo */}
-                    <label for="conteudo">Conteúdo</label>
+                    <label htmlFor="conteudo">Conteúdo</label>
                     <ReactQuill theme="snow" value={conteudo} onChange={setConteudo} id="conteudo" />
                     { errorConteudo != null && <span className='error' > {errorConteudo} </span> }
 

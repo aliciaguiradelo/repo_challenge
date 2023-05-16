@@ -20,19 +20,30 @@ export default function Artigo(){
 
     const [loading, setLoading] = useState(true)
     const [artigo, setArtigo] = useState({})
+    
+    const [comentarios, setComentarios] = useState([])
 
     useEffect(() => {
-        //Carregando o artigos pelo id
+        //Carregando o artigo pelo id
         fetch(`http://localhost:8080/InvestiumAPI/rest/postagem/${id}`)
           .then((resp) => resp.json())
           .then((data) => {
             setArtigo(data)
+            console.log(artigo)
             setLoading(false)
           })
           .catch((error) => {
             console.error(error)
             setLoading(false)
           });
+          
+
+        //Carregando os comentários
+        fetch(`http://localhost:8080/InvestiumAPI/rest/comentario/por_post/${id}`)
+        .then((resp) => resp.json())
+        .then((data) => setComentarios(data))
+        .catch((error) => console.error(error));
+
     }, [])
 
     return(
@@ -48,7 +59,7 @@ export default function Artigo(){
                 ) : (
                 <>
                     <Banner 
-                        imagem="banner_blog.jpg"
+                        imagem={`/blog/${artigo.imgUrl}`}
                         titulo={artigo.titulo}
                         botaoCompartilhar={true}
                     />
@@ -76,39 +87,31 @@ export default function Artigo(){
                             <div id="content">
                                 { artigo.conteudo }
 
-                                <section id="comentarios">   
+                                <section id="comentarios">
+
+                                    { comentarios.map((comentario) => {
+                                        return(
+                                            <div className="comentario">
+                                                <div className="profile">
+                                                    <BsFillPersonFill />
+                                                </div>
+                                                <div>
+                                                    <h3>José Dias</h3>
+                                                    <p>{comentario.conteudo}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    }) }
                 
-                                <div className="comentario">
-                                    <div className="profile">
-                                        <BsFillPersonFill />
+                                    <div id="novo_comentario">
+                                        <div className="profile">
+                                            <BsFillPersonFill />
+                                        </div>
+                                        <h3>Art Vandelay</h3>
+                    
+                                        <textarea placeholder="O que você achou da matéria?" rows="3"></textarea>
+                                        <a href="artigo_individual.html" className="btn btn_primary">comentar</a>
                                     </div>
-                                    <div>
-                                        <h3>José Dias</h3>
-                                        <p>Adorei a matéria! Aprendi muito com o conteúdo.</p>
-                                    </div>
-                                </div>
-                
-                                <div className="comentario">
-                                    <div className="profile">
-                                        <BsFillPersonFill />
-                                    </div>
-                
-                                    <div>
-                                        <h3>Maria Souza</h3>
-                                        <p>Muito bom! Sanei minhas dúvidas sobre IPOs. Vou compartilhar com meus amigos :)</p>
-                                    </div>
-                                    
-                                </div>
-                
-                                <div id="novo_comentario">
-                                    <div className="profile">
-                                        <BsFillPersonFill />
-                                    </div>
-                                    <h3>João Ferreira</h3>
-                
-                                    <textarea placeholder="O que você achou da matéria?" rows="3"></textarea>
-                                    <a href="artigo_individual.html" className="btn btn_primary">comentar</a>
-                                </div>
                 
                             </section>
                             </div>

@@ -31,6 +31,10 @@ function Materia(props){
         e.preventDefault();
         showDelete ? setShowDelete(false) : setShowDelete(true);
     }
+
+    const handleDelete = () => {
+        // fetch('')
+    }
     
     function handleSave() {
         setSaved(isSaved ? false : true)
@@ -54,7 +58,7 @@ function Materia(props){
                         <p>Tem certeza que deseja excluir essa matéria? <br /> Essa ação não poderá ser desfeita</p>
 
                         <div className='modal_footer'>
-                            <button className="btn btn_tertiary" onClick={toggleModalDelete}>Cancelar</button>
+                            <button className="btn btn_tertiary" onClick={handleDelete}>Cancelar</button>
                             <button className="btn btn_primary" onClick={toggleModalDelete}>Excluir</button>
                         </div>
                     </Modal>

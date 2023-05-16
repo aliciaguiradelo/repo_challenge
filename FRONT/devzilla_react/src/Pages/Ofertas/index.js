@@ -23,7 +23,7 @@ export default function Ofertas(){
 
             <main id='ofertas'>
                 <Banner 
-                    imagem="investimento.jpg"
+                    imagem="/banner/investimento.jpg"
                     titulo="Encontre as ofertas e compare para investir confiante!"
                 />
 

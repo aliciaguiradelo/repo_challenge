@@ -45,18 +45,43 @@ export default function Cadastro(){
 
         if(validaNome() && validaEmail() && validaSenha() && validaConfirm()){
 
-            //aqui faz o cadastro
-            setCarregando(true)
+            setCarregando(true);
 
-            setTimeout(() => {
-                setCarregando(false)
-            }, 2500)
+            const data = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            dtNascimento: '2023-05-15',
+            papel: 'user'
+            };
 
-            toast.success('Sucesso! Aguarde para ser direcionado.')
+            fetch('http://localhost:8080/InvestiumAPI/rest/usuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Erro na requisição');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                setCarregando(false);
+                toast.success('Sucesso! Aguarde para ser direcionado.');
+            })
+            .catch(error => {
+                console.error(error);
+                setCarregando(false);
+            });
 
-            setTimeout(() => {
-                window.location.href = '/perfil'
-            }, 2500)
+
+            // setTimeout(() => {
+            //     window.location.href = '/perfil'
+            // }, 2500)
 
         }
 
@@ -139,8 +164,8 @@ export default function Cadastro(){
 
                 />
 
-                <section class="container container_form">
-                    <div class="wrap_form">
+                <section className="container container_form">
+                    <div className="wrap_form">
                         <img src={img_login} />
                         <form onSubmit={handleSubmit}>
                             <h2>Seja bem vindo!</h2>

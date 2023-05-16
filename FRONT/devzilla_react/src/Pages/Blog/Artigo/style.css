@@ -29,7 +29,7 @@
 
 #content{
     margin-top: 2em;
-    width: 70%;
+    min-width: 70%;
 }
 
 #content ul li{
@@ -66,6 +66,7 @@
     justify-content: center;
     align-items: center;
     color: #fff;
+    aspect-ratio: 1;
 }
 
 .comentario p{

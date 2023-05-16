@@ -23,8 +23,8 @@ export default function App() {
         <BannerSlider
           banners={[
             <Banner titulo="Todos os IPOs disponíveis em um só lugar!" />,
-            <Banner imagem="banner_blog.jpg" titulo="Aprenda mais sobre investimento, ofertas e educação financeira!" />,
-            <Banner imagem="investimento.jpg" titulo="Encontre as ofertas e compare para investir confiante!" />
+            <Banner imagem="/banner/banner_blog.jpg" titulo="Aprenda mais sobre investimento, ofertas e educação financeira!" />,
+            <Banner imagem="/banner/investimento.jpg" titulo="Encontre as ofertas e compare para investir confiante!" />
           ]}
         />
 

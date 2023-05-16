@@ -25,7 +25,7 @@ export default function Banner(props){
     //caso o prop "imagem venha vazio, a imagem padrão vai ser aquela da B3"
     let img = require('../../Assets/Images/banner_b3.png')
 
-    if(imagem !== undefined) img = require(`../../Assets/Images/banner/${imagem}`)
+    if(imagem !== undefined) img = require(`../../Assets/Images${imagem}`)
 
     return(
         <section className="banner">
