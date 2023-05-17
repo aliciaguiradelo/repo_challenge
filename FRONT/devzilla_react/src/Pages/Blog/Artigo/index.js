@@ -39,7 +39,7 @@ export default function Artigo(){
           
 
         //Carregando os comentários
-        fetch(`http://localhost:8080/InvestiumAPI/rest/comentario/por_post/${id}`)
+        fetch(`http://localhost:8080/InvestiumAPI/rest/comentario/byPost/${id}`)
         .then((resp) => resp.json())
         .then((data) => setComentarios(data))
         .catch((error) => console.error(error));
@@ -70,7 +70,7 @@ export default function Artigo(){
 
                             <p id="subtitulo">{artigo.conteudo}</p>
                             
-                            <small>Artigos &gt; IPO &gt; {artigo.titulo} </small>
+                            <small>Artigos &gt; {artigo.categoria.descricao} &gt; {artigo.titulo} </small>
 
                             <div className="wrap_btns">
                                 <a className="btn btn_secondary curtir" href="#">
@@ -96,7 +96,7 @@ export default function Artigo(){
                                                     <BsFillPersonFill />
                                                 </div>
                                                 <div>
-                                                    <h3>José Dias</h3>
+                                                    <h3> {comentario.usuario.nome} </h3>
                                                     <p>{comentario.conteudo}</p>
                                                 </div>
                                             </div>
@@ -120,7 +120,7 @@ export default function Artigo(){
                         {/* TODO: fazer uma requisição com getDadosByCategoria da categoria atual */}
                         <aside id="cards">
                             <h2>Artigos relacionados</h2>
-                            <ListaArtigos tipo="materia" />
+                            <ListaArtigos tipo="materia" max={2} />
                         </aside>
                     </section>
                 </>

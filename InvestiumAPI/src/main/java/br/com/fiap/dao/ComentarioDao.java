@@ -70,6 +70,40 @@ public class ComentarioDao {
 
 		return list;
 	}
+	
+	public ArrayList<Comentario> getByPost(int id) throws SQLException {
+		Connection conn = ConnectionFactory.getConnection();
+		Statement statement;
+		ResultSet rs = null;
+		ArrayList<Comentario> list = null;
+
+		try {
+			String query = String.format("select * from comentario "
+					+ " WHERE fk_postagem = %s", id);
+
+			statement = conn.createStatement();
+
+			rs = statement.executeQuery(query);
+
+			list = new ArrayList<Comentario>();
+			while (rs.next()) {
+				Comentario c = new Comentario();
+				c.setId(Integer.parseInt(rs.getString("id_coment")));
+				c.setData(rs.getDate("data"));
+				c.setConteudo(rs.getString("conteudo"));
+				c.setPostagem(postagemDao.getPostagem(rs.getInt("fk_postagem")));
+				c.setUsuario(usuarioDao.getUsuario(rs.getString("fk_email")));
+
+				list.add(c);
+			}
+		} catch (Exception e) {
+			System.out.println("Erro ao exibir comentários! - " + e);
+		} finally {
+			conn.close();
+		}
+
+		return list;
+	}
 
 	public Comentario getComentario(int id) throws SQLException {
 		Connection conn = ConnectionFactory.getConnection();

@@ -18,12 +18,12 @@ public class CategoriaDao {
         Statement statement;
        
         try {
-            String query = String.format("insert into categoria_java(id_categoria,descricao) values(%s,'%s')", c.getId(), c.getDescricao());
+            String query = String.format("insert into categoria(id_cat,descricao) values(%s,'%s')", c.getId(), c.getDescricao());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
         }catch (Exception e){
-            System.out.println("Erro ao inserir o usuário! - " + e);
+            System.out.println("Erro ao inserir a categoria! - " + e);
         }
         finally {
         	conn.close();
@@ -37,7 +37,7 @@ public class CategoriaDao {
         ArrayList<Categoria> list = null;
        
         try {
-            String query= "select * from categoria_java order by id_categoria";
+            String query= "select * from categoria order by id_cat";
             
             statement=conn.createStatement();
            
@@ -52,7 +52,7 @@ public class CategoriaDao {
                 list.add(c);
             }
         }catch (Exception e){
-            System.out.println("Erro ao exibir o usuário! - " + e);
+            System.out.println("Erro ao exibir a categoria! - " + e);
         }
         finally {
         	conn.close();
@@ -68,7 +68,7 @@ public class CategoriaDao {
         Categoria categoria = null;
         
         try {
-            String query= String.format("select * from categoria_java where id_categoria = %s", id);
+            String query= String.format("select * from categoria where id_cat = %s", id);
             
             statement=conn.createStatement();
            
@@ -77,7 +77,7 @@ public class CategoriaDao {
             
             while(rs.next()){
             	categoria = new Categoria();
-            	categoria.setId(Integer.parseInt(rs.getString("id_categoria")));
+            	categoria.setId(Integer.parseInt(rs.getString("id_cat")));
             	categoria.setDescricao(rs.getString("descricao"));
           
             }
@@ -96,12 +96,12 @@ public class CategoriaDao {
         Statement statement;
        
         try {
-            String query = String.format("delete from categoria_java where id_categoria = %s", id);
+            String query = String.format("delete from categoria where id_cat = %s", id);
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
         }catch (Exception e){
-            System.out.println("Erro ao excluir o usuário! - " + e);
+            System.out.println("Erro ao excluir a categoria! - " + e);
         }
         finally {
         	conn.close();
@@ -113,12 +113,12 @@ public class CategoriaDao {
         Statement statement;
        
         try {
-            String query = String.format("update categoria_java set descricao = '%s' where id_categoria = %s", c.getDescricao(), c.getId());
+            String query = String.format("update categoria set descricao = '%s' where id_cat = %s", c.getDescricao(), c.getId());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
         }catch (Exception e){
-            System.out.println("Erro ao atualizar o usuário! - " + e);
+            System.out.println("Erro ao atualizar a categoria! - " + e);
         }
         finally {
         	conn.close();

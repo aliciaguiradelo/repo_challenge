@@ -48,11 +48,11 @@ export default function Cadastro(){
             setCarregando(true);
 
             const data = {
-            nome: nome,
-            email: email,
-            senha: senha,
-            dtNascimento: '2023-05-15',
-            papel: 'user'
+                nome: nome,
+                email: email,
+                senha: senha,
+                dtNascimento: '2023-05-15',
+                papel: 'user'
             };
 
             fetch('http://localhost:8080/InvestiumAPI/rest/usuario', {
@@ -63,9 +63,7 @@ export default function Cadastro(){
             body: JSON.stringify(data)
             })
             .then(response => {
-                if (!response.ok) {
-                throw new Error('Erro na requisição');
-                }
+                if (!response.ok) toast.error('Erro na requisição');
                 return response.json();
             })
             .then(data => {
@@ -75,6 +73,7 @@ export default function Cadastro(){
             })
             .catch(error => {
                 console.error(error);
+                toast.error(error)
                 setCarregando(false);
             });
 

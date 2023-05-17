@@ -17,6 +17,10 @@ public class PostagemBo {
 	public Postagem getPostagem(int id) throws SQLException {
 		return postagemDao.getPostagem(id);
 	}
+	
+	public ArrayList<Postagem> getPostagensByCategoria(int id) throws SQLException {
+		return postagemDao.getPostagemCategoria(id);
+	}
 
 	public void insert(Postagem postagem) throws SQLException {
 		postagemDao.insert(postagem);

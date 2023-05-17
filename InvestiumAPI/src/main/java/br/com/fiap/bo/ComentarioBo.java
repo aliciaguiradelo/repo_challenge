@@ -14,6 +14,10 @@ public class ComentarioBo {
 	public ArrayList<Comentario> getAll() throws SQLException {
 		return comentarioDao.getAll();
 	}
+	
+	public ArrayList<Comentario> comentariosByPost(int id) throws SQLException {
+		return comentarioDao.getByPost(id);
+	}
 
 	public Comentario getComentario(int id) throws SQLException {
 		return comentarioDao.getComentario(id);

@@ -23,7 +23,7 @@ public class UsuarioDao {
         String dataNascimento = sdf.format(u.getDtNascimento());
        
         try {
-            String query = String.format("insert into usuario_java values('%s','%s','%s','%s','%s')", u.getEmail(), u.getNome(), dataNascimento, u.getSenha(), u.getPapel());
+            String query = String.format("insert into usuario values('%s','%s','%s','%s','%s')", u.getEmail(), u.getNome(), dataNascimento, u.getSenha(), u.getPapel());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
@@ -42,7 +42,7 @@ public class UsuarioDao {
         ArrayList<Usuario> list = null;
        
         try {
-            String query= "select * from usuario_java order by email";
+            String query= "select * from usuario order by email";
             
             statement=conn.createStatement();
            
@@ -77,7 +77,7 @@ public class UsuarioDao {
         Usuario usuario = null;
         
         try {
-            String query= String.format("select * from usuario_java where email = '%s' and senha = '%s'", email, senha);
+            String query= String.format("select * from usuario where email = '%s' and senha = '%s'", email, senha);
             
             statement=conn.createStatement();
            
@@ -108,7 +108,7 @@ public class UsuarioDao {
         Usuario usuario = null;
         
         try {
-            String query= String.format("select * from usuario_java where email = '%s'", email);
+            String query= String.format("select * from usuario where email = '%s'", email);
             
             statement=conn.createStatement();
            
@@ -137,7 +137,7 @@ public class UsuarioDao {
         Statement statement;
        
         try {
-            String query = String.format("delete from usuario_java where email = '%s'", email);
+            String query = String.format("delete from usuario where email = '%s'", email);
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);

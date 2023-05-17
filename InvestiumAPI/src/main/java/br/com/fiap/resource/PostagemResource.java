@@ -36,6 +36,13 @@ public class PostagemResource {
 		return postagemBO.getPostagem(id);
 	}
 	
+	@GET
+	@Path("/byCategoria/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Postagem> buscarByCategoria(@PathParam("id")int id) throws SQLException {
+		return postagemBO.getPostagensByCategoria(id);
+	}
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	/*RESPONSE É CLASSE DO PACOTE JAVAX ELA GERA O HTTP COMO RETORNO*/

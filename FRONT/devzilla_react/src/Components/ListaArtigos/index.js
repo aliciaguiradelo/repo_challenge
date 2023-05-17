@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading';
 
 export default function ListaCards(props){
-    const { tipo, botao, admOptions } = props
+    const { tipo, botao, admOptions, max } = props
 
     const [dados, setDados] = useState(props.dados)
     const [loading, setLoading] = useState(true)
@@ -20,7 +20,7 @@ export default function ListaCards(props){
             fetch(`http://localhost:8080/InvestiumAPI/rest/${path}`)
             .then((resp) => resp.json())
             .then((data) => {
-                setDados(data)
+                { max ? setDados(data.slice(max)) : setDados(data) }
                 setLoading(false)
             })
             .catch((error) => console.error(error));
