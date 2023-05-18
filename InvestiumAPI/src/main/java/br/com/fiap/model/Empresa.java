@@ -4,6 +4,7 @@ public class Empresa {
 	private int id;
 	private String nome;
 	private String descricao;
+	private String cor;
 	private boolean ativoIpo;
 	private double valorInicialIpo;
 	private String descricaoIpo;
@@ -18,17 +19,18 @@ public class Empresa {
 		
 	}
 
-	public Empresa(int id, String nome, boolean ativoIpo, Setor setor) {
+	public Empresa(int id, String nome, boolean ativoIpo, Setor setor, String cor) {
 		this.id = id;
 		this.nome = nome;
 		this.ativoIpo = ativoIpo;
 		this.setor = setor;
+		this.cor = cor;
 	}
 	
 	
 
 	public Empresa(int id, String nome, String descricao, boolean ativoIpo, double valorInicialIpo, String descricaoIpo,
-			String linkEmpresa, String linkProspecto, String imagem, Setor setor) {
+			String linkEmpresa, String linkProspecto, String imagem, Setor setor, String cor) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -40,6 +42,7 @@ public class Empresa {
 		this.linkProspecto = linkProspecto;
 		this.imagem = imagem;
 		this.setor = setor;
+		this.cor = cor;
 	}
 
 	public int getId() {
@@ -56,6 +59,14 @@ public class Empresa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 
 	/*

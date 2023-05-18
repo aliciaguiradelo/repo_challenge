@@ -25,14 +25,14 @@ public class EmpresaDao {
         	String ativoIPO = empresa.getAtivoIpo() ? "S" : "N";
         	
             String query = String.format("INSERT INTO empresa"
-            		+ "(id_empresa, nome, descricao_empresa, ativo_ipo,"
+            		+ "(id_empresa, nome_empresa, descricao_empresa, ativo_ipo,"
             		+ "valor_inicial_ipo, descricao_ipo, link_empresa,"
-            		+ "link_prospecto, img_empresa, fk_setor) "
+            		+ "link_prospecto, img_empresa, fk_setor, cor) "
             		+ "VALUES (%s, '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s', %s)", 
             		empresa.getId(), empresa.getNome(), empresa.getDescricao(),
             		ativoIPO, empresa.getValorInicialIpo(), empresa.getDescricaoIpo(),
             		empresa.getLinkEmpresa(), empresa.getLinkProspecto(), 
-            		empresa.getImagem(), empresa.getSetor().getId());
+            		empresa.getImagem(), empresa.getSetor().getId(), empresa.getCor());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
@@ -62,7 +62,7 @@ public class EmpresaDao {
             while(rs.next()){
             	Empresa e = new Empresa();
             	e.setId(rs.getInt("id_empresa"));
-            	e.setNome(rs.getString("nome"));
+            	e.setNome(rs.getString("nome_empresa"));
             	e.setDescricao(rs.getString("descricao_empresa"));
             	
             	String ativo = rs.getString("ativo_ipo");
@@ -73,6 +73,7 @@ public class EmpresaDao {
             	e.setLinkEmpresa(rs.getString("link_empresa"));
             	e.setLinkProspecto(rs.getString("link_prospecto"));
             	e.setImagem(rs.getString("img_empresa"));
+            	e.setCor(rs.getString("cor"));
             	
             	Setor s = sdao.getSetor(rs.getInt("fk_setor"));
             	e.setSetor(s);
@@ -106,7 +107,7 @@ public class EmpresaDao {
             while(rs.next()){
             	empresa = new Empresa();
             	empresa.setId(rs.getInt("id_empresa"));
-            	empresa.setNome(rs.getString("nome"));
+            	empresa.setNome(rs.getString("nome_empresa"));
             	empresa.setDescricao(rs.getString("descricao_empresa"));
             	
             	String ativo = rs.getString("ativo_ipo");
@@ -117,6 +118,7 @@ public class EmpresaDao {
             	empresa.setLinkEmpresa(rs.getString("link_empresa"));
             	empresa.setLinkProspecto(rs.getString("link_prospecto"));
             	empresa.setImagem(rs.getString("img_empresa"));
+            	empresa.setCor(rs.getString("cor"));
             	
             	Setor s = sdao.getSetor(rs.getInt("fk_setor"));
             	empresa.setSetor(s);
@@ -157,16 +159,16 @@ public class EmpresaDao {
         	//"convertendo" o boolean da empresa pra char
         	String ativoIPO = empresa.getAtivoIpo() ? "S" : "N";
         	
-            String query = String.format("update empresa set nome = '%s', descricao_empresa = '%s',"
+            String query = String.format("update empresa set nome_empresa = '%s', descricao_empresa = '%s',"
             		+ "ativo_ipo = '%s', valor_inicial_ipo = %s,"
             		+ "descricao_ipo = '%s', link_empresa = '%s',"
             		+ "link_prospecto = '%s', img_empresa = '%s',"
-            		+ "fk_setor = %s"
+            		+ "fk_setor = %s, cor = '%s'"
             		+ "WHERE id_empresa = %s", 
             		empresa.getNome(), empresa.getDescricao(), 
             		ativoIPO, empresa.getValorInicialIpo(), empresa.getDescricaoIpo(),
             		empresa.getLinkEmpresa(), empresa.getLinkProspecto(),
-            		empresa.getImagem(), empresa.getSetor().getId(), empresa.getId());
+            		empresa.getImagem(), empresa.getSetor().getId(), empresa.getCor(), empresa.getId());
             
            
             statement = conn.createStatement();          

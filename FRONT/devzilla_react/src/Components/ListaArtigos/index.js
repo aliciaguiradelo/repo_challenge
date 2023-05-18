@@ -20,14 +20,14 @@ export default function ListaCards(props){
             fetch(`http://localhost:8080/InvestiumAPI/rest/${path}`)
             .then((resp) => resp.json())
             .then((data) => {
-                { max ? setDados(data.slice(max)) : setDados(data) }
+                { max ? setDados(data.slice(0, max)) : setDados(data) }
                 setLoading(false)
             })
             .catch((error) => console.error(error));
         }
 
         else setLoading(false)
-    })
+    }, [])
 
     return(
         <section className="container bg_gray">   

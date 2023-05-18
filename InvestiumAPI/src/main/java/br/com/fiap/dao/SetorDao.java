@@ -15,7 +15,7 @@ public class SetorDao {
         Statement statement;
        
         try {
-            String query = String.format("insert into setor_java (id_setor, descricao) VALUES (%s,'%s')", s.getId(), s.getDescricao());
+            String query = String.format("insert into setor (id_setor, descricao) VALUES (%s,'%s')", s.getId(), s.getDescricao());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
@@ -34,7 +34,7 @@ public class SetorDao {
         ArrayList<Setor> list = null;
        
         try {
-            String query= "select * from setor_java order by id_setor";
+            String query= "select * from setor order by id_setor";
             
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
@@ -65,7 +65,7 @@ public class SetorDao {
         Setor setor = null;
         
         try {
-            String query= String.format("select * from setor_java where id_setor = %s", id);
+            String query= String.format("select * from setor where id_setor = %s", id);
             
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
@@ -92,7 +92,7 @@ public class SetorDao {
         Statement statement;
        
         try {
-            String query = String.format("DELETE FROM setor_java "
+            String query = String.format("DELETE FROM setor "
             		+ "WHERE id_setor = %s", id);
            
             statement = conn.createStatement();          
@@ -110,7 +110,7 @@ public class SetorDao {
         Statement statement;
        
         try {
-            String query = String.format("update setor_java set descricao = '%s'"
+            String query = String.format("update setor set descricao = '%s'"
             		+ "where id_setor = %s", s.getDescricao(), s.getId());
            
             statement = conn.createStatement();          

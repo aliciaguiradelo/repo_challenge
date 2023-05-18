@@ -21,7 +21,10 @@ export default function Card(props){
 }
 
 function IPO(props){
-    const { id, imagem, nome, status, cor, valor, atualizacao } = props.item
+    const { id, imagem, nome, ativoIpo, cor, valorInicialIpo } = props.item
+
+    const status = ativoIpo ? 'ativa' : 'finalizada'
+
     const [showEdit, setShowEdit] = useState(false)
     const toggleModalEdit = (e) => { 
         e.preventDefault()
@@ -36,17 +39,17 @@ function IPO(props){
     }
 
     const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set());
-  const steps = ["Passo 1", "Passo 2", "Passo 3"];
+    const [skipped, setSkipped] = useState(new Set());
+    const steps = ["Passo 1", "Passo 2", "Passo 3"];
 
-  const handleNext = () => {
-    let newSkipped = skipped;
-  setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-  const handleBack = () => {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  };
+    const handleNext = () => {
+        let newSkipped = skipped;
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+        setSkipped(newSkipped);
+    };
+    const handleBack = () => {
+        setActiveStep(prevActiveStep => prevActiveStep - 1);
+    };
 
     function handleSave() {
         setSaved(isSaved ? false : true)
@@ -112,12 +115,12 @@ function IPO(props){
         <article className="card ipo">
             <div className="card_content">
                 <a href="/empresas/ipo" className='wrap_img' style={{background: cor}}>
-                    <img src={require(`../../../Assets/Images/ipo/${imagem}`)} className="logo"/>
+                    <img src={imagem} className="logo"/>
                 </a>
 
                 <h3 className="c_title">{nome}</h3>
                 <small className={status}>{status}</small>
-                <p className='valor'><span>R$</span>{valor}</p>
+                <p className='valor'><span>R$</span>{valorInicialIpo.toFixed(2).replace('.', ',')}</p>
 
                 {/* Se ele for adm, mostra os campos de edição e exclusão */}
                 { props.admOptions && 
