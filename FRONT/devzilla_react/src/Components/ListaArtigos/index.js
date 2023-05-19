@@ -70,7 +70,7 @@ export default function ListaCards(props){
 
             { botao && 
                 <Button
-                    link=""
+                    link={tipo === 'materia' ? '/blog' : '/empresas'}
                     icon_name="arrow_long"
                     texto="Ver todas"
                     style="secondary"

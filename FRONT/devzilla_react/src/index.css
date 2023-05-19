@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500i,600,700,800,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Amaranth:400,700i,700&display=swap');
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{ 
   margin: 0; 
   font-family: 'Nunito';
@@ -127,6 +131,7 @@ input:not(.search input), textarea, select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 300px;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

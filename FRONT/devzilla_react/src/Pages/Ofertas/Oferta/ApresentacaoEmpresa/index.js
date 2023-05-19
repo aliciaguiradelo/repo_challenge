@@ -28,6 +28,10 @@ import { Bar, Line, Chart } from 'react-chartjs-2';
 export default function ApresentacaoEmpresa(props){
     const ipo = props.ipo
 
+    const { nome, linkEmpresa, cor, imagem, setor, ativoIpo, valorInicialIpo, linkProspecto } = props.oferta
+
+    const status = ativoIpo ? 'ativa' : 'finalizada'
+
     const [showModal, setShow] = useState(false)
 
     const toggleModal = (e) => {
@@ -56,18 +60,18 @@ export default function ApresentacaoEmpresa(props){
                 </div>
             </Modal>
 
-            <a href="https://nubank.com.br/relatorios-financeiros/" target="_blank" className='wrap_img' style={{background: ipo.cor}}>
-                <img src={require(`../../../../Assets/Images/ipo/${ipo.imagem}`)} className="logo" alt={`Logo da empresa ${ipo.nome}`}/>
+            <a href={linkEmpresa} target="_blank" className='wrap_img' style={{background: cor }}>
+                <img src={imagem} className="logo" alt={`Logo da empresa ${nome}`}/>
             </a>
             <div className="informacoes_empresa">
                 <div>
-                    <h2>{ipo.nome}</h2>
+                    <h2>{nome}</h2>
                     <small>04.972.092/0001-22</small>
                 </div>
-                <small><strong>Setor:</strong> {ipo.setor}</small>
-                <small><strong>Status:</strong> { ipo.status }</small>
-                <small><strong>Valor inicial:</strong> R$ {ipo.valor}</small>
-                <a href="#" className="btn btn_primary arrow">Prospecto</a>
+                <small><strong>Setor:</strong> {setor.descricao}</small>
+                <small><strong>Status:</strong> { status }</small>
+                <small><strong>Valor inicial:</strong> R$ { valorInicialIpo.toFixed(2).replace('.', ',') }</small>
+                <a href={linkProspecto} target='_blank' className="btn btn_primary arrow">Prospecto</a>
             </div>
 
             <div className="direcionamentos">
@@ -75,7 +79,7 @@ export default function ApresentacaoEmpresa(props){
                     <h2>Informações importantes</h2>
                     <a href="#governanca" className="btn btn_primary arrow text_blue">Diretoria da empresa <IoIosArrowDropdownCircle /> </a>
                     <a href="#sobre" className="btn btn_primary arrow text_blue">Sobre a Nubank <IoIosArrowDropdownCircle /></a>
-                    <a href="#destino" className="btn btn_primary arrow text_blue">Destino dos recursos <IoIosArrowDropdownCircle /></a>
+                    <a href="#oferta" className="btn btn_primary arrow text_blue">Destino dos recursos <IoIosArrowDropdownCircle /></a>
                     <a href="#indicadores" className="btn btn_primary arrow text_blue">Indicadores financeiros <IoIosArrowDropdownCircle /></a>
                     <a href="#balanco" className="btn btn_primary arrow text_blue">Balanços Patrimoniais <IoIosArrowDropdownCircle /></a>
                 </div>

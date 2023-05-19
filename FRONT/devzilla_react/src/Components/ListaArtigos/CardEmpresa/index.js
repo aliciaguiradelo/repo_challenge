@@ -14,6 +14,8 @@ import 'react-quill/dist/quill.snow.css';
 
 import { Step, Stepper, StepLabel } from '@mui/material'
 
+import { Link } from 'react-router-dom'
+
 export default function Card(props){
     const { tipo, dados, admOptions } = props
 
@@ -114,9 +116,9 @@ function IPO(props){
 
         <article className="card ipo">
             <div className="card_content">
-                <a href="/empresas/ipo" className='wrap_img' style={{background: cor}}>
+                <Link to={`/empresas/ipo/${id}`} className='wrap_img' style={{background: cor}}>
                     <img src={imagem} className="logo"/>
-                </a>
+                </Link>
 
                 <h3 className="c_title">{nome}</h3>
                 <small className={status}>{status}</small>
@@ -137,7 +139,7 @@ function IPO(props){
                 </span> */}
 
                 <Button
-                    link="/empresas/ipo"
+                    link={`/empresas/ipo/${id}`}
                     icon_name="arrow"
                     texto="mais detalhes"
                     style="secondary"
