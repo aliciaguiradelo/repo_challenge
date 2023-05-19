@@ -43,9 +43,9 @@ export default function Perfil(){
                     <small > Se desejar alterar a conta, <span> clique aqui </span></small>
                     <a href="#" className = "btn btn_primary arrow"> Salvar </a> </div> </form> </section>
 
-                <ListaCards dados = {ipos.slice(0, 4)} tipo = "ipo" botao />
+                {/* <ListaCards dados = {ipos.slice(0, 4)} tipo = "ipo" botao />
 
-                <ListaCards dados = {artigos.slice(0, 3)} tipo = "materia" botao />
+                <ListaCards dados = {artigos.slice(0, 3)} tipo = "materia" botao /> */}
             </main>
             <Footer />
         </div>

@@ -22,7 +22,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Cadastro(){
+export default function Cadastro() {
 
     const [email, setEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState(null)
@@ -32,48 +32,55 @@ export default function Cadastro(){
 
     const [carregando, setCarregando] = useState(false)
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
 
         e.preventDefault();
 
-        if(validaEmail() && validaSenha()){
-
-            //aqui faz o login
+        if (validaEmail() && validaSenha()) {
             setCarregando(true)
 
-            setTimeout(() => {
-                setCarregando(false)
-            }, 2500)
-
-            toast.success('Sucesso! Aguarde para ser direcionado.')
-
-            setTimeout(() => {
-                window.location.href = '/perfil'
-            }, 2500)
-
+            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${email}/${senha}`)
+                .then((resp) => resp.json())
+                .then((data) => {
+                    setCarregando(false)
+                    if (data.nome && data.email && data.senha) {
+                        toast.success('Usuário autenticado! Aguarde para ser direcionado.')
+                        const dadosString = JSON.stringify(data);
+                        sessionStorage.setItem("dadosUsuario", dadosString);
+                        setTimeout(() => {
+                            window.location.href = '/perfil'
+                        }, 2000)
+                    } else {
+                        toast.error('Email ou senha incorretos.')
+                    }
+                })
+                .catch((error) => {
+                    console.error(error)
+                    setCarregando(false)
+                });
         }
 
-        else{
+        else {
             toast.error('Algo deu errado! Revise seus dados')
         }
     }
 
-    function validaEmail(){
+    function validaEmail() {
 
         //se for válido e não for vazio retorna true e remove o erro
-        if(email !== '' && email !== null && validator.isEmail(email)){
+        if (email !== '' && email !== null && validator.isEmail(email)) {
             setErrorEmail(null)
             return true
         }
 
         //se cair aqui tem algo errado e entram as validações especificas
         else {
-            if(email === '' || email === null || email === undefined){
+            if (email === '' || email === null || email === undefined) {
                 setErrorEmail('Email é obrigatório!')
                 return false
             }
-    
-            if(!validator.isEmail(email)) {
+
+            if (!validator.isEmail(email)) {
                 setErrorEmail('Email inválido!')
                 return false
             }
@@ -83,20 +90,20 @@ export default function Cadastro(){
 
     }
 
-    function validaSenha(){
+    function validaSenha() {
 
-        if(senha !== '' && senha !== null){
+        if (senha !== '' && senha !== null) {
             setErrorSenha(null)
-            return true 
+            return true
         }
-        else{
+        else {
             //Futuramente aqui tem outro if validando se a senha corresponde ao banco de dados
             setErrorSenha('Senha é obrigatória!')
             return false
         }
     }
 
-    return(
+    return (
         <div>
             <Header />
             <Loader show={carregando} />
@@ -142,7 +149,7 @@ export default function Cadastro(){
 
                             <a className="outros_links" href="#">Esqueceu a senha? <strong>clique aqui</strong></a>
                             <Link className="outros_links" to="/cadastro">Ainda não possui conta? <strong>clique aqui</strong></Link>
-                            
+
                         </form>
                     </div>
                 </section>

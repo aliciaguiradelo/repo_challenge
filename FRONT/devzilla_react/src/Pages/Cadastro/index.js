@@ -64,24 +64,19 @@ export default function Cadastro(){
             })
             .then(response => {
                 if (!response.ok) toast.error('Erro na requisição');
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
+                console.log(response);
                 setCarregando(false);
                 toast.success('Sucesso! Aguarde para ser direcionado.');
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 2500);
+                return response.json();
             })
             .catch(error => {
-                console.error(error);
+                console.log(error);
                 toast.error(error)
                 setCarregando(false);
             });
-
-
-            // setTimeout(() => {
-            //     window.location.href = '/perfil'
-            // }, 2500)
-
         }
 
         else{
