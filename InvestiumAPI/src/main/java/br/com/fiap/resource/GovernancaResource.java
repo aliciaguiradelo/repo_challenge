@@ -38,6 +38,13 @@ public class GovernancaResource {
 		return governancaBo.getGovernanca(id);
 	}
 	
+	@GET
+	@Path("/byEmpresa/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Governanca buscarPorEmpresa(@PathParam("id")int id) throws SQLException {
+		return governancaBo.getByEmpresa(id);
+	}
+	
 	/*
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)

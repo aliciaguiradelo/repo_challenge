@@ -14,6 +14,10 @@ public class GovernancaBo {
 		return governancaDao.getAll();
 	}
 	
+	public Governanca getByEmpresa(int id) throws SQLException{
+		return governancaDao.getGovernancaByEmpresa(id);
+	}
+	
 	public Governanca getGovernanca(int id) throws SQLException {
 		return governancaDao.getGovernanca(id);
 	}

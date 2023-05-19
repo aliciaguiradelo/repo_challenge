@@ -96,6 +96,52 @@ public class GovernancaDao {
         return list;
 	}
 	
+	public Governanca getGovernancaByEmpresa(int id) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        Statement statement;
+        Statement psStatement;
+        ResultSet rs = null;
+        ResultSet psRs = null;
+        Governanca gov = null;
+       
+        try {
+            String query = String.format("SELECT * FROM governanca WHERE fk_empresa = %s ORDER BY id_gov", id);
+            
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            
+            while(rs.next()){
+            	gov = new Governanca();
+            	gov.setId(rs.getInt("id_gov"));
+            	gov.setDtInicio(rs.getDate("dt_inicio"));
+	            gov.setDtFim(rs.getDate("dt_fim"));
+	            gov.setEmpresa(empresaDao.getEmpresa(rs.getInt("fk_empresa")));
+            	
+            	//PEGANDO CADA PESSOA RELACIONADA A PESSOA GOVERNANÇA PELA TABELA POSSUI
+                String psQuery = "SELECT * FROM possui WHERE fk_id_governanca = " 
+            	+ gov.getId();
+                
+                psStatement = conn.createStatement();
+                psRs = psStatement.executeQuery(psQuery);
+                
+                while(psRs.next()) {
+                    int psId = psRs.getInt("fk_pessoa_governanca");
+                    // método para buscar a pessoa governanca na tabela governanca
+                    PessoaGovernanca ps = pgdao.getPessoaGovernanca(psId); 
+                    gov.addPessoasGovernanca(ps);
+                }
+                
+            }
+        }catch (Exception e){
+            System.out.println("Erro ao exibir da tabela pessoa governança! - " + e);
+        }
+        finally {
+        	conn.close();
+        }
+        
+        return gov;
+	}
+	
 	public Governanca getGovernanca(int id) throws SQLException {
 	    Connection conn = ConnectionFactory.getConnection();
 	    Statement statement;
