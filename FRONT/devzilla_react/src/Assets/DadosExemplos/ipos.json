@@ -10,21 +10,21 @@
         "status": "ativa",
         "valor": "9,75",
         "atualizacao": ["caiu", "49.3%"],
-        "indicadores_financeiros_liquido": {
+        "indicadores_financeiros_totais": {
             "labels": ["2019", "2020", "2021"],
             "datasets": [
               {
-                "label": "Receita Líquida",
+                "label": "Receita Total",
                 "data": [1750, 1780, 1917],
                 "backgroundColor": "#0B8C3D"
               },
               {
-                "label": "Dívida Líquida",
+                "label": "Dívida Total",
                 "data": [190, 194.3, 376.7],
                 "backgroundColor": "#BD3800"
               },
               {
-                "label": "Lucro Líquido",
+                "label": "Lucro Total",
                 "data": [42, 44, 21],
                 "backgroundColor": "#D18B57"
               }

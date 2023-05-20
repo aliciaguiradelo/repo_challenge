@@ -25,40 +25,29 @@ import {
 
 import { Bar, Line, Chart } from 'react-chartjs-2';
 
-export default function ApresentacaoEmpresa(props){
-    const ipo = props.ipo
+import CompararIPOs from '../../../../Components/CompararIPOs';
 
-    const { nome, linkEmpresa, cor, imagem, setor, ativoIpo, valorInicialIpo, linkProspecto } = props.oferta
+export default function ApresentacaoEmpresa(props){
+
+    const { id, nome, linkEmpresa, cor, imagem, setor, ativoIpo, valorInicialIpo, linkProspecto } = props.oferta
 
     const status = ativoIpo ? 'ativa' : 'finalizada'
 
     const [showModal, setShow] = useState(false)
 
-    const toggleModal = (e) => {
+    const abrirModal = (e) => {
         e.preventDefault();
-        showModal ? setShow(false) : setShow(true);
+        setShow(true)
     }
 
-    const [step, setStep] = useState(1);
+    const fecharModal = () => {
+        setShow(false);
+    };
 
     return(
         <section className="container apresentacao_empresa">
 
-            <Modal
-                show={showModal}
-                onClose={toggleModal}
-                title={step == 1 ? 'Escolha uma oferta' : 'Comparar ofertas'}
-            >
-                { step == 1 ? <SelecaoOferta /> : <ComparacaoIPO ipos={ipos} /> }
-
-                <div className='modal_footer'>
-                    { step == 1 ? <button className="btn btn_primary" onClick={() => setStep(2)}>Continuar</button> : 
-                    <>
-                        <button className="btn btn_primary" onClick={() => setStep(1)}>Voltar</button>
-                        <button className="btn btn_tertiary" onClick={() => setShow(false)}>Fechar</button>
-                    </> }
-                </div>
-            </Modal>
+            <CompararIPOs id={id} show={showModal} abrirModal={abrirModal} fecharModal={fecharModal} />
 
             <a href={linkEmpresa} target="_blank" className='wrap_img' style={{background: cor }}>
                 <img src={imagem} className="logo" alt={`Logo da empresa ${nome}`}/>
@@ -89,7 +78,7 @@ export default function ApresentacaoEmpresa(props){
                 <h2>Comparar com outra oferta</h2>
                 <img src={comparison} />
 
-                <a href="" className="btn btn_primary arrow" onClick={toggleModal}>Comparar oferta </a>
+                <button className="btn btn_primary arrow" onClick={abrirModal}>Comparar oferta </button>
             </div>
         </section>
     )

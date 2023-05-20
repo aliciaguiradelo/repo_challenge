@@ -15,7 +15,11 @@ import {
 
 import ReactLoading from 'react-loading'
 
-import { Bar, Line, Chart } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+
+import Table from "../Table";
+import ChartIndicadores from "../ChartIndicadores";
+import BalancoPatrimonial from "../BalancoPatrimonial";
 
 export default function IndicadoresFinanceiros(props){
     ChartJS.register(
@@ -63,7 +67,6 @@ export default function IndicadoresFinanceiros(props){
             ) : (
                 <div className="container row charts_section indicadores" style={{paddingTop: 0}}>
                     <div className="column wrap_data">
-                        {/* <h2>Valores Brutos</h2> */}
                         <div className="wrap_filter">
                             <label>Tipo de visualização: </label>
                             <select 
@@ -78,66 +81,13 @@ export default function IndicadoresFinanceiros(props){
                             </select>
                         </div>
 
-                            { visualizacao === 'tabela' ? <Table dados={indicadoresFinanceiros}/> : 
-                            <Chart type='bar' data={ipo.indicadores_financeiros_bruto} /> }        
+                            { visualizacao === 'tabela' ? 
+                            <Table dados={indicadoresFinanceiros}/> : 
+                            <ChartIndicadores dados={indicadoresFinanceiros} /> }        
                     </div>
                 </div>
             ) }
-
-            
-
-            <div className="container" style={{paddingBottom: 0, paddingTop: 0}}>    
-                <h1 className="line_after">Balanços Patrimoniais</h1>
-            </div>
-
-            <div className="container row charts_section" style={{paddingTop: 0}}>
-                <div className="column wrap_data">
-                    <h2>Ativos</h2>
-                    <Bar data={ipo.balancos_patrimoniais_ativo} />
-                </div>
-
-                <div className="column wrap_data">
-                    <h2>Passivos</h2>
-                    <Bar data={ipo.balancos_patrimoniais_passivo} />
-                </div>
-            </div>
         </>
     )
 }
 
-function Table({ dados }){
-
-    const anos = [...new Set(dados.map(item => item.ano.split('-')[0]))];
-
-    console.log(dados)
-
-    return(
-        <div className="wrap_table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        { anos.map(ano => (<th key={ano}>{ano} </th>)) }
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {dados.map(item => (
-                        <tr key={item.id}>
-                        <td>{item.descricao} {item.tipo}</td>
-                        {anos.map(ano => {
-                            const dadosAno = dados.filter(dado => dado.ano.split('-')[0] === ano);
-                            const dadoAno = dadosAno.find(dado => dado.descricao === item.descricao && dado.tipo === item.tipo);
-                            return (
-                                <td key={`${item.id}-${ano}`}>
-                                    {dadoAno && dadoAno.valor}
-                                </td>
-                            );
-                        })}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    )
-}

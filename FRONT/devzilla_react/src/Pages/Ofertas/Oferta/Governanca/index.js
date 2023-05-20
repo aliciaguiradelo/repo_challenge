@@ -39,7 +39,7 @@ export default function Governanca(props){
                     <article>
                         { governanca.pessoasGovernanca.map((pessoa) => {
                             return (
-                                <div>
+                                <div key={pessoa.id}>
                                     <img src={default_profile} alt="" />
                                     <div>
                                         <p>{pessoa.nome}</p>

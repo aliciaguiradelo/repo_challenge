@@ -369,7 +369,7 @@ canvas {
     margin-top: 0;
 }
 
-input[name="forma_pgt"]{
+input[name="empresa"]{
     position: absolute;
     opacity: 0;
     width: 0;
@@ -379,10 +379,11 @@ input[name="forma_pgt"]{
 .wrap_options{
     display: flex;
     gap: 1.5em;
+    flex-wrap: wrap;
 }
 
-.wrap_options label{
-    width: 25%;
+.wrap_options label {
+    width: calc(25% - 4.5em);
 }
 
 .wrap_img.option {
@@ -400,6 +401,7 @@ input[name="forma_pgt"]{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 .option .logo{
@@ -411,13 +413,14 @@ input[name="forma_pgt"]{
     background-repeat: no-repeat;
 }
 
-[name=forma_pgt] + div {
+[name=empresa] + div {
     cursor: pointer;
+    opacity: .5;
+    transition: .3s;
 }
 
-[name=forma_pgt]:checked + div {
-    outline: 1px solid hsla(208, 100%, 33%, 0.984);
-    border-color: hsla(208, 100%, 33%, 0.984);
+[name=empresa]:checked + div {
+    opacity: 1;
 }
 
 @media screen and (max-width: 991px) {

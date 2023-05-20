@@ -16,6 +16,8 @@ import { useParams } from "react-router-dom";
 
 import ReactLoading from 'react-loading'
 
+import BalancoPatrimonial from "./BalancoPatrimonial";
+
 export default function Oferta () {
 
     const ipo = ipos[1];
@@ -62,7 +64,7 @@ export default function Oferta () {
                                 id="sobre"
                             />
 
-                            <Governanca id={ id } />
+                            {/* <Governanca id={ id } /> */}
 
                             <SecaoTexto 
                                 titulo="Sobre a oferta (IPO)" 
@@ -71,6 +73,8 @@ export default function Oferta () {
                             />
 
                             <IndicadoresFinanceiros ipo={ipo} id={id} />
+
+                            <BalancoPatrimonial id={id} />
                         </>
                     )}
                     
