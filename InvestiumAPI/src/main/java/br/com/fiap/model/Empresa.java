@@ -1,5 +1,8 @@
 package br.com.fiap.model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Empresa {
 	private int id;
 	private String nome;
@@ -12,11 +15,40 @@ public class Empresa {
 	private String linkProspecto;
 	private String imagem;
 	private Setor setor;
+	private ArrayList<IndicadorFinanceiro> indicadoresFinanceiros = new ArrayList<>();
+	private Date dataInicioIPO;
+	private String cnpj;
 	
-	//private ArrayList<Balanco> balancos = new ArrayList<>();
+//	private ArrayList<Balanco> balancos = new ArrayList<>();
 	
 	public Empresa() {
 		
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public Date getDataInicioIPO() {
+		return dataInicioIPO;
+	}
+
+	public void setDataInicioIPO(Date dataInicioIPO) {
+		this.dataInicioIPO = dataInicioIPO;
+	}
+
+
+
+	public ArrayList<IndicadorFinanceiro> getIndicadoresFinanceiros() {
+		return indicadoresFinanceiros;
+	}
+
+	public void setIndicadoresFinanceiros(ArrayList<IndicadorFinanceiro> indicadoresFinanceiros) {
+		this.indicadoresFinanceiros = indicadoresFinanceiros;
 	}
 
 	public Empresa(int id, String nome, boolean ativoIpo, Setor setor, String cor) {

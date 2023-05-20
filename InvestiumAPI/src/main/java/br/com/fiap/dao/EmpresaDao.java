@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import br.com.fiap.connection.ConnectionFactory;
 import br.com.fiap.model.Empresa;
 import br.com.fiap.model.Setor;
+import br.com.fiap.model.IndicadorFinanceiro;
 
 public class EmpresaDao {
 
@@ -19,20 +20,20 @@ public class EmpresaDao {
         Connection conn = ConnectionFactory.getConnection();
         Statement statement;
        
-        try {
-        	
+        try {	
         	//"convertendo" o boolean da empresa pra char
         	String ativoIPO = empresa.getAtivoIpo() ? "S" : "N";
         	
             String query = String.format("INSERT INTO empresa"
             		+ "(id_empresa, nome_empresa, descricao_empresa, ativo_ipo,"
             		+ "valor_inicial_ipo, descricao_ipo, link_empresa,"
-            		+ "link_prospecto, img_empresa, fk_setor, cor) "
+            		+ "link_prospecto, img_empresa, dt_inicio_ipo, cnpj, fk_setor, cor) "
             		+ "VALUES (%s, '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s', %s)", 
             		empresa.getId(), empresa.getNome(), empresa.getDescricao(),
             		ativoIPO, empresa.getValorInicialIpo(), empresa.getDescricaoIpo(),
             		empresa.getLinkEmpresa(), empresa.getLinkProspecto(), 
-            		empresa.getImagem(), empresa.getSetor().getId(), empresa.getCor());
+            		empresa.getImagem(), empresa.getDataInicioIPO(), empresa.getCnpj(),
+            		empresa.getSetor().getId(), empresa.getCor());
            
             statement = conn.createStatement();          
             statement.executeUpdate(query);
@@ -74,6 +75,30 @@ public class EmpresaDao {
             	e.setLinkProspecto(rs.getString("link_prospecto"));
             	e.setImagem(rs.getString("img_empresa"));
             	e.setCor(rs.getString("cor"));
+            	e.setCnpj(rs.getString("cnpj"));
+            	e.setDataInicioIPO(rs.getDate("dt_inicio_ipo"));
+            	
+            	String queryIndicador = String.format("SELECT id_indicador, descricao, tipo, valor, "
+                		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
+                		+ "FROM indicador_financeiro "
+                		+ "WHERE fk_empresa = %s ORDER BY id_indicador", rs.getInt("id_empresa"));
+                
+                Statement statementIndicador = conn.createStatement();
+                ResultSet rsIndicador = statementIndicador.executeQuery(queryIndicador);
+               
+                ArrayList<IndicadorFinanceiro> listIndicadores = new ArrayList<IndicadorFinanceiro>(); 
+                
+                while(rsIndicador.next()){
+                	IndicadorFinanceiro indicador = new IndicadorFinanceiro();
+                	indicador.setId(rsIndicador.getInt("id_indicador"));
+                	indicador.setDescricao(rsIndicador.getString("descricao"));
+                	indicador.setAno(rsIndicador.getInt("ano"));
+                	indicador.setTipo(rsIndicador.getString("tipo"));
+                	indicador.setValor(rsIndicador.getString("valor"));
+                    listIndicadores.add(indicador);
+                }
+            	
+            	e.setIndicadoresFinanceiros(listIndicadores);
             	
             	Setor s = sdao.getSetor(rs.getInt("fk_setor"));
             	e.setSetor(s);
@@ -97,9 +122,11 @@ public class EmpresaDao {
 		ResultSet rs = null;
 		Empresa empresa = null;
 		
+		ArrayList<IndicadorFinanceiro> list;
+		
 		try {
             String query = String.format("SELECT * FROM empresa "
-            		+ "WHERE id_empresa = %S", id);
+            		+ "WHERE id_empresa = %s", id);
             
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
@@ -119,6 +146,30 @@ public class EmpresaDao {
             	empresa.setLinkProspecto(rs.getString("link_prospecto"));
             	empresa.setImagem(rs.getString("img_empresa"));
             	empresa.setCor(rs.getString("cor"));
+            	empresa.setCnpj(rs.getString("cnpj"));
+            	empresa.setDataInicioIPO(rs.getDate("dt_inicio_ipo"));
+            	
+            	String queryIndicador = String.format("SELECT id_indicador, descricao, tipo, valor, "
+                		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
+                		+ "FROM indicador_financeiro "
+                		+ "WHERE fk_empresa = %s ORDER BY id_indicador", id);
+                
+                Statement statementIndicador = conn.createStatement();
+                ResultSet rsIndicador = statementIndicador.executeQuery(queryIndicador);
+               
+                list = new ArrayList<IndicadorFinanceiro>(); 
+                
+                while(rsIndicador.next()){
+                	IndicadorFinanceiro indicador = new IndicadorFinanceiro();
+                	indicador.setId(rsIndicador.getInt("id_indicador"));
+                	indicador.setDescricao(rsIndicador.getString("descricao"));
+                	indicador.setAno(rsIndicador.getInt("ano"));
+                	indicador.setTipo(rsIndicador.getString("tipo"));
+                	indicador.setValor(rsIndicador.getString("valor"));
+                    list.add(indicador);
+                }
+            	
+            	empresa.setIndicadoresFinanceiros(list);
             	
             	Setor s = sdao.getSetor(rs.getInt("fk_setor"));
             	empresa.setSetor(s);
