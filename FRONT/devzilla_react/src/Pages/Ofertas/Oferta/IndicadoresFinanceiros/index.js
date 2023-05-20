@@ -21,7 +21,7 @@ import Table from "../Table";
 import ChartIndicadores from "../ChartIndicadores";
 import BalancoPatrimonial from "../BalancoPatrimonial";
 
-export default function IndicadoresFinanceiros(props){
+export default function IndicadoresFinanceiros(props) {
     ChartJS.register(
         LinearScale,
         CategoryScale,
@@ -34,59 +34,39 @@ export default function IndicadoresFinanceiros(props){
         BarController
     );
 
-    const { ipo, id } = props;
+    const { oferta } = props;
     const [visualizacao, setVisualizacao] = useState('barra');
 
-    const[indicadoresFinanceiros, setIndicadores] = useState([])
-    const[loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        fetch(`http://localhost:8080/InvestiumAPI/rest/indicadorFinanceiro/byEmpresa/${id}`)
-        .then(resp => resp.json())
-        .then((indicadores) => { 
-            setIndicadores(indicadores)
-            setLoading(false)
-        })
-        .catch(error => {
-            console.error(error)
-            setLoading(false)
-        })
-    }, [id])
-
-    return(
+    return (
         <>
-            <div className="container indicadores" style={{paddingBottom: 0}}>    
+            <div className="container indicadores" style={{ paddingBottom: 0 }}>
                 <h1 className="line_after">Indicadores financeiros</h1>
             </div>
 
-            { loading ? (
-                <div className='wrap_loading'>
-                    <ReactLoading type="spinningBubbles" color='#444'/>
-                    <p>Carregando indicadores financeiros...</p>
-                </div>
-            ) : (
-                <div className="container row charts_section indicadores" style={{paddingTop: 0}}>
-                    <div className="column wrap_data">
-                        <div className="wrap_filter">
-                            <label>Tipo de visualização: </label>
-                            <select 
-                                id="visualizacao" 
-                                onChange={(e)=> 
-                                    setVisualizacao(e.target.value)
-                                }
-                                value={visualizacao}
-                            >
-                                <option value="barra">Geral (Gráfico de barra)</option>
-                                <option value="tabela">Detalhada (tabela)</option>
-                            </select>
-                        </div>
+            <div className="container row charts_section indicadores" style={{ paddingTop: 0 }}>
+                {oferta.indicadoresFinanceiros.length > 0 ?
+                    (
+                        <div className="column wrap_data">
+                            <div className="wrap_filter">
+                                <label>Tipo de visualização: </label>
+                                <select
+                                    id="visualizacao"
+                                    onChange={(e) =>
+                                        setVisualizacao(e.target.value)
+                                    }
+                                    value={visualizacao}
+                                >
+                                    <option value="barra">Geral (Gráfico de barra)</option>
+                                    <option value="tabela">Detalhada (tabela)</option>
+                                </select>
+                            </div>
 
-                            { visualizacao === 'tabela' ? 
-                            <Table dados={indicadoresFinanceiros}/> : 
-                            <ChartIndicadores dados={indicadoresFinanceiros} /> }        
-                    </div>
-                </div>
-            ) }
+                            {visualizacao === 'tabela' ?
+                                <Table dados={oferta.indicadoresFinanceiros} /> :
+                                <ChartIndicadores dados={oferta.indicadoresFinanceiros} />}
+                        </div>) :
+                    (<p style={{ textAlign: 'center' }}>Nenhum indicador financeiro encontrado.</p>)}
+            </div>
         </>
     )
 }

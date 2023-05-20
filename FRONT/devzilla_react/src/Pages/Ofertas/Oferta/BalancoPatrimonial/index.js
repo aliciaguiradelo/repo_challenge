@@ -57,9 +57,15 @@ export default function BalancoPatrimonial({ id }) {
 
   if (balancos.length === 0) {
     return (
-      <div className="wrap_loading">
-        <p>Nenhum balanço patrimonial encontrado.</p>
-      </div>
+      <>
+        <div className="container indicadores" style={{ paddingBottom: 0, paddingTop: 0 }}>
+          <h1 className="line_after">Balanços Patrimoniais</h1>
+        </div>
+
+        <div className="container row charts_section indicadores" style={{ paddingTop: 0 }}>
+          <p>Nenhum balanço patrimonial encontrado.</p>
+        </div>
+      </>
     );
   }
 

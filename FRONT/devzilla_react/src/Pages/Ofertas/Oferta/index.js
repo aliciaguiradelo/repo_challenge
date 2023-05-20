@@ -18,7 +18,7 @@ import ReactLoading from 'react-loading'
 
 import BalancoPatrimonial from "./BalancoPatrimonial";
 
-export default function Oferta () {
+export default function Oferta() {
 
     const ipo = ipos[1];
 
@@ -29,56 +29,56 @@ export default function Oferta () {
 
     useEffect(() => {
         fetch(`http://localhost:8080/InvestiumAPI/rest/empresa/${id}`)
-        .then(resp => resp.json())
-        .then((oferta) => { 
-            setOferta(oferta)
-            setLoading(false)
-        })
-        .catch(error => {
-            console.error(error)
-            setLoading(false)
-        })
+            .then(resp => resp.json())
+            .then((oferta) => {
+                setOferta(oferta)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.error(error)
+                setLoading(false)
+            })
     }, [id])
 
-    return(
+    return (
         <div>
             <Header />
-                <main id="empresa">
-                    { loading ? 
+            <main id="empresa">
+                {loading ?
                     (
                         <div className='wrap_loading'>
-                            <ReactLoading type="spinningBubbles" color='#444'/>
+                            <ReactLoading type="spinningBubbles" color='#444' />
                             <p>Carregando empresa...</p>
                         </div>
-                    ) 
-                    : 
+                    )
+                    :
                     (
                         <>
-                            <Topo oferta={ oferta }/>
+                            <Topo oferta={oferta} />
 
-                            <ApresentacaoEmpresa ipo={ipo} oferta={ oferta } />
+                            <ApresentacaoEmpresa ipo={ipo} oferta={oferta} />
 
-                            <SecaoTexto 
-                                titulo={`Sobre a empresa ${oferta.nome}`} 
-                                descricao={ oferta.descricao } 
+                            <SecaoTexto
+                                titulo={`Sobre a empresa ${oferta.nome}`}
+                                descricao={oferta.descricao}
                                 id="sobre"
                             />
 
-                            {/* <Governanca id={ id } /> */}
+                            <Governanca id={id} />
 
-                            <SecaoTexto 
-                                titulo="Sobre a oferta (IPO)" 
-                                descricao={ oferta.descricaoIpo } 
+                            <SecaoTexto
+                                titulo="Sobre a oferta (IPO)"
+                                descricao={oferta.descricaoIpo}
                                 id="oferta"
                             />
 
-                            <IndicadoresFinanceiros ipo={ipo} id={id} />
+                            <IndicadoresFinanceiros oferta={oferta} id={id} />
 
                             <BalancoPatrimonial id={id} />
                         </>
                     )}
-                    
-                </main>
+
+            </main>
             <Footer />
         </div>
     )

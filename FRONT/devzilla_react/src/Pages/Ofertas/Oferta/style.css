@@ -40,9 +40,13 @@
     text-transform: uppercase;
 }
 
-.terceiro_topo, .terceiro_topo p{
+.terceiro_topo{
     background: linear-gradient(90deg, #005BAA -8.15%, rgba(0, 91, 170, 0.984375) -8.14%, #042B4D 110.27%);
     color: #fff
+}
+
+.terceiro_topo p{
+    color: #fff;
 }
 
 .terceiro_topo div p {
@@ -423,6 +427,12 @@ input[name="empresa"]{
     opacity: 1;
 }
 
+#comparacao h2{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
 @media screen and (max-width: 991px) {
     .topo_empresas div{
         width: 40%;
@@ -498,6 +508,20 @@ input[name="empresa"]{
         font-size: .7em;
         line-height: normal;
     }
+
+    .apresentacao_empresa .wrap_img{
+        align-self: stretch;
+        margin: 0;
+        padding: 15px 20px;
+    }
+
+    .apresentacao_empresa .wrap_img img{
+        width: 100%;
+    }
+
+    .topo_empresas div > p svg{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -506,6 +530,7 @@ input[name="empresa"]{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        gap: 5px;
     }
     
 }
