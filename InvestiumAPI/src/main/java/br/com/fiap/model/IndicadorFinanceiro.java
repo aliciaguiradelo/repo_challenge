@@ -7,7 +7,7 @@ public class IndicadorFinanceiro {
 	private String descricao;
 	private String tipo;
 	private String valor;
-	private Date ano;
+	private int ano;
 	private Empresa empresa;
 	
 	public Empresa getEmpresa() {
@@ -40,10 +40,10 @@ public class IndicadorFinanceiro {
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
-	public Date getAno() {
+	public int getAno() {
 		return ano;
 	}
-	public void setAno(Date ano) {
+	public void setAno(int ano) {
 		this.ano = ano;
 	}
 }

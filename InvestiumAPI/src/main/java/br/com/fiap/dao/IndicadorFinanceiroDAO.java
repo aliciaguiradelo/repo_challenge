@@ -41,7 +41,9 @@ public class IndicadorFinanceiroDAO {
         ArrayList<IndicadorFinanceiro> list = null;
        
         try {
-            String query = String.format("SELECT * from indicador_financeiro "
+            String query = String.format("SELECT id_indicador, descricao, tipo, valor, "
+            		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
+            		+ "FROM indicador_financeiro "
             		+ "WHERE fk_empresa = %s ORDER BY id_indicador", id);
             
             statement = conn.createStatement();
@@ -53,7 +55,7 @@ public class IndicadorFinanceiroDAO {
             	IndicadorFinanceiro indicador = new IndicadorFinanceiro();
             	indicador.setId(rs.getInt("id_indicador"));
             	indicador.setDescricao(rs.getString("descricao"));
-            	indicador.setAno(rs.getDate("ano"));
+            	indicador.setAno(rs.getInt("ano"));
             	indicador.setTipo(rs.getString("tipo"));
             	indicador.setValor(rs.getString("valor"));
 //            	OBS.: A empresa foi removida pois não é completamente necessária no front para
@@ -79,7 +81,10 @@ public class IndicadorFinanceiroDAO {
         IndicadorFinanceiro indicador = null;
         
         try {
-            String query = String.format("SELECT * FROM indicador_financeiro WHERE id_indicador = %s", id);
+            String query = String.format("SELECT id_indicador, descricao, tipo, valor, "
+            		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
+            		+ "FROM indicador_financeiro "
+            		+ "WHERE fk_empresa = %s ORDER BY id_indicador", id);
             
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
@@ -88,7 +93,7 @@ public class IndicadorFinanceiroDAO {
             	indicador = new IndicadorFinanceiro();
             	indicador.setId(rs.getInt("id_setor"));
             	indicador.setDescricao(rs.getString("descricao"));
-            	indicador.setAno(rs.getDate("ano"));
+            	indicador.setAno(rs.getInt("ano"));
             	indicador.setTipo(rs.getString("tipo"));
             	indicador.setValor(rs.getString("valor"));
             	indicador.setEmpresa(edao.getEmpresa(rs.getInt("fk_empresa")));
