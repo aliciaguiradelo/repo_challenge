@@ -13,13 +13,21 @@ import ipos from '../../Assets/DadosExemplos/ipos.json'
 import IllustrBlog from '../../Assets/Illustrations/illustr_quem_somos.svg'
 import IllustrIPO from '../../Assets/Illustrations/illustr_investing.svg'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function App() {
   return (
     <div>
       <Header />
 
       <main>
-        
+
+        <ToastContainer
+          autoClose={2500}
+          position="bottom-right"
+        />
+
         <BannerSlider
           banners={[
             <Banner titulo="Todos os IPOs disponíveis em um só lugar!" />,
@@ -29,13 +37,13 @@ export default function App() {
         />
 
         <Section1 />
-        <ListaCards tipo="ipo" max={4} botao/>
+        <ListaCards tipo="ipo" max={4} botao />
 
         <Section2 />
         <ListaCards tipo="materia" max={3} botao admOptions={false} />
 
         <Newsletter />
-        
+
         {/* <ChatBot
           id="chatbot"
           steps={[
@@ -53,19 +61,19 @@ export default function App() {
   );
 }
 
-function Section1(){
-  return(
+function Section1() {
+  return (
     <section className="row container" id="section1">
       <div className="column">
         <img src={IllustrIPO} />
       </div>
-      
+
       <div className="column">
         <h1 className="line_before">Quem Somos</h1>
         <p className="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.</strong> Aqui você acessa todas as ofertas disponíveis e pode <strong>comparar entre elas para investir com mais confiança.</strong>
         </p>
 
-        <Button 
+        <Button
           link="empresas"
           icon_name="arrow"
           texto="ver empresas"
@@ -75,8 +83,8 @@ function Section1(){
   )
 }
 
-function Section2(){
-  return(
+function Section2() {
+  return (
     <section className="row container" id="section2">
 
       <div className="column">
@@ -84,7 +92,7 @@ function Section2(){
         <p>Quer entender melhor o mundo dos <strong>investimentos?</strong> Acesse nossos artigos e fique por dentro! Nossa missão é <strong>facilitar o assunto</strong> e te ajudar a ir da organização financeira até o mundo dos investimentos!
         </p>
 
-        <Button 
+        <Button
           link="sobre_nos"
           icon_name="arrow"
           texto="ler mais"
@@ -98,15 +106,15 @@ function Section2(){
   )
 }
 
-function Newsletter(){
-  return(
+function Newsletter() {
+  return (
     <section>
       <div className="container" id="newsletter">
         <h1 className='line_before'>Receba as novidades por e-mail</h1>
         <p>Dessa forma você ficará por dentro de <strong>todas as notícias</strong> </p>
         <input type="email" placeholder="Seu endereço de e-mail" />
 
-        <Button 
+        <Button
           link="sobre_nos"
           icon_name="arrow"
           texto="cadastrar"

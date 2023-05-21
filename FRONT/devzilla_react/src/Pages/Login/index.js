@@ -7,20 +7,21 @@ import img_login from '../../Assets/Images/b3_login.png'
 
 import ilustracao from '../../Assets/Illustrations/illustr_login.svg'
 
-import { RxPerson } from 'react-icons/rx'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { RiLockPasswordLine } from 'react-icons/ri'
 
 import { Link } from "react-router-dom";
 
 import '../Cadastro/style.css'
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import validator from "validator";
 
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+
+import { UserContext } from "../../App";
 
 export default function Cadastro() {
 
@@ -31,6 +32,8 @@ export default function Cadastro() {
     const [errorSenha, setErrorSenha] = useState(null)
 
     const [carregando, setCarregando] = useState(false)
+
+    const { setUser, user } = useContext(UserContext)
 
     function handleSubmit(e) {
 
@@ -47,6 +50,7 @@ export default function Cadastro() {
                         toast.success('Usuário autenticado! Aguarde para ser direcionado.')
                         const dadosString = JSON.stringify(data);
                         sessionStorage.setItem("dadosUsuario", dadosString);
+                        setUser(data)
                         setTimeout(() => {
                             window.location.href = '/perfil'
                         }, 2000)

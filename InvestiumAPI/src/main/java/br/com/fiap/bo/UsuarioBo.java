@@ -44,4 +44,12 @@ public class UsuarioBo {
 	public void salvarIpo(UsuarioIpo usuarioIpo) throws SQLException{
 		usuarioDao.salvarIpo(usuarioIpo);
 	}
+	
+	public void removerSalvaPostagem(UsuarioPostagem usuarioPostagem) throws SQLException{
+		usuarioDao.removerSalvosPostagem(usuarioPostagem);
+	}
+	
+	public void removerSalvaIpo(UsuarioIpo usuarioIpo) throws SQLException{
+		usuarioDao.removerSalvosIPO(usuarioIpo);
+	}
 }

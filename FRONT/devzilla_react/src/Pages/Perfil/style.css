@@ -23,6 +23,16 @@
     margin-top: 20px;
 }
 
+#perfil input{
+    border-style: none !important;
+    box-sizing: border-box;
+    padding: 10px 0 !important;
+}
+
+#perfil label{
+    margin-top: 1em;
+}
+
 @media screen and (max-width: 768px) {
     #perfil .contentInput{
         width: 100%;

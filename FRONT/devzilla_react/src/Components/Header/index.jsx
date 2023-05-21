@@ -26,6 +26,7 @@ export default function Header() {
             prevScrollpos = currentScrollPos;
         }
     }
+
     return (
         <header>
             <div className="row">
@@ -44,11 +45,15 @@ export default function Header() {
                     {/* itens salvos */}
                     {/* </a> */}
                     {sessionStorage.getItem("dadosUsuario") ? (
-                        <a className="text_blue" onClick={() => { sessionStorage.removeItem("dadosUsuario"); window.location.href = '/' }} style={{
-                            cursor: "pointer",
-                            textAlign: "end",
-                            fontWeight: 700
-                        }}>Logout</a>
+                        <small style={{ textAlign: "end", marginTop: ".5em" }}>
+                            <strong>
+                                <a className="text_blue"
+                                    onClick={() => { sessionStorage.removeItem("dadosUsuario"); window.location.href = '/' }}
+                                >
+                                    sair
+                                </a>
+                            </strong>
+                        </small>
                     ) : (
                         <small>Ainda não tem conta? <strong><Link to="/cadastro" className="text_blue">cadastre-se</Link></strong> ou <strong><Link to="/login" className="text_blue">faça login</Link></strong></small>
                     )}

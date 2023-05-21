@@ -16,6 +16,10 @@ import Cadastro from "./Pages/Cadastro";
 import Login from "./Pages/Login";
 import Perfil from "./Pages/Perfil";
 
+import { createContext, useState } from "react";
+
+export const UserContext = createContext()
+
 export default function App() {
 
   const theme = {
@@ -29,8 +33,41 @@ export default function App() {
     userFontColor: '#042B4D',
   };
 
+  const [materiasCurtidas, setMateriasCurtidas] = useState([]);
+  const [empresasCurtidas, setEmpresasCurtidas] = useState([]);
+  const [user, setUser] = useState(null);
+
+  const addMateriaCurtida = (materia) => {
+    setMateriasCurtidas(prevMateria => [...prevMateria, materia]);
+  };
+
+  const removerMateriaCurtida = (materiaId) => {
+    setMateriasCurtidas(prevMateria => prevMateria.filter(item => item.id !== materiaId));
+  };
+
+  const addEmpresaCurtida = (empresa) => {
+    setEmpresasCurtidas(prevEmpresa => [...prevEmpresa, empresa]);
+  };
+
+  const removerEmpresaCurtida = (empresaId) => {
+    setEmpresasCurtidas(prevEmpresa => prevEmpresa.filter(item => item.id !== empresaId));
+  };
+
+  const UserContextValue = {
+    user,
+    materiasCurtidas,
+    setMateriasCurtidas,
+    empresasCurtidas,
+    setEmpresasCurtidas,
+    setUser,
+    addMateriaCurtida,
+    removerMateriaCurtida,
+    addEmpresaCurtida,
+    removerEmpresaCurtida
+  }
+
   return (
-    <>
+    <UserContext.Provider value={UserContextValue}>
       <BrowserRouter>
         <Routes>
           <Route element={<Home />} path="/" />
@@ -49,6 +86,6 @@ export default function App() {
           <ChatBot steps={chatbot} floating={true} />
         </ThemeProvider>
       </BrowserRouter>
-    </>
+    </UserContext.Provider>
   );
 }

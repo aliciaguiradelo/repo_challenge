@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import ListaCards from "../../Components/ListaArtigos";
@@ -7,126 +7,137 @@ import { useState, useEffect } from "react";
 
 import ReactLoading from 'react-loading';
 
-export default function Blog(){
+export default function Blog() {
+  const [artigosFiltrados, setArtigosFiltrados] = useState([]);
+  const [artigos, setArtigos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const [artigosFiltrados, setArtigosFiltrados] = useState([])
-    const [artigos, setArtigos] = useState([])
-    const [categorias, setCategorias] = useState([])
-    const [loading, setLoading] = useState(true)
+  const [categoria, setCategoria] = useState('Todas as categorias');
+  const [pesquisa, setPesquisa] = useState('');
+  const [resultPesquisa, setResult] = useState('');
 
-    const [categoria, setCategoria] = useState('Todas as categorias')
-    const [pesquisa, setPesquisa] = useState('')
-    const [resultPesquisa, setResult] = useState('')
+  useEffect(() => {
+    // Carregar artigos
+    fetch("http://localhost:8080/InvestiumAPI/rest/postagem")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setArtigosFiltrados(data);
+        setArtigos(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
 
-    useEffect(() => {
-        //Carregando os artigos
-        fetch("http://localhost:8080/InvestiumAPI/rest/postagem")
-          .then((resp) => resp.json())
-          .then((data) => {
-            setArtigosFiltrados(data)
-            setArtigos(data)
-            setLoading(false)
-          })
-          .catch((error) => {
-            console.error(error)
-            setLoading(false)
-          });
+    // Carregar categorias
+    fetch("http://localhost:8080/InvestiumAPI/rest/categoria")
+      .then((resp) => resp.json())
+      .then((data) => setCategorias(data))
+      .catch((error) => console.error(error));
+  }, []);
 
-        //Carregando as categorias
-        fetch("http://localhost:8080/InvestiumAPI/rest/categoria")
-        .then((resp) => resp.json())
-        .then((data) => setCategorias(data))
-        .catch((error) => console.error(error));
+  useEffect(() => {
+    setArtigosFiltrados(filtrarArtigos(pesquisa, categoria));
+  }, [pesquisa, categoria]);
 
-    }, []);
-
-    //Toda vez que o input de pesquisa ou o select de categoria mudar ele chama o handlePesquisa
-    useEffect(() => {
-        handlePesquisa()
-    }, [pesquisa, categoria])
-
-    const handlePesquisa = () => {
-
-        if (pesquisa !== '') {
-            const filtered = artigos.filter((artigo) => {
-              const normalizedTitulo = artigo.titulo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-              const normalizedConteudo = artigo.conteudo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        
-              const tituloContains = normalizedTitulo.includes(pesquisa);
-              const conteudoContains = normalizedConteudo.includes(pesquisa);
-        
-              if (categoria === 'Todas as categorias') {
-                return tituloContains || conteudoContains;
-              }
-        
-              return (tituloContains || conteudoContains) && artigo.categoria.descricao === categoria;
-            });
-        
-            setArtigosFiltrados(filtered);
-            setResult(`Mostrando ${artigosFiltrados.length} resultado(s) para "${pesquisa}" em ${categoria}`)
-        } 
-        else if (categoria !== 'Todas as categorias'){
-             
-            const filtrados = artigosFiltrados.filter(
-                (artigo) => artigo.categoria.descricao === categoria
-            )
-
-            setArtigosFiltrados(filtrados)
-            setResult(`Mostrando ${artigosFiltrados.length} resultado(s) para ${categoria}`)
+  const filtrarArtigos = (pesquisa, categoria) => {
+    if (pesquisa !== '') {
+      const filtered = artigos.filter((artigo) => {
+        const normalizedTitulo = artigo.titulo
+          ?.toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+        const normalizedConteudo = artigo.conteudo
+          ?.toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+  
+        const tituloContains = normalizedTitulo?.includes(
+          pesquisa.toLowerCase()
+        );
+        const conteudoContains = normalizedConteudo?.includes(
+          pesquisa.toLowerCase()
+        );
+  
+        if (categoria === 'Todas as categorias') {
+          return tituloContains || conteudoContains;
         }
-
-        else {
-            setArtigosFiltrados(artigos)
-            setResult('')
-        }
+  
+        return (
+          (tituloContains || conteudoContains) &&
+          artigo.categoria?.descricao === categoria
+        );
+      });
+  
+      setResult(
+        `Mostrando ${filtered.length} resultado(s) para "${pesquisa}" em ${categoria}`
+      );
+      return filtered;
+    } else if (categoria !== 'Todas as categorias') {
+      const filtered = artigos.filter(
+        (artigo) => artigo.categoria?.descricao === categoria
+      );
+  
+      setResult(`Mostrando ${filtered.length} resultado(s) para ${categoria}`);
+      return filtered;
+    } else {
+      setResult('');
+      return artigos;
     }
-    
-    return(
-        <div>
-            <Header />
+  };  
 
-            <main id='blog'>
-                <Banner 
-                    imagem="/banner/banner_blog.jpg"
-                    titulo="Aprenda mais sobre investimento, ofertas e educação financeira!"
-                />
+  const handlePesquisa = (e) => {
+    setPesquisa(e.target.value);
+    setArtigosFiltrados(filtrarArtigos(e.target.value, categoria));
+  };
 
-                { loading ? (
-                    <div className='wrap_loading'>
-                        <ReactLoading type="spinningBubbles" color='#444'/>
-                        <p>Carregando artigos...</p>
-                    </div>
+  return (
+    <div>
+      <Header />
 
-                ) : (
-                  <>
-                    <section id="filter" className="container row">
-                        <h2>Procurando algo específico?</h2>
-                        <input 
-                            type="text" 
-                            placeholder="O que você quer encontrar?"
-                            onChange={(e) => setPesquisa(e.target.value)}
-                        />
-                        <select id="categoria" onChange={(e) => setCategoria(e.target.value)}>
-                            <option>Todas as categorias</option>
-                            { categorias.map((categoria) => {
-                                return (<option key={categoria.id}>{categoria.descricao}</option>)
-                            }) }
-                        </select>
+      <main id="blog">
+        <Banner
+          imagem="/banner/banner_blog.jpg"
+          titulo="Aprenda mais sobre investimento, ofertas e educação financeira!"
+        />
 
-                        <p id="result">{resultPesquisa}</p>
-                    </section>
+        {loading ? (
+          <div className="wrap_loading">
+            <ReactLoading type="spinningBubbles" color="#444" />
+            <p>Carregando artigos...</p>
+          </div>
+        ) : (
+          <>
+            <section id="filter" className="container row">
+              <h2>Procurando algo específico?</h2>
+              <input
+                type="text"
+                placeholder="O que você quer encontrar?"
+                value={pesquisa}
+                onChange={handlePesquisa}
+              />
+              <select
+                id="categoria"
+                value={categoria}
+                onChange={(e) => setCategoria(e.target.value)}
+              >
+                <option>Todas as categorias</option>
+                {categorias.map((categoria) => (
+                  <option key={categoria.id}>{categoria.descricao}</option>
+                ))}
+              </select>
 
-                    <ListaCards 
-                        tipo="materia" 
-                        dados={artigosFiltrados}
-                        botao={false}
-                    />
+              <p id="result">{resultPesquisa}</p>
+            </section>
 
-                  </>
-                )}
-            </main>
+            <ListaCards tipo="materia" dados={artigosFiltrados} botao={false} />
+          </>
+        )}
+      </main>
 
-            <Footer />
-        </div>
-    )
+      <Footer />
+    </div>
+  );
 }

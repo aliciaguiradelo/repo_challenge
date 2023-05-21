@@ -11,8 +11,8 @@ public class Usuario {
 	private Date dtNascimento;
 	private String papel;
 	
-	//private ArrayList<Postagem> postagens = new ArrayList<Postagem>();
-	//private ArrayList<Ipo>  ipos = new ArrayList<Ipo>();
+	private ArrayList<Postagem> postagens = new ArrayList<Postagem>();
+	private ArrayList<Empresa>  empresas = new ArrayList<Empresa>();
 	
 	public Usuario() {
 		
@@ -26,6 +26,21 @@ public class Usuario {
 		this.papel = papel;
 	}
 
+	public ArrayList<Postagem> getPostagens() {
+		return postagens;
+	}
+
+	public void setPostagens(ArrayList<Postagem> postagens) {
+		this.postagens = postagens;
+	}
+
+	public ArrayList<Empresa> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(ArrayList<Empresa> empresas) {
+		this.empresas = empresas;
+	}
 
 	public String getNome() {
 		return nome;

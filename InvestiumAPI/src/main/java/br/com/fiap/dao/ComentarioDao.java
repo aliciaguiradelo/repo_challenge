@@ -23,9 +23,23 @@ public class ComentarioDao {
 		Statement statement;
 
 		String dataComentario = sdf.format(c.getData());
+		
+		
 
 		try {
-			String query = String.format("insert into comentario values(%s,'%s', '%s', %s, '%s')", c.getId(),
+			//GERANDO ID DO COMENTÁRIO AUTOMATICAMNETE
+			String queryId = "SELECT MAX(id_coment) AS id FROM comentario";
+
+			Statement statementId = conn.createStatement();
+			ResultSet rsId = statementId.executeQuery(queryId);
+			
+			int id = 1;
+
+			while (rsId.next()) {
+				id = rsId.getInt("id") + 1;
+			}
+			
+			String query = String.format("insert into comentario values(%s,'%s', '%s', %s, '%s')", id,
 					dataComentario, c.getConteudo(), c.getPostagem().getId(), c.getUsuario().getEmail());
 
 			statement = conn.createStatement();

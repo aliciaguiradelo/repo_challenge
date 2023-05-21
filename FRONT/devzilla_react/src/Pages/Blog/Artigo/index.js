@@ -8,8 +8,7 @@ import { useEffect, useState } from 'react'
 import './style.css'
 
 import { BsFillPersonFill } from 'react-icons/bs'
-import { AiOutlineHeart } from 'react-icons/ai'
-import { MdOutlineBookmarkBorder } from 'react-icons/md'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useParams } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -40,7 +39,6 @@ export default function Artigo() {
                 console.error(error)
                 setLoading(false)
             });
-
 
         //Carregando os comentários
         carregarComentarios();
@@ -87,6 +85,7 @@ export default function Artigo() {
                         } else {
                             console.log(response)
                             setNovoComentario('');
+                            setComentarios([...comentarios, data])
                             carregarComentarios();
                             toast.success('Sucesso! Comentário cadastrado.');
                         }
@@ -99,6 +98,61 @@ export default function Artigo() {
         } else {
             toast.error("Você precisa estar logado para comentar");
         }
+    }
+
+    const userData = sessionStorage.getItem('dadosUsuario');
+    let user = null
+    if (userData) user = JSON.parse(userData);
+
+    const [postagens, setPostagens] = useState([])
+
+    useEffect(() => {
+        if (user) {
+            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user.email}/${user.senha}`)
+                .then((resp) => resp.json())
+                .then((data) => {
+                    if (data.nome && data.email && data.senha) {
+                        setPostagens(data.postagens)
+                    }
+                })
+                .catch((error) => console.error(error));
+        }
+    }, [])
+
+    useEffect(() => {
+
+        //percorre as postagens do usuário e verifica se a atual está lá
+        setSaved(postagens.some((post) => post.id == id))
+
+    }, [postagens])
+
+    const [isSaved, setSaved] = useState(false)
+
+    function handleSave() {
+        if (user) {
+            const path = isSaved ? 'removerPostagem' : 'salvarPostagem'
+
+            const data = {
+                emailUsuario: user.email,
+                idPostagem: id,
+            };
+
+            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${path}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .catch(error => {
+                    console.log(error);
+                });
+
+            setSaved(!isSaved)
+        }
+
+        else toast.error('Você precisa estar logado para salvar uma matéria!')
     }
 
     return (
@@ -128,15 +182,21 @@ export default function Artigo() {
                                 <small>Artigos &gt; {artigo.categoria.descricao} &gt; {artigo.titulo} </small>
 
                                 <div className="wrap_btns">
-                                    <a className="btn btn_secondary curtir" href="#">
-                                        Curtir
-                                        <AiOutlineHeart />
+                                    <a className="btn btn_secondary curtir" onClick={handleSave}>
+                                        {isSaved ? (
+                                            <>
+                                                Curtido
+                                                <AiFillHeart />
+                                            </>
+                                        ) : (
+                                            <>
+                                                Curtir
+                                                <AiOutlineHeart />
+                                            </>
+                                        )}
+
                                     </a>
 
-                                    <a className="btn btn_secondary curtir" href="#">
-                                        Salvar
-                                        <MdOutlineBookmarkBorder />
-                                    </a>
                                 </div>
 
                                 <div id="content">
@@ -162,7 +222,7 @@ export default function Artigo() {
                                             <div className="profile">
                                                 <BsFillPersonFill />
                                             </div>
-                                            <h3>Art Vandelay</h3>
+                                            <h3>{ user ? user.nome : 'Art Vandelay'}</h3>
 
                                             <textarea value={novocomentario} onChange={event => setNovoComentario(event.target.value)} placeholder="O que você achou da matéria?" rows="3"></textarea>
                                             <a className="btn btn_primary" onClick={adicionarComentario}>comentar</a>

@@ -15,12 +15,13 @@ import { Link } from "react-router-dom";
 
 import './style.css'
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { UserContext } from "../../App";
 
 import validator from "validator";
 
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Cadastro(){
@@ -38,6 +39,8 @@ export default function Cadastro(){
     const [errorConfirm, setErrorConfirm] = useState(null)
 
     const [carregando, setCarregando] = useState(false)
+
+    const { setUser } = useContext(UserContext)
 
     function handleSubmit(e){
 
@@ -65,11 +68,19 @@ export default function Cadastro(){
             .then(response => {
                 if (!response.ok) toast.error('Erro na requisição');
                 console.log(response);
+
                 setCarregando(false);
+                setUser(data)
+
+                const dadosString = JSON.stringify(data);
+                sessionStorage.setItem("dadosUsuario", dadosString);
+
                 toast.success('Sucesso! Aguarde para ser direcionado.');
+
                 setTimeout(() => {
-                    window.location.href = '/login';
+                    window.location.href = '/perfil';
                 }, 2500);
+
                 return response.json();
             })
             .catch(error => {
@@ -155,7 +166,6 @@ export default function Cadastro(){
                 <ToastContainer
                     autoClose={2500}
                     position="bottom-right"
-
                 />
 
                 <section className="container container_form">

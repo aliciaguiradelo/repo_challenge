@@ -60,7 +60,7 @@
     padding: 10px 0 !important;
 }
  
-.container_form .wrap_input svg{
+.wrap_input svg{
     font-size: 1.2em;
     margin: 0 10px;
     color: #444;
@@ -74,8 +74,8 @@
     margin-top: 1rem;
 }
 
-.container_form .wrap_input{
-    border: solid 1px #777;
+.wrap_input{
+    border: solid 1px #ccc;
     border-radius: 7px;
     display: flex;
     align-items: center;

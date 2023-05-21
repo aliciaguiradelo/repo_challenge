@@ -68,7 +68,7 @@ public class UsuarioResource {
 	}
 	
 	@POST
-	@Path("/salvarpostagem")
+	@Path("/salvarPostagem")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response cadastrar(UsuarioPostagem usuarioPostagem) throws SQLException{
@@ -77,11 +77,29 @@ public class UsuarioResource {
 	}
 	
 	@POST
-	@Path("/salvarempresa")
+	@Path("/salvarEmpresa")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response cadastrar(UsuarioIpo usuarioIpo) throws SQLException{
-		usuarioBo.salvarIpo(usuarioIpo);;
+		usuarioBo.salvarIpo(usuarioIpo);
+		return Response.status(Response.Status.CREATED).build();
+	}
+	
+	@POST
+	@Path("/removerPostagem")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response removerPostagem(UsuarioPostagem usuarioPostagem) throws SQLException{
+		usuarioBo.removerSalvaPostagem(usuarioPostagem);;
+		return Response.status(Response.Status.CREATED).build();
+	}
+	
+	@POST
+	@Path("/removerEmpresa")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response removerEmpresa(UsuarioIpo usuarioIpo) throws SQLException{
+		usuarioBo.removerSalvaIpo(usuarioIpo);
 		return Response.status(Response.Status.CREATED).build();
 	}
 	
