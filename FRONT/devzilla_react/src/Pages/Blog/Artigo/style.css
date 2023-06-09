@@ -37,6 +37,10 @@
     min-width: 70%;
 }
 
+#content p{
+    white-space: pre-line;
+}
+
 #content ul li{
     list-style: disc;
     margin-top: .5em;

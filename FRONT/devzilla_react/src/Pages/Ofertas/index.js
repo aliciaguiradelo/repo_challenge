@@ -82,7 +82,7 @@ export default function Ofertas(){
                 <Banner 
                     imagem="/banner/investimento.jpg"
                     titulo="Encontre as ofertas e compare para investir confiante!"
-                    button={{link: '/sdasd', texto: 'Comparar ofertas'}}
+                    button={{texto: 'Comparar ofertas'}}
                 />
 
                 <section id="filter" className="container row">
@@ -98,7 +98,6 @@ export default function Ofertas(){
                 <section id="container_filter" className='container'>
                     <ListaCards 
                         tipo="ipos" 
-                        // dados={empresasFiltradas}
                         botao={false}
                     />
                 </section>

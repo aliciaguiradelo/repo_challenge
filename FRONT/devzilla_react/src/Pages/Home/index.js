@@ -6,9 +6,9 @@ import Banner from '../../Components/Banner';
 import BannerSlider from '../../Components/Slider';
 import Button from '../../Components/Button';
 import ListaCards from '../../Components/ListaArtigos';
+import CompararIPOs from '../../Components/CompararIPOs';
 
-import artigos from '../../Assets/DadosExemplos/blog.json'
-import ipos from '../../Assets/DadosExemplos/ipos.json'
+import { useState } from 'react';
 
 import IllustrBlog from '../../Assets/Illustrations/illustr_quem_somos.svg'
 import IllustrIPO from '../../Assets/Illustrations/illustr_investing.svg'
@@ -21,7 +21,7 @@ export default function App() {
     <div>
       <Header />
 
-      <main>
+      <main id="home">
 
         <ToastContainer
           autoClose={2500}
@@ -31,8 +31,10 @@ export default function App() {
         <BannerSlider
           banners={[
             <Banner titulo="Todos os IPOs disponíveis em um só lugar!" />,
-            <Banner imagem="/banner/banner_blog.jpg" titulo="Aprenda mais sobre investimento, ofertas e educação financeira!" />,
-            <Banner imagem="/banner/investimento.jpg" titulo="Encontre as ofertas e compare para investir confiante!" />
+            <Banner 
+              imagem="/banner/investimento.jpg" 
+              titulo="Compare as ofertas para investir com confiança!"/>,
+            <Banner imagem="/banner/banner_blog.jpg" titulo="Aprenda mais sobre investimento, ofertas e educação financeira!" />
           ]}
         />
 
@@ -43,17 +45,6 @@ export default function App() {
         <ListaCards tipo="materia" max={3} botao admOptions={false} />
 
         <Newsletter />
-
-        {/* <ChatBot
-          id="chatbot"
-          steps={[
-            {
-              id: 'hello-world',
-              message: 'Olá! Como posso te ajudar?',
-              end: true,
-            },
-          ]}
-        /> */}
       </main>
 
       <Footer />
@@ -62,6 +53,17 @@ export default function App() {
 }
 
 function Section1() {
+  const [showModal, setShow] = useState(false)
+
+    const abrirModal = (e) => {
+        e.preventDefault();
+        setShow(true)
+    }
+
+    const fecharModal = () => {
+        setShow(false);
+    };
+
   return (
     <section className="row container" id="section1">
       <div className="column">
@@ -69,16 +71,15 @@ function Section1() {
       </div>
 
       <div className="column">
-        <h1 className="line_before">Quem Somos</h1>
-        <p className="width_80">Nosso principal objetivo é facilitar o acesso a <strong>informações relevantes sobre ofertas públicas iniciais.</strong> Aqui você acessa todas as ofertas disponíveis e pode <strong>comparar entre elas para investir com mais confiança.</strong>
+        <h1 className="line_before">Em dúvida em qual IPO investir?</h1>
+        <p className="width_80"><strong>Compare as ofertas para decidir melhor!</strong> <br />
+        Na nossa plataforma você pode comparar os dados das empresas, estejam elas com IPO aberto ou finalizado!
         </p>
 
-        <Button
-          link="empresas"
-          icon_name="arrow"
-          texto="ver empresas"
-        />
+        <button className='btn btn_primary arrow' onClick={abrirModal}>Comparar ofertas</button>
       </div>
+
+      <CompararIPOs id={null} show={showModal} abrirModal={abrirModal} fecharModal={fecharModal} />
     </section>
   )
 }

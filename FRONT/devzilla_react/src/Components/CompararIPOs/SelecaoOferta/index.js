@@ -2,36 +2,54 @@ import { useState, useEffect, useContext } from "react";
 import ReactLoading from 'react-loading';
 import { ComparacaoContext } from "../../CompararIPOs";
 
-export default function SelecaoOferta({ id }) {
+export default function SelecaoOferta({ id, step }) {
   const [empresas, setEmpresas] = useState([]);
   const [oferta1, setOferta1] = useState({});
   const [oferta2, setOferta2] = useState({});
   const [selecao, setSelecao] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const { setOfertas } = useContext(ComparacaoContext);
+  const { setOfertas, ofertas } = useContext(ComparacaoContext);
 
   useEffect(() => {
     setLoading(true);
     fetch('http://localhost:8080/InvestiumAPI/rest/empresa')
       .then(resp => resp.json())
       .then(empresas => {
-        const ofertaAtual = id ? empresas.find((empresa) => empresa.id === id) : null
-        const outrasEmpresas = empresas.filter((empresa) => empresa.id !== id)
-        setOferta1(ofertaAtual);
-        setEmpresas(outrasEmpresas);
-        setOferta2(outrasEmpresas[0]);
+
+        if(step == 2 && id){
+          const ofertaAtual = empresas.find((empresa) => empresa.id === id)
+          const outrasEmpresas = empresas.filter((empresa) => empresa.id !== id)
+          setOferta1(ofertaAtual);
+          setEmpresas(outrasEmpresas);
+          setOferta2(outrasEmpresas[0]);
+        }
+
+        else if(step == 1){
+          setOferta1(empresas[0])
+          setEmpresas(empresas);
+        }
+
+        else{
+          const outrasEmpresas = empresas.filter((empresa) => empresa.id !== ofertas[0].id)
+          setEmpresas(outrasEmpresas);
+          setOferta2(outrasEmpresas[0]);
+        }
+
         setLoading(false);
       })
       .catch(error => {
         console.error(error);
         setLoading(false);
       });
-  }, [id]);
+
+      console.log(ofertas)
+  }, [id, step]);
 
   useEffect(() => {
 
-    if (oferta2 === undefined) setOferta2(empresas[0]);
+    if (oferta2 === undefined || oferta2 === {}) setOferta2(empresas[0]);
+    if (oferta1 === undefined || oferta1 === {}) setOferta1(empresas[0]);
     setOfertas([oferta1, oferta2]);
     
   }, [oferta1, oferta2, empresas, setOfertas]);
@@ -43,7 +61,7 @@ export default function SelecaoOferta({ id }) {
   useEffect(() => {
     if (selecao !== '') {
       const ofertaSelecionada = empresas.find((empresa) => empresa.nome === selecao);
-      id ? setOferta2(ofertaSelecionada) : setOferta1(ofertaSelecionada);
+      step == 1 ? setOferta1(ofertaSelecionada) : setOferta2(ofertaSelecionada);
     }
   }, [empresas, selecao]);
 

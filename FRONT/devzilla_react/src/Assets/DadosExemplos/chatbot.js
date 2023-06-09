@@ -9,7 +9,7 @@ export const chatbot = [
       "options": [
         { value: "2", label: "Como começar a investir?", trigger: "3" },
         { value: "1", label: "Como melhorar minha vida financeira?", trigger: "6" },
-        { value: "3", label: "Por que os dados financeiros das empresas são importante na hora de investir?", trigger: "4" },
+        { value: "3", label: "Por que os indicadores financeiros das empresas são importante na hora de investir?", trigger: "4" },
         { value: "4", label: "Como entender um prospecto?", trigger: "5" }
       ]
     },
@@ -27,7 +27,7 @@ export const chatbot = [
       id: "4",
       component: (
         <div> No nosso blog, disponibilizamos um artigo que é tanto simples quanto explicativo, abordando o significado de cada indicador financeiro e como compreendê-los!
-            <a href="/blog/artigo/3">Saiba mais</a> 
+            <a href="/blog/artigo/8">Saiba mais</a> 
         </div>
       ),
       asMessage: true,

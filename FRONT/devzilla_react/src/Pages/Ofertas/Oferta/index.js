@@ -3,8 +3,6 @@ import Footer from "../../../Components/Footer";
 
 import './style.css'
 
-import ipos from '../../../Assets/DadosExemplos/ipos.json'
-
 import IndicadoresFinanceiros from "./IndicadoresFinanceiros";
 import ApresentacaoEmpresa from "./ApresentacaoEmpresa"
 import Governanca from "./Governanca";
@@ -19,8 +17,6 @@ import ReactLoading from 'react-loading'
 import BalancoPatrimonial from "./BalancoPatrimonial";
 
 export default function Oferta() {
-
-    const ipo = ipos[1];
 
     const { id } = useParams()
 
@@ -56,7 +52,7 @@ export default function Oferta() {
                         <>
                             <Topo oferta={oferta} />
 
-                            <ApresentacaoEmpresa ipo={ipo} oferta={oferta} />
+                            <ApresentacaoEmpresa oferta={oferta} />
 
                             <SecaoTexto
                                 titulo={`Sobre a empresa ${oferta.nome}`}

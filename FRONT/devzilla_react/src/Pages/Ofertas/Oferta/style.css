@@ -99,18 +99,22 @@
     -webkit-text-fill-color: transparent !important;
 }
 
-.apresentacao_empresa .wrap_img {
+.apresentacao_empresa .wrap_img, #comparacao-wrapper .wrap_img{
     display: flex;
     padding: 15px 20px;
     border-radius: 7px;
     justify-content: center;
     margin: auto 0;
-    width: 15%;
     aspect-ratio: 1;
     align-items: center;
+    width: 15%;
 }
 
-.apresentacao_empresa .wrap_img img{
+#comparacao-wrapper .wrap_img{
+    width: auto;
+}
+
+.apresentacao_empresa .wrap_img img, #comparacao .wrap_img img{
     width: 50%;
     height: auto !important;
     object-fit: contain;

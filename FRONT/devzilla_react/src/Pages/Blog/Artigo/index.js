@@ -34,7 +34,7 @@ export default function Artigo() {
             .then((resp) => resp.json())
             .then((data) => {
                 setArtigo(data)
-                setParagrafos(data.conteudo.split('.'))
+                setParagrafos(data.conteudo.split('\n'))
                 setLoading(false)
             })
             .catch((error) => {
@@ -203,7 +203,7 @@ export default function Artigo() {
 
                                 <div id="content">
 
-                                    {paragrafos.map((paragrafo) => <p>{paragrafo}.</p>)}
+                                    {paragrafos.map((paragrafo) => <p>{paragrafo.replace('\\n', '')}</p>)}
 
                                     <section id="comentarios">
 

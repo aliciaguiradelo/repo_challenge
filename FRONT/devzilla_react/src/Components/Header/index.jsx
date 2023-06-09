@@ -7,6 +7,7 @@ import './style.css'
 import Menu from '../RotasMenu'
 
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
 
@@ -27,6 +28,12 @@ export default function Header() {
         }
     }
 
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        setUser(JSON.parse(sessionStorage.getItem("dadosUsuario")))
+    }, [])
+
     return (
         <header>
             <div className="row">
@@ -37,7 +44,7 @@ export default function Header() {
                 <section>
                     <a href="/perfil" className="my_account">
                         <IconPerson />
-                        minha conta
+                        {user ? user.nome.split(' ')[0] : 'Minha conta' }
                     </a>
 
                     {/* <a href="perfil_usuario.html#artigos_salvos" className="saved"> */}
@@ -50,7 +57,7 @@ export default function Header() {
                                 <a className="text_blue"
                                     onClick={() => { sessionStorage.removeItem("dadosUsuario"); window.location.href = '/' }}
                                 >
-                                    sair
+                                    sair da minha conta
                                 </a>
                             </strong>
                         </small>

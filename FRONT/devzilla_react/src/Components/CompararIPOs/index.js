@@ -9,7 +9,7 @@ import ipos from '../../Assets/DadosExemplos/ipos.json'
 export const ComparacaoContext = createContext();
 
 export default function CompararIPOs({ id, show, fecharModal }) {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(id ? 2 : 1);
   const [ofertas, setOfertas] = useState([{}, {}]);
 
   const ComparacaoContextValue = {
@@ -22,48 +22,50 @@ export default function CompararIPOs({ id, show, fecharModal }) {
 
   return (
     <ComparacaoContext.Provider value={ComparacaoContextValue}>
-      <Modal
-        show={show}
-        onClose={toggleModal}
-        title={step === 1 || step === 2 ? "Escolha uma oferta" : "Comparar ofertas"}
-      >
-        {step == 1 ?
-          <SelecaoOferta id={id} />
-          : step == 2 ? <SelecaoOferta id={id} />
-          : <ComparacaoIPO ipos={ipos} />}
+      <div id="comparacao-wrapper">
+        <Modal
+          show={show}
+          onClose={toggleModal}
+          title={step === 1 ? "Escolha a oferta" : step === 2 ? "Escolha a segunda oferta" : "Comparar ofertas"}
+        >
+          {step == 1 ?
+            <SelecaoOferta id={id} step={step} />
+            : step == 2 ? <SelecaoOferta id={id} step={step} />
+            : <ComparacaoIPO />}
 
-        <div className="modal_footer">
-          {step === 1 ? (
-            <button
-              className="btn btn_primary"
-              onClick={() => (id ? setStep(3) : setStep(2))}
-              disabled={ofertas === [{}, {}]}>
-              Continuar
-            </button>
-          ) : step === 2 ? 
-          (<>
-            <button className="btn btn_tertiary" onClick={() => setStep(1)}>
-                Voltar
-            </button>
-            <button
-              className="btn btn_primary"
-              onClick={() => setStep(3)}
-              disabled={ofertas === [{}, {}]}>
-              Continuar
-            </button>
-          </>)
-          : (
-            <>
-              <button className="btn btn_primary" onClick={() => (id ? setStep(1) : setStep(2))}>
-                Voltar
+          <div className="modal_footer">
+            {step === 1 ? (
+              <button
+                className="btn btn_primary"
+                onClick={() => (id ? setStep(3) : setStep(2))}
+                disabled={ofertas === [{}, {}]}>
+                Continuar
               </button>
-              <button className="btn btn_tertiary" onClick={toggleModal}>
-                Fechar
-              </button>
-            </>
-          )}
-        </div>
-      </Modal>
+            ) : step === 2 ?
+              (<>
+                <button className="btn btn_tertiary" onClick={() => setStep(1)}>
+                  Voltar
+                </button>
+                <button
+                  className="btn btn_primary"
+                  onClick={() => setStep(3)}
+                  disabled={ofertas === [{}, {}]}>
+                  Continuar
+                </button>
+              </>)
+              : (
+                <>
+                  <button className="btn btn_primary" onClick={() => (id ? setStep(1) : setStep(2))}>
+                    Voltar
+                  </button>
+                  <button className="btn btn_tertiary" onClick={toggleModal}>
+                    Fechar
+                  </button>
+                </>
+              )}
+          </div>
+        </Modal>
+      </div>
     </ComparacaoContext.Provider>
   );
 }

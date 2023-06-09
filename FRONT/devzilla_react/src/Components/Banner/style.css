@@ -18,13 +18,21 @@
     top: 0;
 }
 
-.wrap_title{
+.wrap-items-banner{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* .banner .btn{
     position: absolute;
     top: 40%;
     left: 50%;
     z-index: 2;
     cursor: pointer;
-}
+} */
 
 .wrap_title span{
     display: inline-block;
