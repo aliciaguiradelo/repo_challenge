@@ -1,9 +1,0 @@
-ENTREGA SPRINT 4
-Integrantes:
-Alícia Guiradelo RM: 96960
-Ana Carolina Prado RM: 96997
-Arthur Foschiani RM: 96525
-Larah Correa RM: 96384
-Mariana Santos RM: 97503
-
-REPOSITÓRIO GITHUB: https://github.com/aliciaguiradelo/repo_challenge
