@@ -47,7 +47,10 @@ export default function ComparacaoIPO(props) {
             {(oferta1.indicadoresFinanceiros.length > 0 || oferta2.indicadoresFinanceiros.length > 0) ?
                 (<>
                     <h2>Dados financeiros de {oferta1.nome} e {oferta2.nome}</h2>
-
+                    <p>Dúvidas para entender os indicadores financeiros? 
+                        <strong><a href="/blog/artigo/8" className="link">Leia nosso artigo sobre o assunto e entenda o que cada um significa!</a></strong>
+                    </p>
+                    
                     <div className="wrap_filter">
                         <label>Visualização: </label>
                         <select

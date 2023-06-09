@@ -19,6 +19,8 @@ import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useQuery } from 'react-query'
+
 export default function Card(props) {
     const { tipo, dados, admOptions } = props
 
@@ -33,18 +35,18 @@ function IPO(props) {
 
     const [empresas, setEmpresas] = useState([])
 
+    const { isLoading, error, data } = useQuery('perfil', () =>
+        fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user?.email}/${user?.senha}`)
+        .then(resp => resp.json())
+    );
+
     useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user.email}/${user.senha}`)
-                .then((resp) => resp.json())
-                .then((data) => {
-                    if (data.nome && data.email && data.senha) {
-                        setEmpresas(data.empresas)
-                    }
-                })
-                .catch((error) => console.error(error));
+        if (user && !isLoading && !error) {
+            if (data.nome && data.email && data.senha) {
+                setEmpresas(data.empresas)
+            }
         }
-    }, [])
+    }, [isLoading, error, data])
 
     useEffect(() => {
 

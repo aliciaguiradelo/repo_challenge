@@ -48,6 +48,7 @@
 
 #comparacao table, #comparacao canvas{
     margin-top: 1em;
+    width: 100%;
 }
 
 #empresa #modal, #ofertas #modal, #home #modal{

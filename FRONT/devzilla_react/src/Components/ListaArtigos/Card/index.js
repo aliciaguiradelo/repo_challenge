@@ -12,6 +12,8 @@ import 'react-quill/dist/quill.snow.css';
 
 import { toast } from 'react-toastify'
 
+import { useQuery } from 'react-query'
+
 export default function Card(props) {
     const { dados, admOptions } = props
 
@@ -26,18 +28,18 @@ function Materia(props) {
 
     const [postagens, setPostagens] = useState([])
 
+    const { isLoading, error, data } = useQuery('perfil', () =>
+        fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user?.email}/${user?.senha}`)
+        .then(resp => resp.json())
+    );
+
     useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user.email}/${user.senha}`)
-                .then((resp) => resp.json())
-                .then((data) => {
-                    if (data.nome && data.email && data.senha) {
-                        setPostagens(data.postagens)
-                    }
-                })
-                .catch((error) => console.error(error));
+        if (user && !isLoading && !error) {
+            if (data.nome && data.email && data.senha) {
+                setPostagens(data.postagens)
+            }
         }
-    }, [])
+    }, [isLoading, error, data])
 
     useEffect(() => {
 

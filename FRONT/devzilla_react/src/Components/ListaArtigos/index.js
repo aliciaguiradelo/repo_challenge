@@ -6,43 +6,37 @@ import { useEffect, useState } from 'react'
 
 import ReactLoading from 'react-loading';
 
+import { useQuery } from 'react-query'
+
 export default function ListaCards(props){
     const { tipo, botao, admOptions, max } = props
 
     const [dados, setDados] = useState(props.dados)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)  
+    
+    const path = tipo === 'materia' ? 'postagem' : 'empresa'
+
+    const { isLoading, error, data } = useQuery(path, () =>
+        fetch(`http://localhost:8080/InvestiumAPI/rest/${path}`).then(res =>
+        res.json())
+    )
 
     //Se nenhum dado for passado, pegar os dados na API
     useEffect(() => {
-        if(!dados){
-            const path = tipo === 'materia' ? 'postagem' : 'empresa'
-            //Carregando os artigos ou empresas
-            fetch(`http://localhost:8080/InvestiumAPI/rest/${path}`)
-            .then((resp) => resp.json())
-            .then((data) => {
-                { max ? setDados(data.slice(0, max)) : setDados(data) }
-                setLoading(false)
-            })
-            .catch((error) => console.error(error));
+
+        if(!dados && !isLoading && !error){
+            max ? setDados(data.slice(0, max)) : setDados(data)
         }
 
         else setLoading(false)
-    }, [])
 
-    // if(!dados){
-    //     const { isLoading, error, data } = useQuery('repoData', () =>
-    //         fetch('https://api.github.com/repos/tannerlinsley/react-query').then(res =>
-    //         res.json()
-    //         .then(data => setDados(data))
-    //         )
-    //     )
-    // }
+    }, [isLoading, error, data])
 
     return(
         <section className="container bg_gray">   
             <h1 className="line_after">{ tipo == 'materia' ? 'Matérias' : 'Empresas (IPOs)' }</h1>
 
-            { loading ? (
+            { (loading || isLoading) ? (
                 <div className='wrap_loading'>
                     <ReactLoading type="spinningBubbles" color='#444'/>
                     <p>Carregando dados...</p>
@@ -52,7 +46,7 @@ export default function ListaCards(props){
 
                 <div className="lista_cards">
                     { tipo === 'materia' ? (
-                        dados.map((artigo) => {
+                        dados?.map((artigo) => {
                             return(
                                 <Card 
                                     key={artigo.id}
@@ -63,7 +57,7 @@ export default function ListaCards(props){
                             )
                         }) ) :
                     (
-                        dados.map((empresa) => {
+                        dados?.map((empresa) => {
                             return(
                                 <CardEmpresa 
                                     key={empresa.id}

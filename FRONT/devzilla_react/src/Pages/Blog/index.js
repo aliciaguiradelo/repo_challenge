@@ -7,36 +7,50 @@ import { useState, useEffect } from "react";
 
 import ReactLoading from 'react-loading';
 
+import { useQuery } from 'react-query'
+
 export default function Blog() {
   const [artigosFiltrados, setArtigosFiltrados] = useState([]);
-  const [artigos, setArtigos] = useState([]);
-  const [categorias, setCategorias] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [artigos, setArtigos] = useState([]);
+  // const [categorias, setCategorias] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
   const [categoria, setCategoria] = useState('Todas as categorias');
   const [pesquisa, setPesquisa] = useState('');
   const [resultPesquisa, setResult] = useState('');
 
-  useEffect(() => {
-    // Carregar artigos
-    fetch("http://localhost:8080/InvestiumAPI/rest/postagem")
-      .then((resp) => resp.json())
-      .then((data) => {
-        setArtigosFiltrados(data);
-        setArtigos(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
+  // useEffect(() => {
+  //   // Carregar artigos
+  //   fetch("http://localhost:8080/InvestiumAPI/rest/postagem")
+  //     .then((resp) => resp.json())
+  //     .then((data) => {
+  //       setArtigosFiltrados(data);
+  //       setArtigos(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       setLoading(false);
+  //     });
 
-    // Carregar categorias
-    fetch("http://localhost:8080/InvestiumAPI/rest/categoria")
-      .then((resp) => resp.json())
-      .then((data) => setCategorias(data))
-      .catch((error) => console.error(error));
-  }, []);
+  //   // Carregar categorias
+  //   fetch("http://localhost:8080/InvestiumAPI/rest/categoria")
+  //     .then((resp) => resp.json())
+  //     .then((data) => setCategorias(data))
+  //     .catch((error) => console.error(error));
+  // }, []);
+
+  const { isLoading, error: errorArtigos, data: artigos } = useQuery('repoBlog', () =>
+    fetch('http://localhost:8080/InvestiumAPI/rest/postagem').then(res =>
+      res.json()
+    )
+  )
+
+  const { isLoading: isLoadingCategoria, error: errorCategoria, data: categorias } = useQuery('repoCategoria', () =>
+    fetch('http://localhost:8080/InvestiumAPI/rest/categoria').then(res =>
+      res.json()
+    )
+  )
 
   useEffect(() => {
     setArtigosFiltrados(filtrarArtigos(pesquisa, categoria));
@@ -103,7 +117,7 @@ export default function Blog() {
           titulo="Aprenda mais sobre investimento, ofertas e educação financeira!"
         />
 
-        {loading ? (
+        {isLoading ? (
           <div className="wrap_loading">
             <ReactLoading type="spinningBubbles" color="#444" />
             <p>Carregando artigos...</p>
@@ -124,15 +138,16 @@ export default function Blog() {
                 onChange={(e) => setCategoria(e.target.value)}
               >
                 <option>Todas as categorias</option>
-                {categorias.map((categoria) => (
-                  <option key={categoria.id}>{categoria.descricao}</option>
-                ))}
+                {(!isLoadingCategoria && !errorCategoria) &&
+                  categorias?.map((categoria) => (
+                    <option key={categoria.id}>{categoria.descricao}</option>
+                  ))}
               </select>
 
               <p id="result">{resultPesquisa}</p>
             </section>
 
-            <ListaCards tipo="materia" dados={artigosFiltrados} botao={false} />
+            <ListaCards tipo="materia" dados={artigos} botao={false} />
           </>
         )}
       </main>

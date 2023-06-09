@@ -433,7 +433,7 @@ input[name="empresa"]{
 
 #comparacao h2{
     margin-top: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     width: 100%;
 }
 

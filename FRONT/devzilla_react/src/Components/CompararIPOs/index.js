@@ -31,7 +31,7 @@ export default function CompararIPOs({ id, show, fecharModal }) {
           {step == 1 ?
             <SelecaoOferta id={id} step={step} />
             : step == 2 ? <SelecaoOferta id={id} step={step} />
-            : <ComparacaoIPO />}
+              : <ComparacaoIPO />}
 
           <div className="modal_footer">
             {step === 1 ? (
@@ -43,29 +43,30 @@ export default function CompararIPOs({ id, show, fecharModal }) {
               </button>
             ) : step === 2 ?
               (<>
-                <button className="btn btn_tertiary" onClick={() => setStep(1)}>
+                {!id && (
+                <button className="btn btn_tertiary" onClick={() => (setStep(1))}>
                   Voltar
                 </button>
-                <button
-                  className="btn btn_primary"
+               )}
+                <button className="btn btn_primary"
                   onClick={() => setStep(3)}
                   disabled={ofertas === [{}, {}]}>
                   Continuar
                 </button>
-              </>)
-              : (
-                <>
-                  <button className="btn btn_primary" onClick={() => setStep(1)}>
-                    Voltar
-                  </button>
-                  <button className="btn btn_tertiary" onClick={toggleModal}>
-                    Fechar
-                  </button>
-                </>
+          </>)
+          : (
+          <>
+            <button className="btn btn_primary" onClick={() => id ? setStep(2) : setStep(1)}>
+              Voltar
+            </button>
+            <button className="btn btn_tertiary" onClick={toggleModal}>
+              Fechar
+            </button>
+          </>
               )}
-          </div>
-        </Modal>
       </div>
-    </ComparacaoContext.Provider>
+    </Modal>
+      </div >
+    </ComparacaoContext.Provider >
   );
 }

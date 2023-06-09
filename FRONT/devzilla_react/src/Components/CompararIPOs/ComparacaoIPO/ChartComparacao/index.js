@@ -66,7 +66,6 @@ export default function ChartComparacao({ ofertas, tipo }) {
     datasets.push(datasetOferta1);
     datasets.push(datasetOferta2);
 
-
     const data = {
         labels: anosArray,
         datasets: datasets,

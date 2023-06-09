@@ -17,8 +17,9 @@ import { CiCalendarDate } from 'react-icons/ci'
 
 import { useEffect, useState } from 'react'
 
-import Moment from 'react-moment';
 import moment from 'moment'
+
+import { useQuery } from 'react-query'
 
 import './style.css'
 
@@ -40,28 +41,22 @@ export default function Perfil() {
     const [dtNasc, setDtNasc] = useState(user.dtNascimento)
     const [errorNasc, setErrorNasc] = useState(null)
 
-    const [loading, setLoading] = useState(true)
-
     const [postagens, setPostagens] = useState([])
     const [empresas, setEmpresas] = useState([])
 
+    const { isLoading, error, data } = useQuery('perfil', () =>
+        fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${email}/${senha}`)
+        .then(resp => resp.json())
+    );
+
     useEffect(() => {
-        if(user){
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${email}/${senha}`)
-                .then((resp) => resp.json())
-                .then((data) => {
-                    setLoading(false)
-                    if (data.nome && data.email && data.senha) {
-                        setPostagens(data.postagens)
-                        setEmpresas(data.empresas)
-                    } 
-                })
-                .catch((error) => {
-                    console.error(error)
-                    setLoading(false)
-                });
+        if(user && !error && !isLoading){
+            if (data.nome && data.email && data.senha) {
+                setPostagens(data.postagens)
+                setEmpresas(data.empresas)
+            }
         }
-    }, [])
+    }, [isLoading, error, data])
 
     return (
         <div>
@@ -131,15 +126,26 @@ export default function Perfil() {
                         </form>
                     </section>
 
-                    { loading ? (
+                    { isLoading ? (
                         <div className='wrap_loading'>
                             <ReactLoading color="#444" type='spinningBubbles' />
                             <p>Carregando dados...</p>
                         </div>
                     ) : (
                         <>
-                            <ListaCards dados={empresas} tipo="ipo" botao />
-                            <ListaCards dados={postagens} tipo="materia" botao />
+                            <div className='container bg_gray' style={{paddingBottom: 0}}>
+                                <h1 className='line_after' style={{marginBottom: 0}}>Itens salvos</h1>
+                                {(empresas.length <= 0 && postagens.length <= 0) && 
+                                    <p style={{textAlign: 'center'}}>Seus itens salvos aparecerão aqui</p>}
+                            </div>
+
+                            {empresas.length > 0 && (
+                                <ListaCards dados={empresas} tipo="ipo" botao />
+                            )}
+
+                            {postagens.length > 0 && (
+                                <ListaCards dados={postagens} tipo="materia" botao />
+                            )}        
                         </>
                     ) }
                 </>

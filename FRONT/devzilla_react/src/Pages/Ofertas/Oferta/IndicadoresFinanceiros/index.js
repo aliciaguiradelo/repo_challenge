@@ -13,26 +13,10 @@ import {
     BarController,
 } from 'chart.js';
 
-import ReactLoading from 'react-loading'
-
-import { Bar } from 'react-chartjs-2';
-
 import Table from "../Table";
 import ChartIndicadores from "../ChartIndicadores";
-import BalancoPatrimonial from "../BalancoPatrimonial";
 
 export default function IndicadoresFinanceiros(props) {
-    ChartJS.register(
-        LinearScale,
-        CategoryScale,
-        BarElement,
-        PointElement,
-        LineElement,
-        Legend,
-        Tooltip,
-        LineController,
-        BarController
-    );
 
     const { oferta } = props;
     const [visualizacao, setVisualizacao] = useState('barra');
@@ -41,6 +25,9 @@ export default function IndicadoresFinanceiros(props) {
         <>
             <div className="container indicadores" style={{ paddingBottom: 0 }}>
                 <h1 className="line_after">Indicadores financeiros</h1>
+                <p>Dúvidas para entender os indicadores financeiros? 
+                    <strong><a href="/blog/artigo/8" className="link">Leia nosso artigo sobre o assunto e entenda o que cada um significa!</a></strong>
+                </p>
             </div>
 
             <div className="container row charts_section indicadores" style={{ paddingTop: 0 }}>

@@ -2,7 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import ReactLoading from 'react-loading';
 import { ComparacaoContext } from "../../CompararIPOs";
 
+import { useQuery } from "react-query";
+
 export default function SelecaoOferta({ id, step }) {
+
   const [empresas, setEmpresas] = useState([]);
   const [oferta1, setOferta1] = useState({});
   const [oferta2, setOferta2] = useState({});
@@ -11,47 +14,42 @@ export default function SelecaoOferta({ id, step }) {
 
   const { setOfertas, ofertas } = useContext(ComparacaoContext);
 
-  useEffect(() => {
-    setLoading(true);
+  const { isLoading, error, data } = useQuery('empresas', () =>
     fetch('http://localhost:8080/InvestiumAPI/rest/empresa')
       .then(resp => resp.json())
-      .then(empresas => {
+  );
 
-        if(step == 2 && id){
-          const ofertaAtual = empresas.find((empresa) => empresa.id === id)
-          const outrasEmpresas = empresas.filter((empresa) => empresa.id !== id)
-          setOferta1(ofertaAtual);
-          setEmpresas(outrasEmpresas);
-          setOferta2(outrasEmpresas[0]);
-        }
+  useEffect(() => {
+    if (!isLoading && !error) {
+      if (step == 2 && id) {
+        const ofertaAtual = data.find((empresa) => empresa.id === id)
+        const outrasEmpresas = data.filter((empresa) => empresa.id !== id)
+        setOferta1(ofertaAtual);
+        setEmpresas(outrasEmpresas);
+        setOferta2(outrasEmpresas[0]);
+      }
 
-        else if(step == 1){
-          setOferta1(empresas[0])
-          setEmpresas(empresas);
-        }
+      else if (step == 1) {
+        setOferta1(data[0])
+        setEmpresas(data);
+      }
 
-        else{
-          const outrasEmpresas = empresas.filter((empresa) => empresa.id !== ofertas[0].id)
-          setEmpresas(outrasEmpresas);
-          setOferta2(outrasEmpresas[0]);
-        }
+      else {
+        const outrasEmpresas = data.filter((empresa) => empresa.id !== ofertas[0].id)
+        setEmpresas(outrasEmpresas);
+        setOferta2(outrasEmpresas[0]);
+      }
+    }
 
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error(error);
-        setLoading(false);
-      });
-
-      console.log(ofertas)
-  }, [id, step]);
+    console.log(ofertas)
+  }, [isLoading, error, data, id, step]);
 
   useEffect(() => {
 
     if (oferta2 === undefined || oferta2 === {}) setOferta2(empresas[0]);
     if (oferta1 === undefined || oferta1 === {}) setOferta1(empresas[0]);
     setOfertas([oferta1, oferta2]);
-    
+
   }, [oferta1, oferta2, empresas, setOfertas]);
 
   const handleSelecaoChange = (e) => {
@@ -67,14 +65,14 @@ export default function SelecaoOferta({ id, step }) {
 
   return (
     <div className='wrap_options'>
-      {loading ? (
-        <div>
+      {isLoading ? (
+        <div className="wrap_loading">
           <ReactLoading type="spinningBubbles" color='#444' />
           <p>Carregando empresas...</p>
         </div>
       ) : (
         <>
-          {empresas.map((ipo, index) => (
+          {empresas?.map((ipo, index) => (
             <label key={ipo.id}>
               <input
                 type="radio"
