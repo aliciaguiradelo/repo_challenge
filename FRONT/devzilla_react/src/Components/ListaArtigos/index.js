@@ -29,6 +29,15 @@ export default function ListaCards(props){
         else setLoading(false)
     }, [])
 
+    // if(!dados){
+    //     const { isLoading, error, data } = useQuery('repoData', () =>
+    //         fetch('https://api.github.com/repos/tannerlinsley/react-query').then(res =>
+    //         res.json()
+    //         .then(data => setDados(data))
+    //         )
+    //     )
+    // }
+
     return(
         <section className="container bg_gray">   
             <h1 className="line_after">{ tipo == 'materia' ? 'Matérias' : 'Empresas (IPOs)' }</h1>

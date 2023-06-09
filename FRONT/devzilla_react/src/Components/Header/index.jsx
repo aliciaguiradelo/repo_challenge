@@ -42,9 +42,9 @@ export default function Header() {
                 </Link>
 
                 <section>
-                    <a href="/perfil" className="my_account">
+                    <a href={user ? '/perfil' : '/login' } className="my_account">
                         <IconPerson />
-                        {user ? user.nome.split(' ')[0] : 'Minha conta' }
+                        {user ? user.nome.split(' ')[0] : 'minha conta' }
                     </a>
 
                     {/* <a href="perfil_usuario.html#artigos_salvos" className="saved"> */}

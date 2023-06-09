@@ -55,7 +55,7 @@ export default function CompararIPOs({ id, show, fecharModal }) {
               </>)
               : (
                 <>
-                  <button className="btn btn_primary" onClick={() => (id ? setStep(1) : setStep(2))}>
+                  <button className="btn btn_primary" onClick={() => setStep(1)}>
                     Voltar
                   </button>
                   <button className="btn btn_tertiary" onClick={toggleModal}>

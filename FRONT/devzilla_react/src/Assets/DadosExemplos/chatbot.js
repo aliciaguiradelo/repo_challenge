@@ -1,3 +1,5 @@
+import avatar from '../Icons/avatar-dino.svg'
+
 export const chatbot = [
     {
       id: "1",
@@ -60,3 +62,16 @@ export const chatbot = [
       ]
     },
   ]
+
+  export const theme = {
+    background: '#fff',
+    fontFamily: 'Nunito',
+    headerBgColor: '#042B4D',
+    headerFontColor: '#fff',
+    headerFontSize: '15px',
+    botBubbleColor: '#042B4D',
+    botFontColor: '#fff',
+    userBubbleColor: 'rgb(210 234 255 / 98%)',
+    userFontColor: '#042B4D',
+    botAvatar: {avatar}
+  };
