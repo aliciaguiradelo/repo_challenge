@@ -21,25 +21,40 @@ export default function CompararIPOs({ id, show, fecharModal }) {
   const toggleModal = () => { fecharModal() };
 
   return (
-    <ComparacaoContext.Provider value={ ComparacaoContextValue }>
+    <ComparacaoContext.Provider value={ComparacaoContextValue}>
       <Modal
         show={show}
         onClose={toggleModal}
-        title={step === 1 ? "Escolha uma oferta" : "Comparar ofertas"}
+        title={step === 1 || step === 2 ? "Escolha uma oferta" : "Comparar ofertas"}
       >
-        { step === 1 ? <SelecaoOferta id={ id }/> : <ComparacaoIPO ipos={ipos} /> }
+        {step == 1 ?
+          <SelecaoOferta id={id} />
+          : step == 2 ? <SelecaoOferta id={id} />
+          : <ComparacaoIPO ipos={ipos} />}
 
         <div className="modal_footer">
           {step === 1 ? (
-            <button 
-              className="btn btn_primary" 
-              onClick={() => setStep(2)}
+            <button
+              className="btn btn_primary"
+              onClick={() => (id ? setStep(3) : setStep(2))}
               disabled={ofertas === [{}, {}]}>
               Continuar
             </button>
-          ) : (
+          ) : step === 2 ? 
+          (<>
+            <button className="btn btn_tertiary" onClick={() => setStep(1)}>
+                Voltar
+            </button>
+            <button
+              className="btn btn_primary"
+              onClick={() => setStep(3)}
+              disabled={ofertas === [{}, {}]}>
+              Continuar
+            </button>
+          </>)
+          : (
             <>
-              <button className="btn btn_primary" onClick={() => setStep(1)}>
+              <button className="btn btn_primary" onClick={() => (id ? setStep(1) : setStep(2))}>
                 Voltar
               </button>
               <button className="btn btn_tertiary" onClick={toggleModal}>

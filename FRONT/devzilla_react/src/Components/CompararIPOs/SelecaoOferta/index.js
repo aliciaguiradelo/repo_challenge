@@ -16,8 +16,8 @@ export default function SelecaoOferta({ id }) {
     fetch('http://localhost:8080/InvestiumAPI/rest/empresa')
       .then(resp => resp.json())
       .then(empresas => {
-        const ofertaAtual = empresas.find((empresa) => empresa.id === id);
-        const outrasEmpresas = empresas.filter((empresa) => empresa.id !== id);
+        const ofertaAtual = id ? empresas.find((empresa) => empresa.id === id) : null
+        const outrasEmpresas = empresas.filter((empresa) => empresa.id !== id)
         setOferta1(ofertaAtual);
         setEmpresas(outrasEmpresas);
         setOferta2(outrasEmpresas[0]);
@@ -43,7 +43,7 @@ export default function SelecaoOferta({ id }) {
   useEffect(() => {
     if (selecao !== '') {
       const ofertaSelecionada = empresas.find((empresa) => empresa.nome === selecao);
-      setOferta2(ofertaSelecionada);
+      id ? setOferta2(ofertaSelecionada) : setOferta1(ofertaSelecionada);
     }
   }, [empresas, selecao]);
 

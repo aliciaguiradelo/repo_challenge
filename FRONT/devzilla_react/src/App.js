@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 
-import chatbot from './Assets/DadosExemplos/chatbot.json'
+import { chatbot } from "./Assets/DadosExemplos/chatbot";
 
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
@@ -16,7 +16,12 @@ import Cadastro from "./Pages/Cadastro";
 import Login from "./Pages/Login";
 import Perfil from "./Pages/Perfil";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { createContext, useState } from "react";
+
+import avatar from './Assets/Icons/avatar-dino.svg'
 
 export const UserContext = createContext()
 
@@ -24,13 +29,15 @@ export default function App() {
 
   const theme = {
     background: '#fff',
+    fontFamily: 'Nunito',
     headerBgColor: '#042B4D',
     headerFontColor: '#fff',
     headerFontSize: '15px',
     botBubbleColor: '#042B4D',
     botFontColor: '#fff',
-    userBubbleColor: '#fff',
+    userBubbleColor: 'rgb(210 234 255 / 98%)',
     userFontColor: '#042B4D',
+    botAvatar: {avatar}
   };
 
   const [materiasCurtidas, setMateriasCurtidas] = useState([]);
@@ -82,10 +89,16 @@ export default function App() {
           <Route element={<Perfil />} path="/perfil" />
         </Routes>
 
-        <ThemeProvider theme={theme}>
+        <ToastContainer
+          autoClose={2500}
+          position="bottom-right"
+        />
+
+      </BrowserRouter>
+      
+      <ThemeProvider theme={theme}>
           <ChatBot steps={chatbot} floating={true} />
         </ThemeProvider>
-      </BrowserRouter>
     </UserContext.Provider>
   );
 }

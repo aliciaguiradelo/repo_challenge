@@ -119,7 +119,7 @@ function InfoEmpresa({ oferta }) {
                 <h3>{oferta.nome}</h3>
             </a>
 
-            <small className='cnpj'>{123}</small>
+            <small className='cnpj'>{oferta.cnpj}</small>
             <small><strong>Setor:</strong> {oferta.setor.descricao} </small>
             <small>
                 <strong>Status: </strong>

@@ -57,7 +57,7 @@ public class PostagemDao {
 				p.setId(Integer.parseInt(rs.getString("id_post")));
 				p.setDate(rs.getDate("data"));
 				p.setTitulo(rs.getString("titulo"));
-//				p.setConteudo(rs.getString("texto"));
+				p.setConteudo(rs.getString("texto"));
 				p.setImgUrl(rs.getString("img_url"));
 				p.setLikes(Integer.parseInt(rs.getString("likes")));
 
@@ -94,7 +94,7 @@ public class PostagemDao {
 				postagem.setId(Integer.parseInt(rs.getString("id_post")));
 				postagem.setDate(rs.getDate("data"));
 				postagem.setTitulo(rs.getString("titulo"));
-//				postagem.setConteudo(rs.getString("texto"));
+				postagem.setConteudo(rs.getString("texto"));
 				postagem.setImgUrl(rs.getString("img_url"));
 				postagem.setLikes(Integer.parseInt(rs.getString("likes")));
 
@@ -131,7 +131,7 @@ public class PostagemDao {
 				postagem.setId(Integer.parseInt(rs.getString("id_post")));
 				postagem.setDate(sdf.parse(rs.getString("data")));
 				postagem.setTitulo(rs.getString("titulo"));
-//				postagem.setConteudo(rs.getString("texto"));
+				postagem.setConteudo(rs.getString("texto"));
 				postagem.setImgUrl(rs.getString("img_url"));
 				postagem.setLikes(Integer.parseInt(rs.getString("likes")));
 				postagem.setCategoria(categoriaDao.getCategoria(Integer.parseInt(rs.getString("fk_cat"))));

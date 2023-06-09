@@ -23,6 +23,7 @@ export default function Artigo() {
 
     const [loading, setLoading] = useState(true)
     const [artigo, setArtigo] = useState({})
+    const [paragrafos, setParagrafos] = useState([])
 
     const [comentarios, setComentarios] = useState([])
     const [novocomentario, setNovoComentario] = useState([])
@@ -33,6 +34,7 @@ export default function Artigo() {
             .then((resp) => resp.json())
             .then((data) => {
                 setArtigo(data)
+                setParagrafos(data.conteudo.split('.'))
                 setLoading(false)
             })
             .catch((error) => {
@@ -200,9 +202,12 @@ export default function Artigo() {
                                 </div>
 
                                 <div id="content">
-                                    {artigo.conteudo}
+
+                                    {paragrafos.map((paragrafo) => <p>{paragrafo}.</p>)}
 
                                     <section id="comentarios">
+
+                                        <h2>Comentários</h2>
 
                                         {comentarios.map((comentario) => {
                                             return (

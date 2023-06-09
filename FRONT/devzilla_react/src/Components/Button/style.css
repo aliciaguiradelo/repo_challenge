@@ -12,6 +12,7 @@
     font-weight: 800;
     transition: .3s;
     font-size: .9em;
+    cursor: pointer;
 }
 
 .btn_primary{
