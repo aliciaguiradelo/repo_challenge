@@ -53,6 +53,12 @@ export default function Blog() {
   )
 
   useEffect(() => {
+    if(!isLoading && !errorArtigos){
+      setArtigosFiltrados(artigos)
+    }
+  }, [isLoading, errorArtigos, artigos])
+
+  useEffect(() => {
     setArtigosFiltrados(filtrarArtigos(pesquisa, categoria));
   }, [pesquisa, categoria]);
 
@@ -147,7 +153,7 @@ export default function Blog() {
               <p id="result">{resultPesquisa}</p>
             </section>
 
-            <ListaCards tipo="materia" dados={artigos} botao={false} />
+            <ListaCards tipo="materia" botao={false} />
           </>
         )}
       </main>

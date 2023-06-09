@@ -46,7 +46,7 @@ public class CategoriaDao {
             list = new ArrayList<Categoria>(); 
             while(rs.next()){
             	Categoria c = new Categoria();
-            	c.setId(Integer.parseInt(rs.getString("id_categoria")));
+            	c.setId(rs.getInt("id_cat"));
             	c.setDescricao(rs.getString("descricao"));
             	
                 list.add(c);

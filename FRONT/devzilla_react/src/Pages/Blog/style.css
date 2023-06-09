@@ -5,6 +5,7 @@
     padding-bottom: 2.5em;
     padding-top: 0;
     box-sizing: border-box;
+    column-gap: 1em;
 }
 
 #filter h2{

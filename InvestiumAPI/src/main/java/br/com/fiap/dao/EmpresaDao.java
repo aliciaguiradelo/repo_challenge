@@ -81,7 +81,7 @@ public class EmpresaDao {
             	String queryIndicador = String.format("SELECT id_indicador, descricao, tipo, valor, "
                 		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
                 		+ "FROM indicador_financeiro "
-                		+ "WHERE fk_empresa = %s ORDER BY id_indicador", rs.getInt("id_empresa"));
+                		+ "WHERE fk_empresa = %s ORDER BY ano", rs.getInt("id_empresa"));
                 
                 Statement statementIndicador = conn.createStatement();
                 ResultSet rsIndicador = statementIndicador.executeQuery(queryIndicador);
@@ -152,7 +152,7 @@ public class EmpresaDao {
             	String queryIndicador = String.format("SELECT id_indicador, descricao, tipo, valor, "
                 		+ "EXTRACT(YEAR FROM ano) as ano, fk_empresa "
                 		+ "FROM indicador_financeiro "
-                		+ "WHERE fk_empresa = %s ORDER BY id_indicador", id);
+                		+ "WHERE fk_empresa = %s ORDER BY ano", id);
                 
                 Statement statementIndicador = conn.createStatement();
                 ResultSet rsIndicador = statementIndicador.executeQuery(queryIndicador);

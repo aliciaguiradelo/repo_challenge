@@ -45,7 +45,7 @@ public class PostagemDao {
 		ArrayList<Postagem> list = null;
 
 		try {
-			String query = "select * from postagem order by id_post";
+			String query = "SELECT * FROM postagem ORDER BY data DESC";
 
 			statement = conn.createStatement();
 

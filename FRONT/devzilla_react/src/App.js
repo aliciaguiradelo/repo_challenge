@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, useLocation } from "react-router-dom";
 
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
@@ -19,7 +19,7 @@ import Perfil from "./Pages/Perfil";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
@@ -62,11 +62,19 @@ export default function App() {
     removerEmpresaCurtida
   }
 
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  }
 
   return (
     <UserContext.Provider value={UserContextValue}>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Blog />} path="/blog" />
