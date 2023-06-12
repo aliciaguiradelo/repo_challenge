@@ -55,6 +55,9 @@ export default function BalancoPatrimonial({ id }) {
       <>
         <div className="container indicadores" style={{ paddingBottom: 0, paddingTop: 0 }}>
           <h1 className="line_after">Balanços Patrimoniais</h1>
+          <p>Dúvidas sobre o assunto? 
+              <strong><a href="/blog/artigo/9" className="link">Saiba mais</a></strong>
+          </p>
         </div>
 
         <div className="container row charts_section indicadores" style={{ paddingTop: 0 }}>
@@ -104,6 +107,9 @@ export default function BalancoPatrimonial({ id }) {
     <>
       <div className="container" style={{ paddingBottom: 0, paddingTop: 0 }}>
         <h1 className="line_after">Balanços Patrimoniais</h1>
+        <p>Dúvidas sobre o assunto? 
+          <strong><a href="/blog/artigo/9" className="link">Saiba mais</a></strong>
+        </p>
       </div>
 
       <div className="container row charts_section" style={{ paddingTop: 0 }}>

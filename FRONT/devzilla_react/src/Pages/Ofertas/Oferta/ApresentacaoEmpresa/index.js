@@ -10,7 +10,7 @@ import CompararIPOs from '../../../../Components/CompararIPOs';
 
 export default function ApresentacaoEmpresa(props) {
 
-    const { id, nome, linkEmpresa, cor, imagem, setor, ativoIpo, valorInicialIpo, linkProspecto } = props.oferta
+    const { id, nome, linkEmpresa, cor, imagem, setor, ativoIpo, valorInicialIpo, linkProspecto, cnpj } = props.oferta
 
     const status = ativoIpo ? 'ativa' : 'finalizada'
 
@@ -36,12 +36,13 @@ export default function ApresentacaoEmpresa(props) {
                 <div className="informacoes_empresa">
                     <div>
                         <h2>{nome}</h2>
-                        <small>04.972.092/0001-22</small>
+                        <small><strong>CNPJ:</strong> {cnpj}</small>
                     </div>
                     <small><strong>Setor:</strong> {setor.descricao}</small>
                     <small><strong>Status:</strong> {status}</small>
                     <small><strong>Valor inicial:</strong> R$ {valorInicialIpo.toFixed(2).replace('.', ',')}</small>
                     <a href={linkProspecto} target='_blank' className="btn btn_primary arrow">Prospecto</a>
+                    <strong><a href="/blog/artigo/5" style={{margin: '0'}} className="link">Saiba mais</a></strong>
                 </div>
 
                 <div className="direcionamentos">

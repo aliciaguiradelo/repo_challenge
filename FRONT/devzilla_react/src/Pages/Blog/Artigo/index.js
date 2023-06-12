@@ -28,7 +28,7 @@ export default function Artigo() {
     const [comentarios, setComentarios] = useState([])
     const [novocomentario, setNovoComentario] = useState([])
 
-    const { isLoading, error, data: artigo } = useQuery('postagemUnica', () =>
+    const { isLoading, error, data: artigo } = useQuery(`postagem-${id}`, () =>
         fetch(`https://investium-api.herokuapp.com/postagem/${id}`).then(res =>
         res.json()
         )
@@ -43,7 +43,7 @@ export default function Artigo() {
 
     useEffect(() => {
         if (!error && !isLoading) {
-            setParagrafos(artigo.conteudo.split('\n'))
+            setParagrafos(artigo.conteudo.split('\\n'))
         }
 
         //Carregando os comentários
@@ -198,7 +198,8 @@ export default function Artigo() {
 
                                 <div id="content">
 
-                                    {paragrafos.map((paragrafo) => <p>{paragrafo.replace('\\n', '')}</p>)}
+                                    {paragrafos.map((paragrafo) => 
+                                    <p>{paragrafo.replace('\\n', '').replace('\n', '')}</p>)}
 
                                     <section id="comentarios">
 

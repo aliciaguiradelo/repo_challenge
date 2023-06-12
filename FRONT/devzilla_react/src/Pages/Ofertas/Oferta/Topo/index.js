@@ -2,9 +2,11 @@
 import { RxCalendar } from 'react-icons/rx'
 import { BiBuildings } from 'react-icons/bi'
 
+import moment from 'moment'
+
 export default function Topo(props){
 
-    const { ativoIpo, setor, valorInicialIpo  } = props.oferta
+    const { ativoIpo, setor, valorInicialIpo, dataInicioIPO  } = props.oferta
     const status = ativoIpo ? 'ativa' : 'finalizada'
 
     return(
@@ -13,7 +15,7 @@ export default function Topo(props){
                 <small>Data início</small>
                 <p>
                     <RxCalendar />
-                    20/11/2020
+                    {moment(dataInicioIPO).format('DD/MM/YYYY')}
                 </p>
             </div>
             <div className="blocoAtiva_empresa">
