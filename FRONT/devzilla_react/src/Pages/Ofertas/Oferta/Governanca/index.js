@@ -1,31 +1,24 @@
 
 import default_profile from '../../../../Assets/Governanca/user.png'
 
-import { useState, useEffect } from 'react'
+import { useQuery } from 'react-query'
 
 import ReactLoading from 'react-loading'
 
 export default function Governanca(props){
 
-    const [governanca, setGovernanca] = useState({})
-    const [loading, setLoading] = useState(true)
+    // const [governanca, setGovernanca] = useState({})
+    // const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        fetch(`http://localhost:8080/InvestiumAPI/rest/governanca/byEmpresa/${props.id}`)
-        .then(resp => resp.json())
-        .then((governanca) => { 
-            setGovernanca(governanca)
-            setLoading(false)
-        })
-        .catch(error => {
-            console.error(error)
-            setLoading(false)
-        })
-    }, [])
+    const { isLoading, error, data: governanca } = useQuery(`governanca-${props.id}`, () =>
+        fetch(`https://investium-api.herokuapp.com/governanca/byEmpresa/${props.id}`).then(res =>
+        res.json()
+        )
+    )
 
     return(
         <section className="container governanca" id="governanca">
-            { loading ? 
+            { isLoading ? 
             (
                 <div className='wrap_loading'>
                     <ReactLoading type="spinningBubbles" color='#444'/>

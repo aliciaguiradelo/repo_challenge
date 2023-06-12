@@ -8,77 +8,65 @@ import ReactLoading from 'react-loading';
 
 import { useQuery } from 'react-query'
 
-export default function ListaCards(props){
-    const { tipo, botao, admOptions, max } = props
+export default function ListaCards(props) {
+  const { tipo, botao, admOptions, max } = props
 
-    const [dados, setDados] = useState(props.dados)
-    const [loading, setLoading] = useState(true)  
-    
-    const path = tipo === 'materia' ? 'postagem' : 'empresa'
+  const [dados, setDados] = useState(props.dados)
 
-    const { isLoading, error, data } = useQuery(path, () =>
-        fetch(`http://localhost:8080/InvestiumAPI/rest/${path}`).then(res =>
-        res.json())
-    )
+  const path = tipo === 'materia' ? 'postagem' : 'empresa'
 
-    //Se nenhum dado for passado, pegar os dados na API
-    useEffect(() => {
+  const { isLoading, error, data } = useQuery(`repo-${path}`, () =>
+    fetch(`https://investium-api.herokuapp.com/${path}`).then(res =>
+      res.json())
+  )
 
-        if(!dados && !isLoading && !error){
-            max ? setDados(data.slice(0, max)) : setDados(data)
-        }
+  useEffect(() => {
+    if (!dados && !isLoading && !error) {
+      max ? setDados(data.slice(0, max)) : setDados(data)
+    }
+  }, [isLoading, error, data])
 
-        else setLoading(false)
+  return (
+    <section className="container bg_gray">
+      <h1 className="line_after">{tipo === 'materia' ? 'Matérias' : 'Empresas (IPOs)'}</h1>
 
-    }, [isLoading, error, data])
+      {isLoading ? (
+        <div className='wrap_loading'>
+          <ReactLoading type="spinningBubbles" color='#444' />
+          <p>Carregando dados...</p>
+        </div>
+      ) : (
+        <div className="lista_cards">
+          {tipo === 'materia' ? (
+            dados?.map((artigo) => (
+              <Card
+                key={artigo.id}
+                tipo={tipo}
+                dados={artigo}
+                admOptions={admOptions}
+              />
+            ))
+          ) : (
+            dados?.map((empresa) => (
+              <CardEmpresa
+                key={empresa.id}
+                tipo={tipo}
+                dados={empresa}
+                admOptions={admOptions}
+              />
+            ))
+          )}
+        </div>
+      )}
 
-    return(
-        <section className="container bg_gray">   
-            <h1 className="line_after">{ tipo == 'materia' ? 'Matérias' : 'Empresas (IPOs)' }</h1>
-
-            { (loading || isLoading) ? (
-                <div className='wrap_loading'>
-                    <ReactLoading type="spinningBubbles" color='#444'/>
-                    <p>Carregando dados...</p>
-                </div>
-
-                ) : (
-
-                <div className="lista_cards">
-                    { tipo === 'materia' ? (
-                        dados?.map((artigo) => {
-                            return(
-                                <Card 
-                                    key={artigo.id}
-                                    tipo={tipo}
-                                    dados={artigo}
-                                    admOptions={admOptions}
-                                />
-                            )
-                        }) ) :
-                    (
-                        dados?.map((empresa) => {
-                            return(
-                                <CardEmpresa 
-                                    key={empresa.id}
-                                    tipo={tipo}
-                                    dados={empresa}
-                                    admOptions={admOptions}
-                                />
-                            )
-                        }) )
-                    }
-                </div>
-            )}
-
-            { botao && 
-                <Button
-                    link={tipo === 'materia' ? '/blog' : '/empresas'}
-                    icon_name="arrow_long"
-                    texto="Ver todas"
-                    style="secondary"
-                />  
-            }
-        </section>
-    )
+      {botao && (
+        <Button
+          link={tipo === 'materia' ? '/blog' : '/empresas'}
+          icon_name="arrow_long"
+          texto="Ver todas"
+          style="secondary"
+        />
+      )}
+    </section>
+  )
 }

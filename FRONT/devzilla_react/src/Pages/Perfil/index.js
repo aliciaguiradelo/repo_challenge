@@ -3,9 +3,6 @@ import Footer from '../../Components/Footer'
 import ListaCards from '../../Components/ListaArtigos'
 import banner_perfil from '../../Assets/Illustrations/banner_perfil.svg'
 
-import artigos from '../../Assets/DadosExemplos/blog.json'
-import ipos from '../../Assets/DadosExemplos/ipos.json'
-
 import ReactLoading from 'react-loading'
 
 import Campo from '../../Components/Campo'
@@ -45,7 +42,7 @@ export default function Perfil() {
     const [empresas, setEmpresas] = useState([])
 
     const { isLoading, error, data } = useQuery('perfil', () =>
-        fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${email}/${senha}`)
+        fetch(`https://investium-api.herokuapp.com/usuario/${email}/${senha}`)
         .then(resp => resp.json())
     );
 

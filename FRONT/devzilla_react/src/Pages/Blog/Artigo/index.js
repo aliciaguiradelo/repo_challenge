@@ -5,6 +5,8 @@ import ListaArtigos from '../../../Components/ListaArtigos'
 
 import { useEffect, useState } from 'react'
 
+import { useQuery } from "react-query";
+
 import './style.css'
 
 import { BsFillPersonFill } from 'react-icons/bs'
@@ -21,38 +23,33 @@ export default function Artigo() {
 
     const { id } = useParams()
 
-    const [loading, setLoading] = useState(true)
-    const [artigo, setArtigo] = useState({})
     const [paragrafos, setParagrafos] = useState([])
 
     const [comentarios, setComentarios] = useState([])
     const [novocomentario, setNovoComentario] = useState([])
 
-    useEffect(() => {
-        //Carregando o artigo pelo id
-        fetch(`http://localhost:8080/InvestiumAPI/rest/postagem/${id}`)
-            .then((resp) => resp.json())
-            .then((data) => {
-                setArtigo(data)
-                setParagrafos(data.conteudo.split('\n'))
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.error(error)
-                setLoading(false)
-            });
-
-        //Carregando os comentários
-        carregarComentarios();
-
-    }, [])
+    const { isLoading, error, data: artigo } = useQuery('postagemUnica', () =>
+        fetch(`https://investium-api.herokuapp.com/postagem/${id}`).then(res =>
+        res.json()
+        )
+    )
 
     function carregarComentarios() {
-        fetch(`http://localhost:8080/InvestiumAPI/rest/comentario/byPost/${id}`)
+        fetch(`https://investium-api.herokuapp.com/comentario/byPost/${id}`)
             .then((resp) => resp.json())
             .then((data) => setComentarios(data))
             .catch((error) => console.error(error));
     }
+
+    useEffect(() => {
+        if (!error && !isLoading) {
+            setParagrafos(artigo.conteudo.split('\n'))
+        }
+
+        //Carregando os comentários
+        carregarComentarios();
+
+    }, [error, isLoading, artigo])
 
     function formatarData(data) {
         const dia = String(data.getDate()).padStart(2, '0');
@@ -74,7 +71,7 @@ export default function Artigo() {
             };
             console.log(data)
             if (data.comentario !== '') {
-                fetch('http://localhost:8080/InvestiumAPI/rest/comentario', {
+                fetch('https://investium-api.herokuapp.com/comentario', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -108,24 +105,22 @@ export default function Artigo() {
 
     const [postagens, setPostagens] = useState([])
 
+    const { isLoading: isLoadingPerfil, error: errorPerfil, perfil } = useQuery('perfil', () =>
+        fetch(`https://investium-api.herokuapp.com/usuario/${user?.email}/${user?.senha}`)
+        .then(resp => resp.json())
+    );
+
     useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user.email}/${user.senha}`)
-                .then((resp) => resp.json())
-                .then((data) => {
-                    if (data.nome && data.email && data.senha) {
-                        setPostagens(data.postagens)
-                    }
-                })
-                .catch((error) => console.error(error));
+        if (perfil && !isLoadingPerfil && !errorPerfil) {
+          if (perfil.nome && perfil.email && perfil.senha) {
+            setPostagens(perfil.postagens);
+          }
         }
-    }, [])
+    }, [perfil, isLoadingPerfil, errorPerfil]);
 
     useEffect(() => {
-
         //percorre as postagens do usuário e verifica se a atual está lá
         setSaved(postagens.some((post) => post.id == id))
-
     }, [postagens])
 
     const [isSaved, setSaved] = useState(false)
@@ -139,7 +134,7 @@ export default function Artigo() {
                 idPostagem: id,
             };
 
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${path}`, {
+            fetch(`https://investium-api.herokuapp.com/usuario/${path}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -161,7 +156,7 @@ export default function Artigo() {
         <div>
             <Header />
             <main id='artigo'>
-                {loading ? (
+                {isLoading && !error ? (
                     <div className='wrap_loading'>
                         <ReactLoading type="spinningBubbles" color='#444' />
                         <p>Carregando artigo...</p>

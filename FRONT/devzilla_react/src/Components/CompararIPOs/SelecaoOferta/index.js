@@ -15,7 +15,7 @@ export default function SelecaoOferta({ id, step }) {
   const { setOfertas, ofertas } = useContext(ComparacaoContext);
 
   const { isLoading, error, data } = useQuery('empresas', () =>
-    fetch('http://localhost:8080/InvestiumAPI/rest/empresa')
+    fetch('https://investium-api.herokuapp.com/empresa')
       .then(resp => resp.json())
   );
 

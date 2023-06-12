@@ -17,6 +17,8 @@ import {
 
 import { options } from '../../../../Assets/Utils'
 
+import { useQuery } from 'react-query';
+
 export default function BalancoPatrimonial({ id }) {
   ChartJS.register(
     LinearScale,
@@ -30,23 +32,16 @@ export default function BalancoPatrimonial({ id }) {
     BarController
   );
 
-  const [balancos, setBalancos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [balancos, setBalancos] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch(`http://localhost:8080/InvestiumAPI/rest/balanco/byEmpresa/${id}`)
-      .then((resp) => resp.json())
-      .then((indicadores) => {
-        setBalancos(indicadores);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-  }, [id]);
+  const { isLoading, error, data: balancos } = useQuery(`balanco-${id}`, () =>
+    fetch(`https://investium-api.herokuapp.com/balanco/byEmpresa/${id}`).then(res =>
+    res.json()
+    )
+  )
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="wrap_loading">
         <ReactLoading type="spinningBubbles" color="#444" />

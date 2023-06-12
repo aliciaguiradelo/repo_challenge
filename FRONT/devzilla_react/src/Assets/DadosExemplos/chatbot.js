@@ -11,7 +11,7 @@ export const chatbot = [
       "options": [
         { value: "2", label: "Como começar a investir?", trigger: "3" },
         { value: "1", label: "Como melhorar minha vida financeira?", trigger: "6" },
-        { value: "3", label: "Por que os indicadores financeiros das empresas são importante na hora de investir?", trigger: "4" },
+        { value: "3", label: "Por que os indicadores financeiros das empresas são importantes na hora de investir?", trigger: "4" },
         { value: "4", label: "Como entender um prospecto?", trigger: "5" }
       ]
     },

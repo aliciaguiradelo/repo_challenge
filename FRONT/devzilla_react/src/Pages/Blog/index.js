@@ -19,35 +19,14 @@ export default function Blog() {
   const [pesquisa, setPesquisa] = useState('');
   const [resultPesquisa, setResult] = useState('');
 
-  // useEffect(() => {
-  //   // Carregar artigos
-  //   fetch("http://localhost:8080/InvestiumAPI/rest/postagem")
-  //     .then((resp) => resp.json())
-  //     .then((data) => {
-  //       setArtigosFiltrados(data);
-  //       setArtigos(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setLoading(false);
-  //     });
-
-  //   // Carregar categorias
-  //   fetch("http://localhost:8080/InvestiumAPI/rest/categoria")
-  //     .then((resp) => resp.json())
-  //     .then((data) => setCategorias(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
-  const { isLoading, error: errorArtigos, data: artigos } = useQuery('repoBlog', () =>
-    fetch('http://localhost:8080/InvestiumAPI/rest/postagem').then(res =>
+  const { isLoading, error: errorArtigos, data: artigos } = useQuery('repo-postagem', () =>
+    fetch('https://investium-api.herokuapp.com/postagem').then(res =>
       res.json()
     )
   )
 
   const { isLoading: isLoadingCategoria, error: errorCategoria, data: categorias } = useQuery('repoCategoria', () =>
-    fetch('http://localhost:8080/InvestiumAPI/rest/categoria').then(res =>
+    fetch('https://investium-api.herokuapp.com/categoria').then(res =>
       res.json()
     )
   )

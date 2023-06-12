@@ -42,7 +42,7 @@ export default function Cadastro() {
         if (validaEmail() && validaSenha()) {
             setCarregando(true)
 
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${email}/${senha}`)
+            fetch(`https://investium-api.herokuapp.com/usuario/${email}/${senha}`)
                 .then((resp) => resp.json())
                 .then((data) => {
                     setCarregando(false)

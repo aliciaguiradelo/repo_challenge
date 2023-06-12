@@ -16,31 +16,26 @@ import ReactLoading from 'react-loading'
 
 import BalancoPatrimonial from "./BalancoPatrimonial";
 
+import { useQuery } from "react-query";
+
 export default function Oferta() {
 
     const { id } = useParams()
 
-    const [oferta, setOferta] = useState({})
-    const [loading, setLoading] = useState(true)
+    // const [oferta, setOferta] = useState({})
+    // const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        fetch(`http://localhost:8080/InvestiumAPI/rest/empresa/${id}`)
-            .then(resp => resp.json())
-            .then((oferta) => {
-                setOferta(oferta)
-                setLoading(false)
-            })
-            .catch(error => {
-                console.error(error)
-                setLoading(false)
-            })
-    }, [id])
+    const { isLoading, error, data: oferta } = useQuery('ofertaUnica', () =>
+        fetch(`https://investium-api.herokuapp.com/empresa/${id}`).then(res =>
+        res.json()
+        )
+    )
 
     return (
         <div>
             <Header />
             <main id="empresa">
-                {loading ?
+                {isLoading ?
                     (
                         <div className='wrap_loading'>
                             <ReactLoading type="spinningBubbles" color='#444' />

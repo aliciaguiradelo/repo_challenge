@@ -5,31 +5,27 @@ import ListaCards from "../../Components/ListaArtigos";
 import Banner from "../../Components/Banner";
 import { useState, useEffect } from "react";
 
+import { useQuery } from 'react-query';
+
 export default function Ofertas(){
     const [empresasFiltradas, setEmpresasFiltradas] = useState([])
-    const [empresas, setEmpresas] = useState([])
-    const [loading, setLoading] = useState(true)
 
     const [categoria, setCategoria] = useState('Todas as ofertas')
     const [pesquisa, setPesquisa] = useState('')
     const [resultPesquisa, setResult] = useState('')
 
+    const { isLoading, error: errorEmpresas, data: empresas } = useQuery('repo-empresa', () =>
+    fetch('https://investium-api.herokuapp.com/empresa').then(res =>
+      res.json()
+    )
+  )
+
     useEffect(() => {
         //Carregando os empresas
-        fetch("http://localhost:8080/InvestiumAPI/rest/empresa")
-          .then((resp) => resp.json())
-          .then((data) => {
-            setEmpresasFiltradas(data)
-            setEmpresas(data)
-            console.log(data)
-            setLoading(false)
-          })
-          .catch((error) => {
-            console.error(error)
-            setLoading(false)
-          });
+        if(!errorEmpresas, !isLoading)
+            setEmpresasFiltradas(empresas)
 
-    }, []);
+    }, [isLoading, errorEmpresas, empresas]);
 
     //Toda vez que o input de pesquisa ou o select de categoria mudar ele chama o handlePesquisa
     useEffect(() => {

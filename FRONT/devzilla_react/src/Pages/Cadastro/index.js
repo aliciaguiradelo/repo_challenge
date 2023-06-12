@@ -58,7 +58,7 @@ export default function Cadastro(){
                 papel: 'user'
             };
 
-            fetch('http://localhost:8080/InvestiumAPI/rest/usuario', {
+            fetch('https://investium-api.herokuapp.com/usuario', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -33,12 +33,12 @@ function IPO(props) {
     let user = null
     if (userData) user = JSON.parse(userData);
 
-    const [empresas, setEmpresas] = useState([])
-
     const { isLoading, error, data } = useQuery('perfil', () =>
-        fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${user?.email}/${user?.senha}`)
-        .then(resp => resp.json())
+        fetch(`https://investium-api.herokuapp.com/usuario/${user?.email}/${user?.senha}`)
+            .then(resp => resp.json())
     );
+
+    const [empresas, setEmpresas] = useState([])
 
     useEffect(() => {
         if (user && !isLoading && !error) {
@@ -49,10 +49,7 @@ function IPO(props) {
     }, [isLoading, error, data])
 
     useEffect(() => {
-
-        //percorre as empresas do usuário e verifica se a atual está lá
         setSaved(empresas.some((empresa) => empresa.id === id))
-
     }, [empresas])
 
     const { id, imagem, nome, ativoIpo, cor, valorInicialIpo } = props.item
@@ -62,16 +59,15 @@ function IPO(props) {
     const [showEdit, setShowEdit] = useState(false)
     const toggleModalEdit = (e) => {
         e.preventDefault()
-        showEdit ? setShowEdit(false) : setShowEdit(true)
+        setShowEdit(prevState => !prevState)
     }
 
     const [showDelete, setShowDelete] = useState(false)
 
     const toggleModalDelete = (e) => {
         e.preventDefault();
-        showDelete ? setShowDelete(false) : setShowDelete(true);
+        setShowDelete(prevState => !prevState);
     }
-
 
     function handleSave() {
         if (user) {
@@ -82,7 +78,7 @@ function IPO(props) {
                 idEmpresa: id,
             };
 
-            fetch(`http://localhost:8080/InvestiumAPI/rest/usuario/${path}`, {
+            fetch(`https://investium-api.herokuapp.com/usuario/${path}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,27 +90,25 @@ function IPO(props) {
                     console.log(error);
                 });
 
-
-            setSaved(!isSaved)
+            setSaved(prevState => !prevState)
+        } else {
+            toast.error('Você precisa estar logado para salvar uma IPO!')
         }
-
-        else toast.error('Você precisa estar logado para salvar uma IPO!')
-
-        console.log(user)
     }
 
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
     const steps = ["Passo 1", "Passo 2", "Passo 3"];
 
-    const handleNext = () => {
-        let newSkipped = skipped;
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-        setSkipped(newSkipped);
-    };
-    const handleBack = () => {
-        setActiveStep(prevActiveStep => prevActiveStep - 1);
-    };
+    // const handleNext = () => {
+    //     let newSkipped = skipped;
+    //     setActiveStep(prevActiveStep => prevActiveStep + 1);
+    //     setSkipped(newSkipped);
+    // };
+
+    // const handleBack = () => {
+    //     setActiveStep(prevActiveStep => prevActiveStep - 1);
+    // };
 
     const [isSaved, setSaved] = useState(false)
 
@@ -123,7 +117,7 @@ function IPO(props) {
             {props.admOptions &&
                 <>
                     {/* Modal de confirmação de exclusão */}
-                    <Modal
+                    {/* <Modal
                         show={showDelete}
                         onClose={toggleModalDelete}
                         title={'Excluir IPO'}
@@ -134,10 +128,10 @@ function IPO(props) {
                             <button className="btn btn_tertiary" onClick={toggleModalDelete}>Cancelar</button>
                             <button className="btn btn_primary" onClick={toggleModalDelete}>Excluir</button>
                         </div>
-                    </Modal>
+                    </Modal> */}
 
                     {/* Modal de edição */}
-                    <Modal
+                    {/* <Modal
                         show={showEdit}
                         onClose={toggleModalEdit}
                         title={'Editar IPO'}
@@ -163,17 +157,17 @@ function IPO(props) {
                             </button>
 
                             <button className="btn btn_primary" onClick={activeStep === 2 ? toggleModalEdit : handleNext}>
-                                {activeStep == 2 ? 'Editar' : 'Continuar'}
+                                {activeStep === 2 ? 'Editar' : 'Continuar'}
                             </button>
                         </div>
-                    </Modal>
+                    </Modal> */}
 
                 </>}
 
             <article className="card ipo">
                 <div className="card_content">
                     <Link to={`/empresas/ipo/${id}`} className='wrap_img' style={{ background: cor }}>
-                        <img src={imagem} className="logo" />
+                        <img src={imagem} className="logo" alt="logo" />
                     </Link>
 
                     <h3 className="c_title">{nome}</h3>
@@ -183,11 +177,11 @@ function IPO(props) {
                     {/* Se ele for adm, mostra os campos de edição e exclusão */}
                     {props.admOptions &&
                         <>
-                            <MdDeleteOutline className='icon_opt delete' onClick={toggleModalDelete} />
-                            <VscEdit className='icon_opt edit' onClick={toggleModalEdit} />
+                            {/* <MdDeleteOutline className='icon_opt delete' onClick={toggleModalDelete} />
+                            <VscEdit className='icon_opt edit' onClick={toggleModalEdit} /> */}
                         </>}
 
-                    <a onClick={(e) => handleSave(e)}>
+                    <a onClick={handleSave}>
                         {isSaved ?
                             <MdOutlineBookmark className='icon_opt save' /> :
                             <MdOutlineBookmarkBorder className='icon_opt save' />}
@@ -211,122 +205,115 @@ function IPO(props) {
     )
 }
 
-function Step1() {
-    return (
-        <div>
-            <label htmlFor="titulo">Título</label>
-            <div className="wrap_input">
-                <input type="text" placeholder="Digite o nome da empresa" id="empresa" />
-            </div>
+// function Step1() {
+//     return (
+//         <div>
+//             <label htmlFor="titulo">Título</label>
+//             <div className="wrap_input">
+//                 <input type="text" placeholder="Digite o nome da empresa" id="empresa" />
+//             </div>
 
-            <div className='row'>
-                <div>
-                    <label htmlFor="valor">Valor inicial (R$)</label>
-                    <div className="wrap_input">
-                        <input type="number" placeholder="Digite o valor inicial da IPO" id="valor" min={1} />
-                    </div>
-                </div>
+//             <div className='row'>
+//                 <div>
+//                     <label htmlFor="valor">Valor inicial (R$)</label>
+//                     <div className="wrap_input">
+//                         <input type="number" placeholder="Digite o valor inicial da IPO" id="valor" min={1} />
+//                     </div>
+//                 </div>
 
-                <div>
-                    <label htmlFor="setor">Setor</label>
-                    <select id='setor' className='wrap_input'>
-                        <option>Alimentício</option>
-                        <option>Bancário</option>
-                        <option>Agronegócio</option>
-                    </select>
-                </div>
-            </div>
+//                 <div>
+//                     <label htmlFor="setor">Setor</label>
+//                     <select id='setor' className='wrap_input'>
+//                         <option>Alimentício</option>
+//                         <option>Bancário</option>
+//                         <option>Agronegócio</option>
+//                     </select>
+//                 </div>
+//             </div>
 
-            <div className='row'>
-                <div>
-                    <label htmlFor="valor">CNPJ</label>
-                    <div className="wrap_input">
-                        <input type="text" placeholder="Digite o CNPJ da empresa" id="cnpj" />
-                    </div>
-                </div>
+//             <div className='row'>
+//                 <div>
+//                     <label htmlFor="valor">CNPJ</label>
+//                     <div className="wrap_input">
+//                         <input type="text" placeholder="Digite o CNPJ da empresa" id="cnpj" />
+//                     </div>
+//                 </div>
 
-                <div>
-                    <label htmlFor="status">Status</label>
-                    <select id='status' className='wrap_input'>
-                        <option>Ativa</option>
-                        <option>Finalizada</option>
-                    </select>
-                </div>
-            </div>
+//                 <div>
+//                     <label htmlFor="status">Status</label>
+//                     <select id='status' className='wrap_input'>
+//                         <option>Ativa</option>
+//                         <option>Finalizada</option>
+//                     </select>
+//                 </div>
+//             </div>
 
-            <label for="prospecto">
-                {/* <AiOutlineFileImage /> */}
-                Prospecto
-            </label>
-            <div className='wrap_input'>
-                <input type="file" id="prospecto" class="file_input" />
-            </div>
-        </div>
-    )
-}
+//             <label htmlFor="prospecto">
+//                 {/* <AiOutlineFileImage /> */}
+//                 Prospecto
+//             </label>
+//             <div className='wrap_input'>
+//                 <input type="file" id="prospecto" className="file_input" />
+//             </div>
+//         </div>
+//     )
+// }
 
-function Step2() {
-    return (
-        <div>
-            <h2>Membros da diretoria: </h2>
-            <label htmlFor="nome_membro">Nome</label>
-            <div className="wrap_input">
-                <input type="text" placeholder="Digite o nome do membro da diretoria" id="nome_membro" />
-            </div>
+// function Step2() {
+//     return (
+//         <div>
+//             <h2>Membros da diretoria: </h2>
+//             <label htmlFor="nome_membro">Nome</label>
+//             <div className="wrap_input">
+//                 <input type="text" placeholder="Digite o nome do membro da diretoria" id="nome_membro" />
+//             </div>
 
-            <div className='row'>
-                <div>
-                    <label htmlFor="cargo">Cargo</label>
-                    <div className="wrap_input">
-                        <input type="text" placeholder="Digite o cargo do membro" id="cargo" />
-                    </div>
-                </div>
+//             <div className='row'>
+//                 <div>
+//                     <label htmlFor="cargo">Cargo</label>
+//                     <div className="wrap_input">
+//                         <input type="text" placeholder="Digite o cargo do membro" id="cargo" />
+//                     </div>
+//                 </div>
 
-                <div>
-                    <label htmlFor="imagem">
-                        {/* <AiOutlineFileImage /> */}
-                        Imagem de perfil
-                    </label>
-                    <div className='wrap_input'>
-                        <input type="file" id="imagem" class="file_input" />
-                    </div>
-                </div>
-            </div>
+//                 <div>
+//                     <label htmlFor="imagem">
+//                         {/* <AiOutlineFileImage /> */}
+//                         Imagem de perfil
+//                     </label>
+//                     <div className='wrap_input'>
+//                         <input type="file" id="imagem" className="file_input" />
+//                     </div>
+//                 </div>
+//             </div>
 
-            <button class="btn btn_primary" style={{ marginBottom: "1.5em" }}>Cadastrar membro</button>
+//             <button className="btn btn_primary" style={{ marginBottom: "1.5em" }}>Cadastrar membro</button>
 
-            <label for="conteudo">Sobre a empresa</label>
-            <ReactQuill theme="snow" id="sobre" />
-        </div>
-    )
-}
+//             <label htmlFor="conteudo">Sobre a empresa</label>
+//             <ReactQuill theme="snow" id="sobre" />
+//         </div>
+//     )
+// }
 
-function Step3() {
-    return (
-        <div>
-            <label for="destino">Destino dos recursos:</label>
-            <ReactQuill theme="snow" id="destino" style={{ marginBottom: "1em" }} />
+// function Step3() {
+//     return (
+//         <div>
+//             <label htmlFor="destino">Destino dos recursos:</label>
+//             <ReactQuill theme="snow" id="destino" style={{ marginBottom: "1em" }} />
 
-            <label htmlFor="indicadores">
-                Indicadores financeiros <a href='#'>(acesse o modelo de planilha aqui.)</a>
-            </label>
-            <div className='wrap_input'>
-                <input type="file" id="indicadores" class="file_input" />
-            </div>
+//             <label htmlFor="indicadores">
+//                 Indicadores financeiros <a href='#'>(acesse o modelo de planilha aqui.)</a>
+//             </label>
+//             <div className='wrap_input'>
+//                 <input type="file" id="indicadores" className="file_input" />
+//             </div>
 
-            <label htmlFor="indicadores">
-                Balanços patrimoniais ativos <a href='#'>(acesse o modelo de planilha aqui.)</a>
-            </label>
-            <div className='wrap_input'>
-                <input type="file" id="indicadores" class="file_input" />
-            </div>
-
-            <label htmlFor="indicadores">
-                Balanços patrimoniais passivos <a href='#'>(acesse o modelo de planilha aqui.)</a>
-            </label>
-            <div className='wrap_input'>
-                <input type="file" id="indicadores" class="file_input" />
-            </div>
-        </div>
-    )
-}
+//             <label htmlFor="indicadores">
+//                 Balanços patrimoniais ativos <a href='#'>(acesse o modelo de planilha aqui.)</a>
+//             </label>
+//             <div className='wrap_input'>
+//                 <input type="file" id="balancos" className="file_input" />
+//             </div>
+//         </div>
+//     )
+// }
