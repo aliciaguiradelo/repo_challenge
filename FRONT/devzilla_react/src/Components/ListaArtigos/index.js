@@ -1,6 +1,5 @@
 import './style.css'
 import Card from './Card'
-import CardEmpresa from './CardEmpresa'
 import Button from '../Button'
 import { useEffect, useState } from 'react'
 
@@ -13,10 +12,8 @@ export default function ListaCards(props) {
 
   const [dados, setDados] = useState(props.dados)
 
-  const path = tipo === 'materia' ? 'postagem' : 'empresa'
-
-  const { isLoading, error, data } = useQuery(`repo-${path}`, () =>
-    fetch(`https://investium-api.herokuapp.com/${path}`).then(res =>
+  const { isLoading, error, data } = useQuery(`repo-blog`, () =>
+    fetch(`https://investium-api.herokuapp.com/postagem`).then(res =>
       res.json())
   )
 
@@ -28,40 +25,31 @@ export default function ListaCards(props) {
 
   return (
     <section className="container bg_gray">
-      <h1 className="line_after">{tipo === 'materia' ? 'Matérias' : 'Empresas (IPOs)'}</h1>
+      <h1 className="line_after">Matérias</h1>
 
       {isLoading ? (
         <div className='wrap_loading'>
           <ReactLoading type="spinningBubbles" color='#444' />
-          <p>Carregando dados...</p>
+          <p>Carregando artigos...</p>
         </div>
       ) : (
         <div className="lista_cards">
-          {tipo === 'materia' ? (
-            dados?.map((artigo) => (
-              <Card
-                key={artigo.id}
-                tipo={tipo}
-                dados={artigo}
-                admOptions={admOptions}
-              />
-            ))
-          ) : (
-            dados?.map((empresa) => (
-              <CardEmpresa
-                key={empresa.id}
-                tipo={tipo}
-                dados={empresa}
-                admOptions={admOptions}
-              />
-            ))
-          )}
+
+          {dados?.map((artigo) => (
+            <Card
+              key={artigo.id}
+              tipo={tipo}
+              dados={artigo}
+              admOptions={admOptions}
+            />
+          ))}
+
         </div>
       )}
 
       {botao && (
         <Button
-          link={tipo === 'materia' ? '/blog' : '/empresas'}
+          link={'/blog'}
           icon_name="arrow_long"
           texto="Ver todas"
           style="secondary"

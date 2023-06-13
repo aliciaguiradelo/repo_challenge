@@ -5,7 +5,8 @@ import Header from '../../Components/Header';
 import Banner from '../../Components/Banner';
 import BannerSlider from '../../Components/Slider';
 import Button from '../../Components/Button';
-import ListaCards from '../../Components/ListaArtigos';
+import ListaArtigos from '../../Components/ListaArtigos';
+import ListaEmpresas from '../../Components/ListaEmpresas';
 import CompararIPOs from '../../Components/CompararIPOs';
 
 import { useState } from 'react';
@@ -39,10 +40,10 @@ export default function App() {
         />
 
         <Section1 />
-        <ListaCards tipo="ipo" max={4} botao />
+        <ListaEmpresas max={4} botao />
 
         <Section2 />
-        <ListaCards tipo="materia" max={3} botao admOptions={false} />
+        <ListaArtigos max={3} botao />
 
         <Newsletter />
       </main>

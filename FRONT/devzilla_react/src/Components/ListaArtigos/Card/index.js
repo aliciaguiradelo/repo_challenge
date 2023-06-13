@@ -27,18 +27,18 @@ function Materia(props) {
 
   const [postagens, setPostagens] = useState([])
 
-  const { isLoading, error, data } = useQuery('perfil', () =>
-    fetch(`https://investium-api.herokuapp.com/usuario/${user?.email}/${user?.senha}`)
-      .then(resp => resp.json())
-  );
+  // const { isLoading, error, data } = useQuery('perfil', () =>
+  //   fetch(`https://investium-api.herokuapp.com/usuario/${user?.email}/${user?.senha}`)
+  //     .then(resp => resp.json())
+  // );
 
-  useEffect(() => {
-    if (user && !isLoading && !error) {
-      if (data.nome && data.email && data.senha) {
-        setPostagens(data.postagens)
-      }
-    }
-  }, [isLoading, error, data])
+  // useEffect(() => {
+  //   if (user && !isLoading && !error) {
+  //     if (data.nome && data.email && data.senha) {
+  //       setPostagens(data.postagens)
+  //     }
+  //   }
+  // }, [isLoading, error, data])
 
   useEffect(() => {
     setSaved(postagens.some((post) => post.id === id))
@@ -65,30 +65,30 @@ function Materia(props) {
   }
 
   function handleSave() {
-    if (user) {
-      const path = isSaved ? 'removerPostagem' : 'salvarPostagem'
+    // if (user) {
+    //   const path = isSaved ? 'removerPostagem' : 'salvarPostagem'
 
-      const data = {
-        emailUsuario: user.email,
-        idPostagem: id,
-      };
+    //   const data = {
+    //     emailUsuario: user.email,
+    //     idPostagem: id,
+    //   };
 
-      fetch(`https://investium-api.herokuapp.com/usuario/${path}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => response.json())
-        .catch(error => {
-          console.log(error);
-        });
+    //   fetch(`https://investium-api.herokuapp.com/usuario/${path}`, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(data)
+    //   })
+    //     .then(response => response.json())
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
 
-      setSaved(prevState => !prevState)
-    } else {
-      toast.error('Você precisa estar logado para salvar uma matéria!')
-    }
+    //   setSaved(prevState => !prevState)
+    // } else {
+    //   toast.error('Você precisa estar logado para salvar uma matéria!')
+    // }
   }
 
   return (

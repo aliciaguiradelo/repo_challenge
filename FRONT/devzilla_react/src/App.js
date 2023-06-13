@@ -27,7 +27,9 @@ export const UserContext = createContext()
 
 export default function App() {
 
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { staleTime: 600000 }}
+  });
 
   const [materiasCurtidas, setMateriasCurtidas] = useState([]);
   const [empresasCurtidas, setEmpresasCurtidas] = useState([]);
