@@ -1,7 +1,7 @@
 import './style.css'
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import ListaCards from "../../Components/ListaArtigos";
+import ListaCards from "../../Components/ListaEmpresas";
 import Banner from "../../Components/Banner";
 import { useState, useEffect } from "react";
 
