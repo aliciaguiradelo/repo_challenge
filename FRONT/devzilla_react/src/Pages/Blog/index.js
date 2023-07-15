@@ -131,7 +131,6 @@ export default function Blog() {
 
               <p id="result">{resultPesquisa}</p>
             </section>
-
             <ListaCards tipo="materia" botao={false} />
           </>
         )}
